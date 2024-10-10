@@ -7,349 +7,441 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
-  <link rel="icon" type="image/png" href="images/seal_icon.png">
+  <link rel="icon" type="image/png" href="./images/icon.webp">
 </head>
 
 <body>
   <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
     <tr style="padding:0px">
       <td style="padding:0px">
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-          <tr style="padding:0px">
-            <td style="padding:2.5%;width:63%;vertical-align:middle">
-              <p style="text-align:center">
-                <name>Irving Fang</name>
-              </p>
-              <p>I am a Computer Science PhD student at <a href="https://ai4ce.github.io/">AI4CE Lab@NYU</a> led by <a href="https://engineering.nyu.edu/faculty/chen-feng"> Prof. Chen Feng</a>.
-              </p>
-              <p>
-                I obtained my bachelor's degree from UC Berkeley, double majoring in <b>Data Science</b> (Robotics Emphasis) and <b>Mathematics</b>, with minors in <b>Japanese Literature</b> and <b>EECS</b>.
-                <br>At UC Berkeley I was fortunate enough to work with <a href="https://me.berkeley.edu/people/alice-m-agogino/"> Prof. Alice Agogino</a> at her <a href="https://best.berkeley.edu/">BEST Lab</a> and <a href="https://squishy-robotics.com/">Squishy Robotics</a>.
-              </p>
-              <p>
-                During Summer 2022, I interned at <a href="https://www.merl.com/"> Mitsubishi Electric Research Laboratories (MERL)</a>, working with <a href="https://www.merl.com/people/corcodel">Dr. Radu Corcodel</a> on tactile sensing and deep reinforcement learning.
-              </p>
-              <p>
-                In my free time I enjoy playing with MCU/FPGA boards. I am also a fan of clothing/jewelry design and video games. 
-              </p>
-              <p>
-              </p>
-              <p style="text-align:center">
-                <a href="mailto:irvingf7@berkeley.edu">Email</a> &nbsp/&nbsp
-                <a href="data/Irving-Resume.pdf">CV</a> &nbsp/&nbsp
-                <a href="https://scholar.google.com/citations?user=0jVr_XwAAAAJ&hl=en">Google Scholar</a> &nbsp/&nbsp
-                <a href="https://github.com/IrvingF7">Github</a>
-              </p>
-            </td>
-            <td style="padding:2.5%;width:40%;max-width:40%">
-              <a href="images/Irving Fang.jpg"><img style="width:100%;max-width:100%" alt="profile photo" src="images/Irving Fang.jpg" class="hoverZoomLink"></a>
-            </td>
-          </tr>
-        </tbody></table>
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+        
+        <!-- Self-Introduction -->
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <tbody>
+            <tr style="padding:0px">
+              <td style="padding:0;width:63%;vertical-align:middle">
+                <p style="text-align:center">
+                  <name>Irving Fang</name>
+                </p>
+                <p>I am a Computer Science PhD student at <a href="https://ai4ce.github.io/">AI4CE Lab@NYU</a> led by <a href="https://engineering.nyu.edu/faculty/chen-feng"> Prof. Chen Feng</a>.
+                </p>
+                <p>
+                  I obtained my bachelor's degree from UC Berkeley, double majoring in <b>Data Science</b> (Robotics Emphasis) and <b>Mathematics</b>, with minors in <b>Japanese Literature</b> and <b>EECS</b>.
+                  <br>At UC Berkeley I was fortunate enough to work with <a href="https://me.berkeley.edu/people/alice-m-agogino/"> Prof. Alice Agogino</a> at her <a href="https://best.berkeley.edu/">BEST Lab</a> and <a href="https://squishy-robotics.com/">Squishy Robotics</a>.
+                </p>
+                <p>
+                  During Summer 2022, I interned at <a href="https://www.merl.com/"> Mitsubishi Electric Research Laboratories (MERL)</a>, working with <a href="https://www.merl.com/people/corcodel">Dr. Radu Corcodel</a> on tactile sensing and deep reinforcement learning.
+                </p>
+                <p>
+                  In my free time I enjoy playing with MCU/FPGA boards. I am also a fan of clothing/jewelry design and video games. 
+                </p>
+                <p>
+                </p>
+                <p style="text-align:center">
+                  <a href="mailto:irvingf7@berkeley.edu">Email</a> &nbsp/&nbsp
+                  <a href="data/Irving-Resume.pdf">CV</a> &nbsp/&nbsp
+                  <a href="https://scholar.google.com/citations?user=0jVr_XwAAAAJ&hl=en">Google Scholar</a> &nbsp/&nbsp
+                  <a href="https://github.com/IrvingF7">Github</a>
+                </p>
+              </td>
+              <td style="padding:2.5%;width:40%;max-width:40%">
+                <a href="images/Irving Fang.jpg"><img style="width:100%;max-width:100%" alt="profile photo" src="images/Irving Fang.jpg" class="hoverZoomLink"></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Research -->
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <tbody>
             <tr>
-            <td style="padding:20px;width:100%;vertical-align:middle">
-              <heading>Research</heading>
-              <p>
-                At the broadest level, my research interests lie in the intersection of <b>robotics</b>, <b>computer vision</b>, and <b>machine learning</b>. 
-                <br>
-                <br>
-                Specifically, I am interested in <b>contact-rich manipulation</b>. Can we make robots as dexerous, adaptive and efficient as humans in handling objects?
-                <br>
-                I like to think of it not as one single problem, but a chain of challenges in trajectory optimization, perception, simulation, hardware design and so on. Naturally, such a complicated problem calls for a variety of techniques, including <b>deep learning</b>, <b>tactile sensing</b>, <b>model predictive control</b>, <b>large vision-language model</b>, <b>neuromorphic computing</b> and many more.
-                <br>
-                <br>
-                In my free time, I also contribute my computational skills to scientific research in other fields such as <b>anthropology</b>.
-                <br>
-                <br>
-                (If you are a Master/Undergrade student interested in any of the problems above, please feel free to reach out to me via email.)
-              </p>
-            </td>
-          </tr>
-        </tbody></table>
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-          
-          <tr onmouseout="fusionsense_stop()" onmouseover="fusionsense_start()" bgcolor="#ffffd0">
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <div class="one">
-                <div class="two" id='fusionsense_image'>
-                  <img src='' width="160"></div>
-                <img src='' width="160">
-              </div>
-              <script type="text/javascript">
-                function fusionsense_start() {
-                  document.getElementById('fusionsense_image').style.opacity = "1";
-                }
+              <td style="padding:20px 0px 0px 0px ;width:100%;vertical-align:middle">
+                <heading>Research</heading>
+                <p>
+                  At the broadest level, my research interests lie in the intersection of <b>robotics</b>, <b>computer vision</b>, and <b>machine learning</b>. 
+                  <br>
+                  <br>
+                  Specifically, I am interested in <b>contact-rich manipulation</b>. Can we make robots as dexerous, adaptive and efficient as humans when there are a lot of contact between the robot and the manipulated object, the environment or even the humans around?
+                  <br>
+                  <br>
+                  I like to think of it as a chain of challenges in trajectory optimization, perception, simulation, hardware design and so on. Naturally, such a complicated problem calls for a variety of techniques, including <b>deep learning</b>, <b>tactile sensing</b>, <b>model predictive control</b>, <b>large vision-language model</b>, <b>neuromorphic computing</b> and many more.
+                  <br>
+                  <br>
+                  In my free time, I also contribute my computational skills to scientific research in other fields such as <b>anthropology</b>.
+                  <br>
+                  <br>
+                  <a id="expandLink" onclick="expandText()">For collaboration, click here</a>.
+                </p>
 
-                function fusionsense_stop() {
-                  document.getElementById('fusionsense_image').style.opacity = "0";
-                }
-                fusionsense_stop()
-              </script>
-            </td>
-            <td style="padding:20px;width:75%;vertical-align:middle">
-              <a href="https://ai4ce.github.io/FusionSense/">
-                <papertitle>FusionSense: Bridging Common Sense, Vision, and Touch for Robust Sparse-View Reconstruction</papertitle>
-              </a>
-              <br>
-              <strong> Irving Fang*</strong>, 
-              <a href="">Kairui Shi*</a>,
-              <a href="https://www.linkedin.com/in/kim-he-064a36258/">Xujin He*</a>,
-              <a href="https:">Siqi Tan</a>,
-              <a href="https:">Yifan Wang</a>,
-              <a href="https://www.linkedin.com/in/hanwen-zhao-2523a4104/">Hanwen Zhao</a>,
-              <a href="https://joehjhuang.github.io">Hung-Jui Huang</a>,
-              <a href="https://scholar.google.com/citations?user=SNqm6doAAAAJ&hl=en">Wenzhen Yuan</a>,
-              <a href="https://scholar.google.com/citations?user=YeG8ZM0AAAAJ">Chen Feng</a>,
-              <a href="https://jingz6676.github.io">Jing Zhang</a>
-              (* for equal contribution)
-              <br>
-							<em>ICRA</em>, 2025(Under Review).
-              <br>
-              <a href="https://ai4ce.github.io/FusionSense/">project page</a>
-              /
-              <a href="https://arxiv.org/abs/2403.13171">arXiv</a>
-              /
-              <a href="https://github.com/ai4ce/FusionSense">code</a>
+                <div id="collaborationText" style="display: none;">
+                  <p>
+                    Thank you for your interest in collaborating! Please don't hesitate to shoot me an email.<br><br>
+
+                    <b>For Undergrad/MS students</b>, please additionally send me a link to your <b>proudest GitHub repo</b>. I am especially impressed by students with the habit of writing clean, well-documented code. You can also consider filling out our lab's <a href="https://forms.gle/m4riWUGf6Rd9bTWp8">recruiting form</a> so more PhD students can get to know you.
+                  </p>
+                </div>
+
+                <script>
+                  // Function to toggle the display of the hidden text
+                  function expandText() {
+                    var textSection = document.getElementById("collaborationText");
+                    if (textSection.style.display === "none") {
+                      textSection.style.display = "block"; // Show the text
+                    } else {
+                      textSection.style.display = "none"; // Hide the text
+                    }
+                  }
+                </script>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <!-- Publications -->
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <!-- Here, the argument of the switchSlider function should be the name of the slider block, just without the "_block" part. -->
+          <center>
+          <button class="btn" id="robotics_button" onclick="switchResearch('robotics')">Robotics</button>
+          <button class="btn" id="ai4science_button" onclick="switchResearch('ai4science')">AI4Science</button>
+          </center>
+          <!-- <td style="padding:20px;width:100%;vertical-align:middle">
+            <heading>Research</heading>
+          </td> -->
+          <script>
+            function switchResearch(research_id) {
+              // Remove 'active' class from all buttons to reset color
+              document.getElementById('robotics_button').classList.remove('active');
+              document.getElementById('ai4science_button').classList.remove('active');
+
+              // Add 'active' class to the clicked button so that it will have a different color when its content is present
+              document.getElementById(research_id+'_button').classList.add('active');
+
+              // Select all content divs and hide them
+              // document.getElementById('robotics_research').classList.remove('show');
+              contentDivs = document.querySelectorAll('.research-div');
+              contentDivs.forEach(div => {
+                  div.classList.remove('show'); // Hide all divs
+              });
+
+              // Show the selected div with a fade effect
+              selectedDiv = document.getElementById(research_id+'_research');
+              selectedDiv.classList.add('show');
+            }
+          </script>
+
+          <div id="robotics_research" class="research-div">
+            <tbody>
+              <tr onmouseout="fusionsense_stop()" onmouseover="fusionsense_start()" style="background-color: #0025764a;">
+                <td style="padding:20px;width:25%;vertical-align:middle">
+                  <div class="one">
+                    <div class="two" id='fusionsense_after'>
+                      <video width=100% height=100% id="fusionsense_video" muted autoplay loop>
+                        <source src="./images/fusionsense/fusionsense_after.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                      </video>
+                    </div>
+
+                    <img src='./images/fusionsense/fusionsense_before.jpg' width="160" height="160" id="fusionsense_image">
+                  </div>
+                  <script type="text/javascript">
+                    
+                    function fusionsense_start() {
+                      // when mouse is over the image, make the video visible and the image invisible
+                      document.getElementById('fusionsense_after').style.opacity = "1";
+                      document.getElementById('fusionsense_video').play(); // somehow this can prevent jittering
+                    }
+
+                    function fusionsense_stop() {
+                      document.getElementById('fusionsense_after').style.opacity = "0";
+                      document.getElementById('fusionsense_video').pause(); // somehow this can prevent jittering
+                      document.getElementById('fusionsense_video').currentTime = 0;
+                    }
+                    fusionsense_stop()
+                  </script>
+                </td>
+                <td style="padding:20px;width:75%;vertical-align:middle">
+                  <a href="https://ai4ce.github.io/FusionSense/">
+                    <papertitle>FusionSense: Bridging Common Sense, Vision, and Touch for Robust Sparse-View Reconstruction</papertitle>
+                  </a>
+                  <br>
+                  <strong> Irving Fang*</strong>, 
+                  <a href="https://kairui-shi.github.io/">Kairui Shi*</a>,
+                  <a href="https://www.linkedin.com/in/kim-he-064a36258/">Xujin He*</a>,
+                  <a href="https:">Siqi Tan</a>,
+                  <a href="https:">Yifan Wang</a>,
+                  <a href="https://www.linkedin.com/in/hanwen-zhao-2523a4104/">Hanwen Zhao</a>,
+                  <a href="https://joehjhuang.github.io">Hung-Jui Huang</a>,
+                  <a href="https://scholar.google.com/citations?user=SNqm6doAAAAJ&hl=en">Wenzhen Yuan</a>,
+                  <a href="https://scholar.google.com/citations?user=YeG8ZM0AAAAJ">Chen Feng</a>,
+                  <a href="https://jingz6676.github.io">Jing Zhang</a>
+                  (* for equal contribution)
+                  <br>
+                  <em>ICRA</em>, 2025(Under Review).
+                  <br>
+                  <a href="https://ai4ce.github.io/FusionSense/">project page</a>
+                  /
+                  <a href="https://arxiv.org/abs/2403.13171">arXiv</a>
+                  /
+                  <a href="https://github.com/ai4ce/FusionSense">code</a>
+                  
+                  
+                  <p>Reconstruct visually and geometrically accurate scene and object from sparse-view RGB-D images, enhanced with tactile sensing.</p>
+                </td>
+              </tr>
+
+              <tr onmouseout="seedo_stop()" onmouseover="seedo_start()" style="background-color: #0025764a;">
+                <td style="padding:20px;width:25%;vertical-align:middle">
+                  <div class="one">
+                    <div class="two" id='seedo_image'>
+                      <img src='' width="160"></div>
+                    <img src='./images/seedo/teaser.jpg' width="160">
+                  </div>
+                  <script type="text/javascript">
+                    function seedo_start() {
+                      document.getElementById('seedo_image').style.opacity = "1";
+                    }
+
+                    function seedo_stop() {
+                      document.getElementById('seedo_image').style.opacity = "0";
+                    }
+                    seedo_stop()
+                  </script>
+                </td>
+                <td style="padding:20px;width:75%;vertical-align:middle">
+                  <a href="https://openreview.net/forum?id=40NyBeZQ0G&noteId=WurF6gCiKJ">
+                    <papertitle>VLM See, Robot Do: Human Demo Video to Robot Action Plan via Vision Language Model</papertitle>
+                  </a>
+                  <br>
+                  <a href="https://juexzz.github.io/"> Juexiao Zhang*</a>,
+                  <a href="https://scholar.google.com/citations?user=ACFrFnYAAAAJ&hl=en"> Beicheng Wang*</a>,
+                  <a href="https://www.linkedin.com/in/shuwen-dong-1342832b1/?locale=en_US"> Shuwen Dong&dagger;</a>,
+                  <strong> Irving Fang&dagger;</strong>, 
+                  <a href="https://scholar.google.com/citations?user=YeG8ZM0AAAAJ">Chen Feng</a>
+                  (*, &dagger;for equal contribution)
+                  <br>
+                  <em>ICRA</em>, 2025(Under Review).
+                  <br>
+                  <a href="https://ai4ce.github.io/LUWA/">project page</a>
+                  /
+                  <a href="https://arxiv.org/abs/2403.13171">arXiv</a>
+                  /
+                  <a href="https://github.com/ai4ce/FusionSense">code</a>
+                  <p>Let the robot follow a human's actions by just watching one video.</p>
+                </td>
+              </tr>
+
+
               
+              <!-- EgoPAT3Dv2 -->
+              <tr onmouseout="egopat3d_v2_stop()" onmouseover="egopat3d_v2_start()" >
+                <td style="padding:20px;width:25%;vertical-align:middle">
+                  <div class="one">
+                    <div class="two" id='egopat3d_v2_after'>
+                      <video style="width: 160px; height: 160px; object-fit: fill;" id="egopat3d_v2_video" muted autoplay loop>
+                        <source src="images/egopat3d_v2/egopat3d_v2_after.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                      </video>
+                    </div>
+
+                    <img src='images/egopat3d_v2/egopat3d_v2_before.jpg' width="160" height="160" id="egopat3d_v2_img">
+                  </div>
+                  <script type="text/javascript">
+                    function egopat3d_v2_start() {
+                      // when mouse is over the image, make the video visible and the image invisible
+                      // document.getElementById('egopat3d_v2_img').style.opacity = "0";
+                      document.getElementById('egopat3d_v2_after').style.opacity = "1";
+                    }
+
+                    function egopat3d_v2_stop() {
+                      document.getElementById('egopat3d_v2_after').style.opacity = "0";
+                      document.getElementById('egopat3d_v2_video').currentTime = 0;
+                    }
+                    egopat3d_v2_stop()
+                  </script>
+                </td>
+                <td style="padding:20px;width:75%;vertical-align:middle">
+                  <a href="https://ai4ce.github.io/EgoPAT3Dv2/">
+                    <papertitle>EgoPAT3Dv2: Predicting 3D Action Target from 2D Egocentric Vision for Human-Robot Interaction</papertitle>
+                  </a>
+                  <br>
+                  <strong> Irving Fang*</strong>,
+                  <a href="https://github.com/yuzhongchen/">Yuzhong Chen*</a>
+                  <a href="https:">Yifan Wang*</a>
+                  <a href="https:">Jianghan Zhang&dagger;</a>,
+                  <a href="https:">Qiushi Zhang&dagger;</a>,
+                  <a href="https:">Jiali Xu&dagger;</a>,
+                  <a href="https:">Xibo He</a>,
+                  <a href="https:">Weibo Gao</a>,
+                  <a href="https:">Hao Su</a>,
+                  <a href="https://yimingli-page.github.io/">Yiming Li</a>,
+                  <a href="https://scholar.google.com/citations?user=YeG8ZM0AAAAJ">Chen Feng</a>
+                  (*, &dagger;for equal contribution)
+                  <br>
+                  <em>ICRA 2024</em>
+                  <br>
+                  <a href="https://ai4ce.github.io/EgoPAT3Dv2/">project page</a>
+                  /
+                  <a href="https://arxiv.org/abs/2303.09192">arXiv</a>
+                  /
+                  <a href="https://github.com/ai4ce/EgoPAT3Dv2">code</a>
+                  
+                  <p></p>
+                  <p>Human-robot interaction for a potentially AR world?</p>
+                </td>
+              </tr> 
               
-              <p>Reconstruct visually and geometrically accurate scene and object from sparse-view RGB-D images, enhanced with tactile sensing.</p>
-            </td>
-          </tr>
+              <!-- Deep Explorer -->
+              <tr onmouseout="deepexplorer_stop()" onmouseover="deepexplorer_start()" style="background-color: #0025764a;">
+                <td style="padding:20px;width:25%;vertical-align:middle">
+                  <div class="one">
+                    <div class="two" id='deepexplorer_after'>
+                      <video width=100% height=100% id="deepexplorer_video" muted autoplay loop>
+                        <source src="images/atm/atm_after.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                      </video>
+                    </div>
+                    
+                    <img src='images/atm/atm_before.png' width="160">
+                    </div>
+                  <script type="text/javascript">
+                    function deepexplorer_start() {
+                      document.getElementById('deepexplorer_after').style.opacity = "1";
+                    }
 
-          <tr onmouseout="seedo_stop()" onmouseover="seedo_start()" >
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <div class="one">
-                <div class="two" id='seedo_image'>
-                  <img src='' width="160"></div>
-                <img src='' width="160">
-              </div>
-              <script type="text/javascript">
-                function seedo_start() {
-                  document.getElementById('seedo_image').style.opacity = "1";
-                }
+                    function deepexplorer_stop() {
+                      document.getElementById('deepexplorer_after').style.opacity = "0";
+                      document.getElementById('deepexplorer_video').currentTime = 0;
+                    }
+                    deepexplorer_stop()
+                  </script>
+                </td>
+                <td style="padding:20px;width:75%;vertical-align:middle">
+                  <a href="https://ai4ce.github.io/DeepExplorer/">
+                    <papertitle>DeepExplorer: Metric-Free Exploration for Topological Mapping by Task and Motion Imitation in Feature Space</papertitle>
+                  </a>
+                  <br>
+                  <a href="https://yuhanghe01.github.io/"> Yuhang He*</a>,
+                  <strong> Irving Fang*</strong>,
+                  <a href="https://yimingli-page.github.io/">Yiming Li</a>,
+                  <a href="https://www.linkedin.com/in/rushishah2210/">Rushi Bhavesh Shah</a>,
+                  <a href="https://engineering.nyu.edu/faculty/chen-feng">Chen Feng</a>
 
-                function seedo_stop() {
-                  document.getElementById('seedo_image').style.opacity = "0";
-                }
-                seedo_stop()
-              </script>
-            </td>
-            <td style="padding:20px;width:75%;vertical-align:middle">
-              <a href="https://openreview.net/forum?id=40NyBeZQ0G&noteId=WurF6gCiKJ">
-                <papertitle>VLM See, Robot Do: Human Demo Video to Robot Action Plan via Vision Language Model</papertitle>
-              </a>
-              <br>
-              <a href="https://juexzz.github.io/"> Juexiao Zhang*</a>,
-              <a href="https://scholar.google.com/citations?user=ACFrFnYAAAAJ&hl=en"> Beicheng Wang*</a>,
-              <a href="https://www.linkedin.com/in/shuwen-dong-1342832b1/?locale=en_US"> Shuwen Dong&dagger;</a>,
-              <strong> Irving Fang&dagger;</strong>, 
-              <a href="https://scholar.google.com/citations?user=YeG8ZM0AAAAJ">Chen Feng</a>
-              (*, &dagger;for equal contribution)
-              <br>
-							<em>ICRA</em>, 2025(Under Review).
-              <br>
-              <a href="https://ai4ce.github.io/LUWA/">project page</a>
-              /
-              <a href="https://arxiv.org/abs/2403.13171">arXiv</a>
-              /
-              <a href="https://github.com/ai4ce/FusionSense">code</a>
-              <p>Let the robot follow a human's actions by just watching one video.</p>
-            </td>
-          </tr>
+                  (* for equal contribution)
+                  <br>
+                  <em>RSS 2023</em>
+                  <br>
+                  <a href="https://ai4ce.github.io/DeepExplorer/">project page</a>
+                  /
+                  <a href="https://arxiv.org/abs/2303.09192">arXiv</a>
+                  /
+                  <a href="https://github.com/ai4ce/DeepExplorer">code</a>
+                  
+                  <p></p>
+                  <p>A simple and effective framework for efficient and lightweight active visual exploration with only RGB images as input</p>
+                </td>
+              </tr> 
 
-          <tr onmouseout="luwa_stop()" onmouseover="luwa_start()" >
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <div class="one">
-                <div class="two" id='luwa_image'>
-                  <img src='images/luwa/luwa2.jpg' width="160"></div>
-                <img src='images/luwa/luwa1.jpg' width="160">
-              </div>
-              <script type="text/javascript">
-                function luwa_start() {
-                  document.getElementById('luwa_image').style.opacity = "1";
-                }
+              <!-- Squishy Robotics -->
+              <tr onmouseout="squishy_stop()" onmouseover="squishy_start()" >
+                <td style="padding:20px;width:25%;vertical-align:middle">
+                  <div class="one">
+                    <div class="two" id='mira_image'>
+                      <img src='images/squishy/squishy_after.png' width="160" height="160"></div>
+                    <img src='images/squishy/squishy_before.jpg' width="160">
+                  </div>
+                  <script type="text/javascript">
+                    function squishy_start() {
+                      document.getElementById('mira_image').style.opacity = "1";
+                    }
 
-                function luwa_stop() {
-                  document.getElementById('luwa_image').style.opacity = "0";
-                }
-                luwa_stop()
-              </script>
-            </td>
-            <td style="padding:20px;width:75%;vertical-align:middle">
-              <a href="https://ai4ce.github.io/LUWA/">
-                <papertitle>LUWA Dataset: Learning Lithic Use-Wear Analysis on Microscopic Images</papertitle>
-              </a>
-              <br>
-              <a href="https://www.linkedin.com/in/jing-zhang-4b7163285/"> Jing Zhang*</a>,
-              <strong> Irving Fang*</strong>, 
-              <a href="">Hao Wu</a>, 
-              <a href="https://www.linkedin.com/in/akshat-kaushik/">Akshat Kaushik</a>, 
-              <a href="https://as.nyu.edu/departments/anthropology/people/graduate-students/doctoral-students/alice-rodriguez.html">Alice Rodriguez</a>, 
-              <a href="https://www.linkedin.com/in/hanwen-zhao-2523a4104/">Hanwen Zhao</a>, 
-              <a href="https://juexzz.github.io/">Juexiao Zhang</a>, 
-              <a href="">Zhuo Zheng</a>, 
-              <a href="https://wp.nyu.edu/faculty-iovita/">Radu Iovita</a>,
-              <a href="https://scholar.google.com/citations?user=YeG8ZM0AAAAJ">Chen Feng</a>
-              (* for equal contribution)
-              <br>
-							<em>CVPR</em>, 2024. <strong> Highlight (11.9% of 2719 accepted papers)</strong>
-              <br>
-              <a href="https://ai4ce.github.io/LUWA/">project page</a>
-              /
-              <a href="https://arxiv.org/abs/2403.13171">arXiv</a>
-              /
-              <a href="https://github.com/ai4ce/LUWA">code</a>
-              
-              <p></p>
-              <p>Paleoanthropology meets cutting-edge computer vision! <br> We create the first Lithic Use-Wear Analysis (LUWA) dataset and challenge Large Vision Model and Large Language and Vision Model with it.</p>
-            </td>
-          </tr>
-          
-          <tr onmouseout="egopat3d_v2_stop()" onmouseover="egopat3d_v2_start()" >
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <div class="one">
-                <div class="two" ><video  width=160 height=130 id='egopat3d_v2_video' muted autoplay loop>
-                <source src="images/egopat3d_v2/egopat3d_after.mp4" type="video/mp4">
-                </video></div>
-                <img src='images/egopat3d_v2/egopat3d_v2_before.png' width="160" height="130" id="egopat3d_v2_img">
-              </div>
-              <script type="text/javascript">
-                function egopat3d_v2_start() {
-                  // when mouse is over the image, make the video visible and the image invisible
-                  document.getElementById('egopat3d_v2_video').style.opacity = "1";
-                  document.getElementById('egopat3d_v2_img').style.opacity = "0";
-                }
+                    function squishy_stop() {
+                      document.getElementById('mira_image').style.opacity = "0";
+                    }
+                    squishy_stop()
+                  </script>
+                </td>
+                <td style="padding:20px;width:75%;vertical-align:middle">
+                  <a href="https://asmedigitalcollection.asme.org/IMECE/proceedings-abstract/IMECE2021/85697/V013T14A027/1133300">
+                    <papertitle>Dynamic Placement of Rapidly Deployable Mobile Sensor Robots Using Machine Learning and Expected Value of Information</papertitle>
+                  </a>
+                  <br>
+                  <a href="https://me.berkeley.edu/people/alice-m-agogino/"> Alice Agogino</a>,
+                  <a href="https://www.linkedin.com/in/hae-young-jang-7073071b5/">Hae Young Jang</a>,
+                  <a href="https://haas.berkeley.edu/faculty/vivek-rao/">Vivek Rao</a>, 
+                  <a href="https://www.linkedin.com/in/ritikbatra/">Ritik Batra</a>, 
+                  <a href="https://www.linkedin.com/in/felicityliao/">Felicity Liao</a>, 
+                  <a href= "https://www.linkedin.com/in/rohansood10/">Rohan Sood</a>, 
+                  <strong> Irving Fang</strong>, 
+                  <a href="http://rlily.hu/">R Lily Hu</a>, 
+                  <a href="https://www.linkedin.com/in/emerson-shoichet-bartus/">Emerson Shoichet-Bartus</a>, 
+                  <a href="https://www.linkedin.com/in/johnmatranga/">John Matranga</a>
+                  (Authors ordered by department affiliation, not contribution)
+                  <br>
+                  <em>ASME IMECE</em>, 2021
+                  <br>
+                  <a href="https://arxiv.org/abs/2111.07552">arXiv</a>
+                  /
+                  <a href="https://github.com/BerkeleyExpertSystemTechnologiesLab/EVSIvsLSTM">code</a>
+                  
+                  <p></p>
+                  <p>A framework for optimizing the deployment of emergency sensors using Long Short-Term Memory (LSTM) Neural Network and Expected Value of Information (EVI)</p>
+                </td>
+              </tr> 
+            </tbody>
+          </div>
 
-                function egopat3d_v2_stop() {
-                  document.getElementById('egopat3d_v2_video').style.opacity = "0";
-                  document.getElementById('egopat3d_v2_img').style.opacity = "1";
-                }
-                egopat3d_v2_stop()
-              </script>
-            </td>
-            <td style="padding:20px;width:75%;vertical-align:middle">
-              <a href="https://ai4ce.github.io/EgoPAT3Dv2/">
-                <papertitle>EgoPAT3Dv2: Predicting 3D Action Target from 2D Egocentric Vision for Human-Robot Interaction</papertitle>
-              </a>
-              <br>
-              <strong> Irving Fang*</strong>,
-              <a href="https://github.com/yuzhongchen/">Yuzhong Chen*</a>
-              <a href="https:">Yifan Wang*</a>
-              <a href="https:">Jianghan Zhang&dagger;</a>,
-              <a href="https:">Qiushi Zhang&dagger;</a>,
-              <a href="https:">Jiali Xu&dagger;</a>,
-              <a href="https:">Xibo He</a>,
-              <a href="https:">Weibo Gao</a>,
-              <a href="https:">Hao Su</a>,
-              <a href="https://yimingli-page.github.io/">Yiming Li</a>,
-              <a href="https://scholar.google.com/citations?user=YeG8ZM0AAAAJ">Chen Feng</a>
-              (*, &dagger;for equal contribution)
-              <br>
-							<em>ICRA 2024</em>
-              <br>
-              <a href="https://ai4ce.github.io/EgoPAT3Dv2/">project page</a>
-              /
-              <a href="https://arxiv.org/abs/2303.09192">arXiv</a>
-              /
-              <a href="https://github.com/ai4ce/EgoPAT3Dv2">code</a>
-              
-              <p></p>
-              <p>Human-robot interaction for a potentially AR world?</p>
-            </td>
-          </tr> 
+          <div id="ai4science_research" class="research-div">
+          <tbody>
+            <tr onmouseout="luwa_stop()" onmouseover="luwa_start()" >
+              <td style="padding:20px;width:25%;vertical-align:middle">
+                <div class="one">
+                  <div class="two" id='luwa_image'>
+                    <img src='images/luwa/luwa2.jpg' width="160"></div>
+                  <img src='images/luwa/luwa1.jpg' width="160">
+                </div>
+                <script type="text/javascript">
+                  function luwa_start() {
+                    document.getElementById('luwa_image').style.opacity = "1";
+                  }
 
-          <tr onmouseout="dreamfusion_stop()" onmouseover="dreamfusion_start()"  bgcolor="#ffffd0">
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <div class="one">
-                <div class="two" id='dreamfusion_image'><video  width=100% height=100% muted autoplay loop>
-                <source src="images/atm/atm_after.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-                </video></div>
-                <img src='images/atm/atm_before.png' width="160">
-              </div>
-              <script type="text/javascript">
-                function dreamfusion_start() {
-                  document.getElementById('dreamfusion_image').style.opacity = "1";
-                }
-
-                function dreamfusion_stop() {
-                  document.getElementById('dreamfusion_image').style.opacity = "0";
-                }
-                dreamfusion_stop()
-              </script>
-            </td>
-            <td style="padding:20px;width:75%;vertical-align:middle">
-              <a href="https://ai4ce.github.io/DeepExplorer/">
-                <papertitle>DeepExplorer: Metric-Free Exploration for Topological Mapping by Task and Motion Imitation in Feature Space</papertitle>
-              </a>
-              <br>
-              <a href="https://yuhanghe01.github.io/"> Yuhang He*</a>,
-              <strong> Irving Fang*</strong>,
-              <a href="https://yimingli-page.github.io/">Yiming Li</a>,
-              <a href="https://www.linkedin.com/in/rushishah2210/">Rushi Bhavesh Shah</a>,
-              <a href="https://engineering.nyu.edu/faculty/chen-feng">Chen Feng</a>
-
-              (* for equal contribution)
-              <br>
-							<em>RSS 2023</em>
-              <br>
-              <a href="https://ai4ce.github.io/DeepExplorer/">project page</a>
-              /
-              <a href="https://arxiv.org/abs/2303.09192">arXiv</a>
-              /
-              <a href="https://github.com/ai4ce/DeepExplorer">code</a>
-              
-              <p></p>
-              <p>A simple and effective framework for efficient and lightweight active visual exploration with only RGB images as input</p>
-            </td>
-          </tr> 
-
-          <tr onmouseout="mira_stop()" onmouseover="mira_start()" >
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <div class="one">
-                <div class="two" id='mira_image'>
-                  <img src='images/squishy/squishy_after.png' width="160"></div>
-                <img src='images/squishy/squishy_before.jpg' width="160">
-              </div>
-              <script type="text/javascript">
-                function mira_start() {
-                  document.getElementById('mira_image').style.opacity = "1";
-                }
-
-                function mira_stop() {
-                  document.getElementById('mira_image').style.opacity = "0";
-                }
-                mira_stop()
-              </script>
-            </td>
-            <td style="padding:20px;width:75%;vertical-align:middle">
-              <a href="https://asmedigitalcollection.asme.org/IMECE/proceedings-abstract/IMECE2021/85697/V013T14A027/1133300">
-                <papertitle>Dynamic Placement of Rapidly Deployable Mobile Sensor Robots Using Machine Learning and Expected Value of Information</papertitle>
-              </a>
-              <br>
-              <a href="https://me.berkeley.edu/people/alice-m-agogino/"> Alice Agogino</a>,
-              <a href="https://www.linkedin.com/in/hae-young-jang-7073071b5/">Hae Young Jang</a>,
-              <a href="https://haas.berkeley.edu/faculty/vivek-rao/">Vivek Rao</a>, 
-              <a href="https://www.linkedin.com/in/ritikbatra/">Ritik Batra</a>, 
-              <a href="https://www.linkedin.com/in/felicityliao/">Felicity Liao</a>, 
-              <a href= "https://www.linkedin.com/in/rohansood10/">Rohan Sood</a>, 
-              <strong> Irving Fang</strong>, 
-              <a href="http://rlily.hu/">R Lily Hu</a>, 
-              <a href="https://www.linkedin.com/in/emerson-shoichet-bartus/">Emerson Shoichet-Bartus</a>, 
-              <a href="https://www.linkedin.com/in/johnmatranga/">John Matranga</a>
-              (Authors ordered by department affiliation, not contribution)
-              <br>
-							<em>ASME IMECE</em>, 2021
-              <br>
-              <a href="https://arxiv.org/abs/2111.07552">arXiv</a>
-              /
-              <a href="https://github.com/BerkeleyExpertSystemTechnologiesLab/EVSIvsLSTM">code</a>
-              
-              <p></p>
-              <p>A framework for optimizing the deployment of emergency sensors using Long Short-Term Memory (LSTM) Neural Network and Expected Value of Information (EVI)</p>
-            </td>
-          </tr> 
+                  function luwa_stop() {
+                    document.getElementById('luwa_image').style.opacity = "0";
+                  }
+                  luwa_stop()
+                </script>
+              </td>
+              <td style="padding:20px;width:75%;vertical-align:middle">
+                <a href="https://ai4ce.github.io/LUWA/">
+                  <papertitle>LUWA Dataset: Learning Lithic Use-Wear Analysis on Microscopic Images</papertitle>
+                </a>
+                <br>
+                <a href="https://www.linkedin.com/in/jing-zhang-4b7163285/"> Jing Zhang*</a>,
+                <strong> Irving Fang*</strong>, 
+                <a href="">Hao Wu</a>, 
+                <a href="https://www.linkedin.com/in/akshat-kaushik/">Akshat Kaushik</a>, 
+                <a href="https://as.nyu.edu/departments/anthropology/people/graduate-students/doctoral-students/alice-rodriguez.html">Alice Rodriguez</a>, 
+                <a href="https://www.linkedin.com/in/hanwen-zhao-2523a4104/">Hanwen Zhao</a>, 
+                <a href="https://juexzz.github.io/">Juexiao Zhang</a>, 
+                <a href="">Zhuo Zheng</a>, 
+                <a href="https://wp.nyu.edu/faculty-iovita/">Radu Iovita</a>,
+                <a href="https://scholar.google.com/citations?user=YeG8ZM0AAAAJ">Chen Feng</a>
+                (* for equal contribution)
+                <br>
+                <em>CVPR</em>, 2024. <strong> Highlight (11.9% of 2719 accepted papers)</strong>
+                <br>
+                <a href="https://ai4ce.github.io/LUWA/">project page</a>
+                /
+                <a href="https://arxiv.org/abs/2403.13171">arXiv</a>
+                /
+                <a href="https://github.com/ai4ce/LUWA">code</a>
+                
+                <p></p>
+                <p>Paleoanthropology meets cutting-edge computer vision! <br> We create the first Lithic Use-Wear Analysis (LUWA) dataset and challenge Large Vision Model and Large Language and Vision Model with it.</p>
+              </td>
+            </tr>
+          </tbody>
+          </div>
+        </table>
 
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr>
@@ -387,8 +479,6 @@
           </td>
         </tr>
         </tbody></table>
-
-
 
 
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
