@@ -77,7 +77,7 @@
                   <p>
                     Thank you for your interest in collaborating! Please don't hesitate to shoot me an email.<br><br>
 
-                    <b>For Undergrad/MS students</b>, please additionally send me a link to your <b>proudest GitHub repo</b>. I am especially impressed by students with the habit of writing clean, well-documented code. You can also consider filling out our lab's <a href="https://forms.gle/m4riWUGf6Rd9bTWp8">recruiting form</a> so more PhD students can get to know you.
+                    <b>For Undergrad/MS students</b>, please additionally send me a link to a <b>Github repo that you feel proudest of</b>. I am especially impressed by students with the habit of writing clean, well-documented code. You can also consider filling out our lab's <a href="https://forms.gle/m4riWUGf6Rd9bTWp8">recruiting form</a> so more PhD students can get to know you.
                   </p>
                 </div>
 
@@ -101,7 +101,7 @@
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
           <!-- Here, the argument of the switchSlider function should be the name of the slider block, just without the "_block" part. -->
           <center>
-          <button class="btn" id="robotics_button" onclick="switchResearch('robotics')">Robotics</button>
+          <button class="btn active" id="robotics_button" onclick="switchResearch('robotics')">Robotics</button>
           <button class="btn" id="ai4science_button" onclick="switchResearch('ai4science')">AI4Science</button>
           </center>
           <!-- <td style="padding:20px;width:100%;vertical-align:middle">
@@ -117,281 +117,277 @@
               document.getElementById(research_id+'_button').classList.add('active');
 
               // Select all content divs and hide them
-              // document.getElementById('robotics_research').classList.remove('show');
-              contentDivs = document.querySelectorAll('.research-div');
-              contentDivs.forEach(div => {
-                  div.classList.remove('show'); // Hide all divs
-              });
+              robotics_research = document.getElementById('robotics_research');
+              ai4science_research = document.getElementById('ai4science_research');
+              robotics_research.style.display = 'none';
+              ai4science_research.style.display = 'none';
 
               // Show the selected div with a fade effect
-              selectedDiv = document.getElementById(research_id+'_research');
-              selectedDiv.classList.add('show');
+              document.getElementById(research_id+'_research').style.display = 'block';
             }
           </script>
 
-          <div id="robotics_research" class="research-div">
-            <tbody>
-              <tr onmouseout="fusionsense_stop()" onmouseover="fusionsense_start()" style="background-color: #0025764a;">
-                <td style="padding:20px;width:25%;vertical-align:middle">
-                  <div class="one">
-                    <div class="two" id='fusionsense_after'>
-                      <video width=100% height=100% id="fusionsense_video" muted autoplay loop>
-                        <source src="./images/fusionsense/fusionsense_after.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                      </video>
-                    </div>
 
-                    <img src='./images/fusionsense/fusionsense_before.jpg' width="160" height="160" id="fusionsense_image">
+          <tbody id="robotics_research" style="display: block;">
+            <tr onmouseout="fusionsense_stop()" onmouseover="fusionsense_start()" style="background-color: #0025764a;">
+              <td style="padding:20px;width:25%;vertical-align:middle">
+                <div class="one">
+                  <div class="two" id='fusionsense_after'>
+                    <video width=100% height=100% id="fusionsense_video" muted autoplay loop>
+                      <source src="./images/fusionsense/fusionsense_after.mp4" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
                   </div>
-                  <script type="text/javascript">
-                    
-                    function fusionsense_start() {
-                      // when mouse is over the image, make the video visible and the image invisible
-                      document.getElementById('fusionsense_after').style.opacity = "1";
-                      document.getElementById('fusionsense_video').play(); // somehow this can prevent jittering
-                    }
 
-                    function fusionsense_stop() {
-                      document.getElementById('fusionsense_after').style.opacity = "0";
-                      document.getElementById('fusionsense_video').pause(); // somehow this can prevent jittering
-                      document.getElementById('fusionsense_video').currentTime = 0;
-                    }
-                    fusionsense_stop()
-                  </script>
-                </td>
-                <td style="padding:20px;width:75%;vertical-align:middle">
-                  <a href="https://ai4ce.github.io/FusionSense/">
-                    <papertitle>FusionSense: Bridging Common Sense, Vision, and Touch for Robust Sparse-View Reconstruction</papertitle>
-                  </a>
-                  <br>
-                  <strong> Irving Fang*</strong>, 
-                  <a href="https://kairui-shi.github.io/">Kairui Shi*</a>,
-                  <a href="https://www.linkedin.com/in/kim-he-064a36258/">Xujin He*</a>,
-                  <a href="https:">Siqi Tan</a>,
-                  <a href="https:">Yifan Wang</a>,
-                  <a href="https://www.linkedin.com/in/hanwen-zhao-2523a4104/">Hanwen Zhao</a>,
-                  <a href="https://joehjhuang.github.io">Hung-Jui Huang</a>,
-                  <a href="https://scholar.google.com/citations?user=SNqm6doAAAAJ&hl=en">Wenzhen Yuan</a>,
-                  <a href="https://scholar.google.com/citations?user=YeG8ZM0AAAAJ">Chen Feng</a>,
-                  <a href="https://jingz6676.github.io">Jing Zhang</a>
-                  (* for equal contribution)
-                  <br>
-                  <em>ICRA</em>, 2025(Under Review).
-                  <br>
-                  <a href="https://ai4ce.github.io/FusionSense/">project page</a>
-                  /
-                  <a href="https://arxiv.org/abs/2403.13171">arXiv</a>
-                  /
-                  <a href="https://github.com/ai4ce/FusionSense">code</a>
+                  <img src='./images/fusionsense/fusionsense_before.jpg' width="160" height="160" id="fusionsense_image">
+                </div>
+                <script type="text/javascript">
                   
-                  
-                  <p>Reconstruct visually and geometrically accurate scene and object from sparse-view RGB-D images, enhanced with tactile sensing.</p>
-                </td>
-              </tr>
+                  function fusionsense_start() {
+                    // when mouse is over the image, make the video visible and the image invisible
+                    document.getElementById('fusionsense_after').style.opacity = "1";
+                    document.getElementById('fusionsense_video').play(); // somehow this can prevent jittering
+                  }
 
-              <tr onmouseout="seedo_stop()" onmouseover="seedo_start()" style="background-color: #0025764a;">
-                <td style="padding:20px;width:25%;vertical-align:middle">
-                  <div class="one">
-                    <div class="two" id='seedo_image'>
-                      <img src='' width="160"></div>
-                    <img src='./images/seedo/teaser.jpg' width="160">
+                  function fusionsense_stop() {
+                    document.getElementById('fusionsense_after').style.opacity = "0";
+                    document.getElementById('fusionsense_video').pause(); // somehow this can prevent jittering
+                    document.getElementById('fusionsense_video').currentTime = 0;
+                  }
+                  fusionsense_stop()
+                </script>
+              </td>
+              <td style="padding:20px;width:75%;vertical-align:middle">
+                <a href="https://ai4ce.github.io/FusionSense/">
+                  <papertitle>FusionSense: Bridging Common Sense, Vision, and Touch for Robust Sparse-View Reconstruction</papertitle>
+                </a>
+                <br>
+                <strong> Irving Fang*</strong>, 
+                <a href="https://kairui-shi.github.io/">Kairui Shi*</a>,
+                <a href="https://www.linkedin.com/in/kim-he-064a36258/">Xujin He*</a>,
+                <a href="https:">Siqi Tan</a>,
+                <a href="https:">Yifan Wang</a>,
+                <a href="https://www.linkedin.com/in/hanwen-zhao-2523a4104/">Hanwen Zhao</a>,
+                <a href="https://joehjhuang.github.io">Hung-Jui Huang</a>,
+                <a href="https://scholar.google.com/citations?user=SNqm6doAAAAJ&hl=en">Wenzhen Yuan</a>,
+                <a href="https://scholar.google.com/citations?user=YeG8ZM0AAAAJ">Chen Feng</a>,
+                <a href="https://jingz6676.github.io">Jing Zhang</a>
+                (* for equal contribution)
+                <br>
+                <em>ICRA</em>, 2025(Under Review).
+                <br>
+                <a href="https://ai4ce.github.io/FusionSense/">project page</a>
+                /
+                <a href="https://arxiv.org/abs/2403.13171">arXiv</a>
+                /
+                <a href="https://github.com/ai4ce/FusionSense">code</a>
+                
+                
+                <p>Reconstruct visually and geometrically accurate scene and object from sparse-view RGB-D images, enhanced with tactile sensing.</p>
+              </td>
+            </tr>
+
+            <tr onmouseout="seedo_stop()" onmouseover="seedo_start()" style="background-color: #0025764a;">
+              <td style="padding:20px;width:25%;vertical-align:middle">
+                <div class="one">
+                  <div class="two" id='seedo_image'>
+                    <img src='' width="160"></div>
+                  <img src='./images/seedo/teaser.jpg' width="160">
+                </div>
+                <script type="text/javascript">
+                  function seedo_start() {
+                    document.getElementById('seedo_image').style.opacity = "1";
+                  }
+
+                  function seedo_stop() {
+                    document.getElementById('seedo_image').style.opacity = "0";
+                  }
+                  seedo_stop()
+                </script>
+              </td>
+              <td style="padding:20px;width:75%;vertical-align:middle">
+                <a href="https://openreview.net/forum?id=40NyBeZQ0G&noteId=WurF6gCiKJ">
+                  <papertitle>VLM See, Robot Do: Human Demo Video to Robot Action Plan via Vision Language Model</papertitle>
+                </a>
+                <br>
+                <a href="https://juexzz.github.io/"> Juexiao Zhang*</a>,
+                <a href="https://scholar.google.com/citations?user=ACFrFnYAAAAJ&hl=en"> Beicheng Wang*</a>,
+                <a href="https://www.linkedin.com/in/shuwen-dong-1342832b1/?locale=en_US"> Shuwen Dong&dagger;</a>,
+                <strong> Irving Fang&dagger;</strong>, 
+                <a href="https://scholar.google.com/citations?user=YeG8ZM0AAAAJ">Chen Feng</a>
+                (*, &dagger;for equal contribution)
+                <br>
+                <em>ICRA</em>, 2025(Under Review).
+                <br>
+                <a href="https://ai4ce.github.io/LUWA/">project page</a>
+                /
+                <a href="https://arxiv.org/abs/2403.13171">arXiv</a>
+                /
+                <a href="https://github.com/ai4ce/FusionSense">code</a>
+                <p>Let the robot follow a human's actions by just watching one video.</p>
+              </td>
+            </tr>
+
+
+            
+            <!-- EgoPAT3Dv2 -->
+            <tr onmouseout="egopat3d_v2_stop()" onmouseover="egopat3d_v2_start()" >
+              <td style="padding:20px;width:25%;vertical-align:middle">
+                <div class="one">
+                  <div class="two" id='egopat3d_v2_after'>
+                    <video style="width: 160px; height: 160px; object-fit: fill;" id="egopat3d_v2_video" muted autoplay loop>
+                      <source src="images/egopat3d_v2/egopat3d_v2_after.mp4" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
                   </div>
-                  <script type="text/javascript">
-                    function seedo_start() {
-                      document.getElementById('seedo_image').style.opacity = "1";
-                    }
 
-                    function seedo_stop() {
-                      document.getElementById('seedo_image').style.opacity = "0";
-                    }
-                    seedo_stop()
-                  </script>
-                </td>
-                <td style="padding:20px;width:75%;vertical-align:middle">
-                  <a href="https://openreview.net/forum?id=40NyBeZQ0G&noteId=WurF6gCiKJ">
-                    <papertitle>VLM See, Robot Do: Human Demo Video to Robot Action Plan via Vision Language Model</papertitle>
-                  </a>
-                  <br>
-                  <a href="https://juexzz.github.io/"> Juexiao Zhang*</a>,
-                  <a href="https://scholar.google.com/citations?user=ACFrFnYAAAAJ&hl=en"> Beicheng Wang*</a>,
-                  <a href="https://www.linkedin.com/in/shuwen-dong-1342832b1/?locale=en_US"> Shuwen Dong&dagger;</a>,
-                  <strong> Irving Fang&dagger;</strong>, 
-                  <a href="https://scholar.google.com/citations?user=YeG8ZM0AAAAJ">Chen Feng</a>
-                  (*, &dagger;for equal contribution)
-                  <br>
-                  <em>ICRA</em>, 2025(Under Review).
-                  <br>
-                  <a href="https://ai4ce.github.io/LUWA/">project page</a>
-                  /
-                  <a href="https://arxiv.org/abs/2403.13171">arXiv</a>
-                  /
-                  <a href="https://github.com/ai4ce/FusionSense">code</a>
-                  <p>Let the robot follow a human's actions by just watching one video.</p>
-                </td>
-              </tr>
+                  <img src='images/egopat3d_v2/egopat3d_v2_before.jpg' width="160" height="160" id="egopat3d_v2_img">
+                </div>
+                <script type="text/javascript">
+                  function egopat3d_v2_start() {
+                    // when mouse is over the image, make the video visible and the image invisible
+                    // document.getElementById('egopat3d_v2_img').style.opacity = "0";
+                    document.getElementById('egopat3d_v2_after').style.opacity = "1";
+                  }
 
-
-              
-              <!-- EgoPAT3Dv2 -->
-              <tr onmouseout="egopat3d_v2_stop()" onmouseover="egopat3d_v2_start()" >
-                <td style="padding:20px;width:25%;vertical-align:middle">
-                  <div class="one">
-                    <div class="two" id='egopat3d_v2_after'>
-                      <video style="width: 160px; height: 160px; object-fit: fill;" id="egopat3d_v2_video" muted autoplay loop>
-                        <source src="images/egopat3d_v2/egopat3d_v2_after.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                      </video>
-                    </div>
-
-                    <img src='images/egopat3d_v2/egopat3d_v2_before.jpg' width="160" height="160" id="egopat3d_v2_img">
+                  function egopat3d_v2_stop() {
+                    document.getElementById('egopat3d_v2_after').style.opacity = "0";
+                    document.getElementById('egopat3d_v2_video').currentTime = 0;
+                  }
+                  egopat3d_v2_stop()
+                </script>
+              </td>
+              <td style="padding:20px;width:75%;vertical-align:middle">
+                <a href="https://ai4ce.github.io/EgoPAT3Dv2/">
+                  <papertitle>EgoPAT3Dv2: Predicting 3D Action Target from 2D Egocentric Vision for Human-Robot Interaction</papertitle>
+                </a>
+                <br>
+                <strong> Irving Fang*</strong>,
+                <a href="https://github.com/yuzhongchen/">Yuzhong Chen*</a>
+                <a href="https:">Yifan Wang*</a>
+                <a href="https:">Jianghan Zhang&dagger;</a>,
+                <a href="https:">Qiushi Zhang&dagger;</a>,
+                <a href="https:">Jiali Xu&dagger;</a>,
+                <a href="https:">Xibo He</a>,
+                <a href="https:">Weibo Gao</a>,
+                <a href="https:">Hao Su</a>,
+                <a href="https://yimingli-page.github.io/">Yiming Li</a>,
+                <a href="https://scholar.google.com/citations?user=YeG8ZM0AAAAJ">Chen Feng</a>
+                (*, &dagger;for equal contribution)
+                <br>
+                <em>ICRA 2024</em>
+                <br>
+                <a href="https://ai4ce.github.io/EgoPAT3Dv2/">project page</a>
+                /
+                <a href="https://arxiv.org/abs/2303.09192">arXiv</a>
+                /
+                <a href="https://github.com/ai4ce/EgoPAT3Dv2">code</a>
+                
+                <p></p>
+                <p>Human-robot interaction for a potentially AR world?</p>
+              </td>
+            </tr> 
+            
+            <!-- Deep Explorer -->
+            <tr onmouseout="deepexplorer_stop()" onmouseover="deepexplorer_start()" style="background-color: #0025764a;">
+              <td style="padding:20px;width:25%;vertical-align:middle">
+                <div class="one">
+                  <div class="two" id='deepexplorer_after'>
+                    <video width=100% height=100% id="deepexplorer_video" muted autoplay loop>
+                      <source src="images/atm/atm_after.mp4" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
                   </div>
-                  <script type="text/javascript">
-                    function egopat3d_v2_start() {
-                      // when mouse is over the image, make the video visible and the image invisible
-                      // document.getElementById('egopat3d_v2_img').style.opacity = "0";
-                      document.getElementById('egopat3d_v2_after').style.opacity = "1";
-                    }
-
-                    function egopat3d_v2_stop() {
-                      document.getElementById('egopat3d_v2_after').style.opacity = "0";
-                      document.getElementById('egopat3d_v2_video').currentTime = 0;
-                    }
-                    egopat3d_v2_stop()
-                  </script>
-                </td>
-                <td style="padding:20px;width:75%;vertical-align:middle">
-                  <a href="https://ai4ce.github.io/EgoPAT3Dv2/">
-                    <papertitle>EgoPAT3Dv2: Predicting 3D Action Target from 2D Egocentric Vision for Human-Robot Interaction</papertitle>
-                  </a>
-                  <br>
-                  <strong> Irving Fang*</strong>,
-                  <a href="https://github.com/yuzhongchen/">Yuzhong Chen*</a>
-                  <a href="https:">Yifan Wang*</a>
-                  <a href="https:">Jianghan Zhang&dagger;</a>,
-                  <a href="https:">Qiushi Zhang&dagger;</a>,
-                  <a href="https:">Jiali Xu&dagger;</a>,
-                  <a href="https:">Xibo He</a>,
-                  <a href="https:">Weibo Gao</a>,
-                  <a href="https:">Hao Su</a>,
-                  <a href="https://yimingli-page.github.io/">Yiming Li</a>,
-                  <a href="https://scholar.google.com/citations?user=YeG8ZM0AAAAJ">Chen Feng</a>
-                  (*, &dagger;for equal contribution)
-                  <br>
-                  <em>ICRA 2024</em>
-                  <br>
-                  <a href="https://ai4ce.github.io/EgoPAT3Dv2/">project page</a>
-                  /
-                  <a href="https://arxiv.org/abs/2303.09192">arXiv</a>
-                  /
-                  <a href="https://github.com/ai4ce/EgoPAT3Dv2">code</a>
                   
-                  <p></p>
-                  <p>Human-robot interaction for a potentially AR world?</p>
-                </td>
-              </tr> 
-              
-              <!-- Deep Explorer -->
-              <tr onmouseout="deepexplorer_stop()" onmouseover="deepexplorer_start()" style="background-color: #0025764a;">
-                <td style="padding:20px;width:25%;vertical-align:middle">
-                  <div class="one">
-                    <div class="two" id='deepexplorer_after'>
-                      <video width=100% height=100% id="deepexplorer_video" muted autoplay loop>
-                        <source src="images/atm/atm_after.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                      </video>
-                    </div>
-                    
-                    <img src='images/atm/atm_before.png' width="160">
-                    </div>
-                  <script type="text/javascript">
-                    function deepexplorer_start() {
-                      document.getElementById('deepexplorer_after').style.opacity = "1";
-                    }
-
-                    function deepexplorer_stop() {
-                      document.getElementById('deepexplorer_after').style.opacity = "0";
-                      document.getElementById('deepexplorer_video').currentTime = 0;
-                    }
-                    deepexplorer_stop()
-                  </script>
-                </td>
-                <td style="padding:20px;width:75%;vertical-align:middle">
-                  <a href="https://ai4ce.github.io/DeepExplorer/">
-                    <papertitle>DeepExplorer: Metric-Free Exploration for Topological Mapping by Task and Motion Imitation in Feature Space</papertitle>
-                  </a>
-                  <br>
-                  <a href="https://yuhanghe01.github.io/"> Yuhang He*</a>,
-                  <strong> Irving Fang*</strong>,
-                  <a href="https://yimingli-page.github.io/">Yiming Li</a>,
-                  <a href="https://www.linkedin.com/in/rushishah2210/">Rushi Bhavesh Shah</a>,
-                  <a href="https://engineering.nyu.edu/faculty/chen-feng">Chen Feng</a>
-
-                  (* for equal contribution)
-                  <br>
-                  <em>RSS 2023</em>
-                  <br>
-                  <a href="https://ai4ce.github.io/DeepExplorer/">project page</a>
-                  /
-                  <a href="https://arxiv.org/abs/2303.09192">arXiv</a>
-                  /
-                  <a href="https://github.com/ai4ce/DeepExplorer">code</a>
-                  
-                  <p></p>
-                  <p>A simple and effective framework for efficient and lightweight active visual exploration with only RGB images as input</p>
-                </td>
-              </tr> 
-
-              <!-- Squishy Robotics -->
-              <tr onmouseout="squishy_stop()" onmouseover="squishy_start()" >
-                <td style="padding:20px;width:25%;vertical-align:middle">
-                  <div class="one">
-                    <div class="two" id='mira_image'>
-                      <img src='images/squishy/squishy_after.png' width="160" height="160"></div>
-                    <img src='images/squishy/squishy_before.jpg' width="160">
+                  <img src='images/atm/atm_before.png' width="160">
                   </div>
-                  <script type="text/javascript">
-                    function squishy_start() {
-                      document.getElementById('mira_image').style.opacity = "1";
-                    }
+                <script type="text/javascript">
+                  function deepexplorer_start() {
+                    document.getElementById('deepexplorer_after').style.opacity = "1";
+                  }
 
-                    function squishy_stop() {
-                      document.getElementById('mira_image').style.opacity = "0";
-                    }
-                    squishy_stop()
-                  </script>
-                </td>
-                <td style="padding:20px;width:75%;vertical-align:middle">
-                  <a href="https://asmedigitalcollection.asme.org/IMECE/proceedings-abstract/IMECE2021/85697/V013T14A027/1133300">
-                    <papertitle>Dynamic Placement of Rapidly Deployable Mobile Sensor Robots Using Machine Learning and Expected Value of Information</papertitle>
-                  </a>
-                  <br>
-                  <a href="https://me.berkeley.edu/people/alice-m-agogino/"> Alice Agogino</a>,
-                  <a href="https://www.linkedin.com/in/hae-young-jang-7073071b5/">Hae Young Jang</a>,
-                  <a href="https://haas.berkeley.edu/faculty/vivek-rao/">Vivek Rao</a>, 
-                  <a href="https://www.linkedin.com/in/ritikbatra/">Ritik Batra</a>, 
-                  <a href="https://www.linkedin.com/in/felicityliao/">Felicity Liao</a>, 
-                  <a href= "https://www.linkedin.com/in/rohansood10/">Rohan Sood</a>, 
-                  <strong> Irving Fang</strong>, 
-                  <a href="http://rlily.hu/">R Lily Hu</a>, 
-                  <a href="https://www.linkedin.com/in/emerson-shoichet-bartus/">Emerson Shoichet-Bartus</a>, 
-                  <a href="https://www.linkedin.com/in/johnmatranga/">John Matranga</a>
-                  (Authors ordered by department affiliation, not contribution)
-                  <br>
-                  <em>ASME IMECE</em>, 2021
-                  <br>
-                  <a href="https://arxiv.org/abs/2111.07552">arXiv</a>
-                  /
-                  <a href="https://github.com/BerkeleyExpertSystemTechnologiesLab/EVSIvsLSTM">code</a>
-                  
-                  <p></p>
-                  <p>A framework for optimizing the deployment of emergency sensors using Long Short-Term Memory (LSTM) Neural Network and Expected Value of Information (EVI)</p>
-                </td>
-              </tr> 
-            </tbody>
-          </div>
+                  function deepexplorer_stop() {
+                    document.getElementById('deepexplorer_after').style.opacity = "0";
+                    document.getElementById('deepexplorer_video').currentTime = 0;
+                  }
+                  deepexplorer_stop()
+                </script>
+              </td>
+              <td style="padding:20px;width:75%;vertical-align:middle">
+                <a href="https://ai4ce.github.io/DeepExplorer/">
+                  <papertitle>DeepExplorer: Metric-Free Exploration for Topological Mapping by Task and Motion Imitation in Feature Space</papertitle>
+                </a>
+                <br>
+                <a href="https://yuhanghe01.github.io/"> Yuhang He*</a>,
+                <strong> Irving Fang*</strong>,
+                <a href="https://yimingli-page.github.io/">Yiming Li</a>,
+                <a href="https://www.linkedin.com/in/rushishah2210/">Rushi Bhavesh Shah</a>,
+                <a href="https://engineering.nyu.edu/faculty/chen-feng">Chen Feng</a>
 
-          <div id="ai4science_research" class="research-div">
-          <tbody>
+                (* for equal contribution)
+                <br>
+                <em>RSS 2023</em>
+                <br>
+                <a href="https://ai4ce.github.io/DeepExplorer/">project page</a>
+                /
+                <a href="https://arxiv.org/abs/2303.09192">arXiv</a>
+                /
+                <a href="https://github.com/ai4ce/DeepExplorer">code</a>
+                
+                <p></p>
+                <p>A simple and effective framework for efficient and lightweight active visual exploration with only RGB images as input</p>
+              </td>
+            </tr> 
+
+            <!-- Squishy Robotics -->
+            <tr onmouseout="squishy_stop()" onmouseover="squishy_start()" >
+              <td style="padding:20px;width:25%;vertical-align:middle">
+                <div class="one">
+                  <div class="two" id='mira_image'>
+                    <img src='images/squishy/squishy_after.png' width="160" height="160"></div>
+                  <img src='images/squishy/squishy_before.jpg' width="160">
+                </div>
+                <script type="text/javascript">
+                  function squishy_start() {
+                    document.getElementById('mira_image').style.opacity = "1";
+                  }
+
+                  function squishy_stop() {
+                    document.getElementById('mira_image').style.opacity = "0";
+                  }
+                  squishy_stop()
+                </script>
+              </td>
+              <td style="padding:20px;width:75%;vertical-align:middle">
+                <a href="https://asmedigitalcollection.asme.org/IMECE/proceedings-abstract/IMECE2021/85697/V013T14A027/1133300">
+                  <papertitle>Dynamic Placement of Rapidly Deployable Mobile Sensor Robots Using Machine Learning and Expected Value of Information</papertitle>
+                </a>
+                <br>
+                <a href="https://me.berkeley.edu/people/alice-m-agogino/"> Alice Agogino</a>,
+                <a href="https://www.linkedin.com/in/hae-young-jang-7073071b5/">Hae Young Jang</a>,
+                <a href="https://haas.berkeley.edu/faculty/vivek-rao/">Vivek Rao</a>, 
+                <a href="https://www.linkedin.com/in/ritikbatra/">Ritik Batra</a>, 
+                <a href="https://www.linkedin.com/in/felicityliao/">Felicity Liao</a>, 
+                <a href= "https://www.linkedin.com/in/rohansood10/">Rohan Sood</a>, 
+                <strong> Irving Fang</strong>, 
+                <a href="http://rlily.hu/">R Lily Hu</a>, 
+                <a href="https://www.linkedin.com/in/emerson-shoichet-bartus/">Emerson Shoichet-Bartus</a>, 
+                <a href="https://www.linkedin.com/in/johnmatranga/">John Matranga</a>
+                (Authors ordered by department affiliation, not contribution)
+                <br>
+                <em>ASME IMECE</em>, 2021
+                <br>
+                <a href="https://arxiv.org/abs/2111.07552">arXiv</a>
+                /
+                <a href="https://github.com/BerkeleyExpertSystemTechnologiesLab/EVSIvsLSTM">code</a>
+                
+                <p></p>
+                <p>A framework for optimizing the deployment of emergency sensors using Long Short-Term Memory (LSTM) Neural Network and Expected Value of Information (EVI)</p>
+              </td>
+            </tr> 
+          </tbody>
+
+          <tbody id="ai4science_research" style="display: none;">
             <tr onmouseout="luwa_stop()" onmouseover="luwa_start()" >
               <td style="padding:20px;width:25%;vertical-align:middle">
                 <div class="one">
@@ -440,7 +436,6 @@
               </td>
             </tr>
           </tbody>
-          </div>
         </table>
 
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
