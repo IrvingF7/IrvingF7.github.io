@@ -152,13 +152,3 @@ span.highlight {
 .btn.inactive {
   background-color: #0025764a !important;
 }
-
-.research-div{
-  display: none; /* Hide all divs initially */
-  opacity: 0;
-}
-
-.research-div.show{
-  display: block;
-  opacity: 1;
-}
