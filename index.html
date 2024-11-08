@@ -190,19 +190,29 @@
             <tr onmouseout="seedo_stop()" onmouseover="seedo_start()" style="background-color: #0025764a;">
               <td style="padding:20px;width:25%;vertical-align:middle">
                 <div class="one">
-                  <div class="two" id='seedo_image'>
-                    <img src='' width="160"></div>
-                  <img src='./images/seedo/teaser.jpg' width="160">
+                  <div class="two" id='seedo_after'>
+                    <video width=100% height=100% id="seedo_video" muted autoplay loop>
+                      <source src="./images/seedo/seedo_after.mp4" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+
+                  <img src='./images/seedo/seedo_before.png' width="160" height="160" id="seedo_image">
                 </div>
                 <script type="text/javascript">
+                  
                   function seedo_start() {
-                    document.getElementById('seedo_image').style.opacity = "1";
+                    // when mouse is over the image, make the video visible and the image invisible
+                    document.getElementById('seedo_after').style.opacity = "1";
+                    document.getElementById('seedo_video').play(); // somehow this can prevent jittering
                   }
 
                   function seedo_stop() {
-                    document.getElementById('seedo_image').style.opacity = "0";
+                    document.getElementById('seedo_after').style.opacity = "0";
+                    document.getElementById('seedo_video').pause(); // somehow this can prevent jittering
+                    document.getElementById('seedo_video').currentTime = 0;
                   }
-                  seedo_stop()
+                  seedo_start()
                 </script>
               </td>
               <td style="padding:20px;width:75%;vertical-align:middle">
