@@ -129,6 +129,58 @@
 
 
           <tbody id="robotics_research" style="display: block;">
+            <tr onmouseout="intact_stop()" onmouseover="intact_start()" style="background-color: #0025764a;">
+              <td style="padding:20px;width:25%;vertical-align:middle">
+                <div class="one">
+                  <div class="two" id='intact_after'>
+                    <video width=100% height=100% id="intact_video" muted autoplay loop>
+                      <source src="./images/intact/intact_after.mp4" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+
+                  <img src='./images/intact/intact_before.jpg' width="160" height="160" id="intact_image">
+                </div>
+                <script type="text/javascript">
+                  
+                  function intact_start() {
+                    // when mouse is over the image, make the video visible and the image invisible
+                    document.getElementById('intact_after').style.opacity = "1";
+                    document.getElementById('intact_video').play(); // somehow this can prevent jittering
+                  }
+
+                  function intact_stop() {
+                    document.getElementById('intact_after').style.opacity = "0";
+                    document.getElementById('intact_video').pause(); // somehow this can prevent jittering
+                    document.getElementById('intact_video').currentTime = 0;
+                  }
+                  intact_stop()
+                </script>
+              </td>
+              <td style="padding:20px;width:75%;vertical-align:middle">
+                <a href="https://ai4ce.github.io/INT-ACT/">
+                  <papertitle>From Intention to Execution: Probing the Generalization Boundaries of Vision-Language-Action Models</papertitle>
+                </a>
+                <br>
+                <strong> Irving Fang*</strong>, 
+                <a href="https://juexzz.github.io/">Juexiao Zhang*</a>,
+                <a href="https://tsb0601.github.io/">Shengbang Tong</a>,
+                <a href="https://scholar.google.com/citations?user=YeG8ZM0AAAAJ">Chen Feng</a>,
+                (* for equal contribution)
+                <br>
+                <em>Arxiv (Under Review)</em>
+                <br>
+                <a href="https://ai4ce.github.io/INT-ACT/">project page</a>
+                /
+                <a href="https://arxiv.org/abs/2506.09930">arXiv</a>
+                /
+                <a href="https://github.com/ai4ce/INT-ACT">code</a>
+                
+                
+                <p>Can your VLA generalize like a VLM? INT-ACT may give you some clue.</p>
+              </td>
+            </tr>
+
             <tr onmouseout="fusionsense_stop()" onmouseover="fusionsense_start()" style="background-color: #0025764a;">
               <td style="padding:20px;width:25%;vertical-align:middle">
                 <div class="one">
