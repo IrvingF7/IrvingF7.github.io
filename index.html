@@ -30,10 +30,10 @@
                   <br>At UC Berkeley I was fortunate enough to work with <a href="https://me.berkeley.edu/people/alice-m-agogino/"> Prof. Alice Agogino</a> at her <a href="https://best.berkeley.edu/">BEST Lab</a> and <a href="https://squishy-robotics.com/">Squishy Robotics</a>.
                 </p>
                 <p>
-                  During Summer 2022, I interned at <a href="https://www.merl.com/"> Mitsubishi Electric Research Laboratories (MERL)</a>, working with <a href="https://www.merl.com/people/corcodel">Dr. Radu Corcodel</a> on tactile sensing and deep reinforcement learning.
+                  Currently, I am interning at <a href="https://www.analog.com/en/index.html"> Analog Devices (ADI)</a>. During Summer 2022, I interned at <a href="https://www.merl.com/"> Mitsubishi Electric Research Laboratories (MERL)</a>, working with <a href="https://www.merl.com/people/corcodel">Dr. Radu Corcodel</a> on tactile sensing and deep reinforcement learning.
                 </p>
                 <p>
-                  In my free time I enjoy playing with MCU/FPGA boards. I am also a fan of clothing/jewelry design and video games. 
+                  In my free time I enjoy (unnecessarily) ricing my Linux system and playing with all kinds of MCU/FPGA boards. I am also a fan of clothing/jewelry design and video games. 
                 </p>
                 <p>
                 </p>
@@ -58,13 +58,13 @@
               <td style="padding:20px 0px 0px 0px ;width:100%;vertical-align:middle">
                 <heading>Research</heading>
                 <p>
-                  At the broadest level, my research interests lie in the intersection of <b>robotics</b>, <b>computer vision</b>, and <b>machine learning</b>. 
+                  At the broadest level, my research lies at the intersection of <b>robotics</b>, <b>computer vision</b>, and <b>machine learning</b>. 
                   <br>
                   <br>
-                  Specifically, I am interested in <b>contact-rich manipulation</b>. Can we make robots as dexterous, adaptive and efficient as humans when there is contact between the robot and the manipulated object, the environment or even the humans around?
+                  I am particularly interested in <b>contact-rich manipulation</b>: can we make robots as dexterous, adaptive, and efficient as humans when interacting with objects, the environment, or even other people through <b>contact</b>?
                   <br>
                   <br>
-                  I like to think of it as a chain of challenges in trajectory optimization, perception, simulation, hardware design and so on. Naturally, such a complicated problem calls for a variety of techniques, including <b>deep learning</b>, <b>tactile sensing</b>, <b>model predictive control</b>, <b>large vision-language model</b>, <b>neuromorphic computing</b> and many more.
+                  I would like to approach this problem with a diverse toolbox, including <b>deep learning</b>, <b>tactile sensing</b>, <b>model predictive control</b>, <b>vision-language models</b>, <b>hardware design</b>, <b>simulation</b>, and even emerging approaches like <b>neuromorphic computing</b>.
                   <br>
                   <br>
                   In my free time, I also contribute my computational skills to scientific research in other fields such as <b>anthropology</b>.
@@ -129,6 +129,58 @@
 
 
           <tbody id="robotics_research" style="display: block;">
+            <tr onmouseout="intact_stop()" onmouseover="intact_start()" style="background-color: #0025764a;">
+              <td style="padding:20px;width:25%;vertical-align:middle">
+                <div class="one">
+                  <div class="two" id='intact_after'>
+                    <video style="width: 160px; height: 160px;" id="intact_video" muted autoplay loop>
+                      <source src="./images/intact/intact_after.mp4" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+
+                  <img src='./images/intact/intact_before.jpg' width="160" height="160" id="intact_image">
+                </div>
+                <script type="text/javascript">
+                  
+                  function intact_start() {
+                    // when mouse is over the image, make the video visible and the image invisible
+                    document.getElementById('intact_after').style.opacity = "1";
+                    document.getElementById('intact_video').play(); // somehow this can prevent jittering
+                  }
+
+                  function intact_stop() {
+                    document.getElementById('intact_after').style.opacity = "0";
+                    document.getElementById('intact_video').pause(); // somehow this can prevent jittering
+                    document.getElementById('intact_video').currentTime = 0;
+                  }
+                  intact_stop()
+                </script>
+              </td>
+              <td style="padding:20px;width:75%;vertical-align:middle">
+                <a href="https://ai4ce.github.io/INT-ACT/">
+                  <papertitle>From Intention to Execution: Probing the Generalization Boundaries of Vision-Language-Action Models</papertitle>
+                </a>
+                <br>
+                <strong> Irving Fang*</strong>, 
+                <a href="https://juexzz.github.io/">Juexiao Zhang*</a>,
+                <a href="https://tsb0601.github.io/">Shengbang Tong</a>,
+                <a href="https://scholar.google.com/citations?user=YeG8ZM0AAAAJ">Chen Feng</a>,
+                (* for equal contribution)
+                <br>
+                <em>Arxiv (Under Review)</em>
+                <br>
+                <a href="https://ai4ce.github.io/INT-ACT/">project page</a>
+                /
+                <a href="https://arxiv.org/abs/2506.09930">arXiv</a>
+                /
+                <a href="https://github.com/ai4ce/INT-ACT">code</a>
+                
+                
+                <p>Can your VLA generalize like a VLM? INT-ACT may give you some clue.</p>
+              </td>
+            </tr>
+
             <tr onmouseout="fusionsense_stop()" onmouseover="fusionsense_start()" style="background-color: #0025764a;">
               <td style="padding:20px;width:25%;vertical-align:middle">
                 <div class="one">
@@ -227,7 +279,7 @@
                 <a href="https://scholar.google.com/citations?user=YeG8ZM0AAAAJ">Chen Feng</a>
                 (*, &dagger;for equal contribution)
                 <br>
-                <em>ArXiv</em>
+                <em>IROS 2025</em>
                 <br>
                 <a href="https://ai4ce.github.io/SeeDo/">project page</a>
                 /
@@ -398,6 +450,56 @@
           </tbody>
 
           <tbody id="ai4science_research" style="display: none;">
+            <tr onmouseout="garf_stop()" onmouseover="garf_start()" >
+                <td style="padding:20px;width:25%;vertical-align:middle">
+                  <div class="one">
+                    <div class="two" id='garf_image'>
+                      <img src='images/garf/garf.jpg' width="160"></div>
+                    <img src="images/garf/garf.jpg" width="160">
+                  </div>
+                  <script type="text/javascript">
+                    function garf_start() {
+                      document.getElementById('garf_image').style.opacity = "1";
+                    }
+                  
+                    function garf_stop() {
+                      document.getElementById('garf_image').style.opacity = "0";
+                    }
+                    garf_stop()
+                  </script>
+                </td>
+                <td style="padding:20px;width:75%;vertical-align:middle">
+                  <a href="https://ai4ce.github.io/GARF/">
+                <span class="papertitle">GARF: Learning Generalizable 3D Reassembly for Real-World Fractures</span>
+                  </a>
+                  <br>
+                  <a href="https://louis-leee.github.io/">Sihang Li</a>*,
+                  <a href="https://github.com/JDScript">Zeyu Jinag</a>*, 
+                  <a href="https://www.linkedin.com/in/grace-chen-37a974293/">Grace Chen</a>,
+                  <a href="https://www.linkedin.com/in/chenyang-xu-755125181/?originalSubdomain=uk">Chenyang Xu</a>,
+                  <a href="https://kevintsq.github.io/">Siqi Tan</a>, 
+                  <a href="https://as.nyu.edu/departments/anthropology/people/graduate-students/doctoral-students/xue-wang.html">Xue Wang</a>, 
+                  <strong> Irving Fang</strong>, 
+                  <a href="https://scholar.google.com/citations?user=aEmILscAAAAJ&amp;hl=en">Kristof Zyskowski</a>, 
+                  <a href="https://scholar.google.com/citations?user=lo1VSPUAAAAJ&amp;hl=en">Shannon P. McPherron</a>, 
+                  <a href="https://scholar.google.com/citations?user=JqLHsvYAAAAJ&amp;hl=en">Radu Iovita</a>, 
+                  <a href="https://scholar.google.com/citations?user=YeG8ZM0AAAAJ">Chen Feng</a><sup>†</sup>, 
+                  <a href="https://jingz6676.github.io/"> Jing Zhang</a><sup>†</sup>
+                  
+                  <br>
+                  <em>ICCV</em>, 2025
+                  <br>
+                  <a href="https://ai4ce.github.io/GARF/">project page</a>
+                  /
+                  <a href="https://arxiv.org/abs/2504.05400">arXiv</a>
+                  /
+                  <a href="https://github.com/ai4ce/GARF">code</a>
+                  <p></p>
+                  <p>
+                  Sheding light on training on synthetic data to advance real-world 3D fracture assembly.
+                  </p>
+                  </td>
+            </tr>
             <tr onmouseout="luwa_stop()" onmouseover="luwa_start()" >
               <td style="padding:20px;width:25%;vertical-align:middle">
                 <div class="one">
@@ -421,7 +523,7 @@
                   <papertitle>LUWA Dataset: Learning Lithic Use-Wear Analysis on Microscopic Images</papertitle>
                 </a>
                 <br>
-                <a href="https://www.linkedin.com/in/jing-zhang-4b7163285/"> Jing Zhang*</a>,
+                <a href="https://jingz6676.github.io/"> Jing Zhang*</a>,
                 <strong> Irving Fang*</strong>, 
                 <a href="">Hao Wu</a>, 
                 <a href="https://www.linkedin.com/in/akshat-kaushik/">Akshat Kaushik</a>, 
@@ -478,13 +580,24 @@
           <td style="padding:20px;width:100%;vertical-align:middle">
             <heading>Service</heading>
             <p>
-              Reviewer, ICRA2024 <br>
+              Reviewer, ICRA2024, ICRA2025 <br>
+              Reviewer, IROS2025 <br>
               Reviewer, DARS2024 <br>
             </p>
           </td>
         </tr>
         </tbody></table>
 
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          <tr>
+          <td style="padding:20px;width:100%;vertical-align:middle">
+            <heading>Personal</heading>
+            <p>
+              My wife is a NYU Philosophy PhD-turned-cloud-computing-engineer. In Japanese, there's a phrase—"雲の上人" (kumo no uebito)—which literally means “a person living above the clouds.” It's used to describe someone extraordinarily talented and a bit otherworldly, almost like a dream. To me, she embodies that phrase more than anyone.
+            </p>
+          </td>
+        </tr>
+        </tbody></table>
 
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
           <tr>
