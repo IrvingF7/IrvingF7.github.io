@@ -129,7 +129,56 @@
 
 
           <tbody id="robotics_research" style="display: block;">
-            <tr onmouseout="intact_stop()" onmouseover="intact_start()" style="background-color: #0025764a;">
+            <!-- Signal-MPC -->
+            <tr onmouseout="signal_stop()" onmouseover="signal_start()" style="background-color: #0025764a;">
+              <td style="padding:20px;width:25%;vertical-align:middle">
+                <div class="one">
+                  <div class="two" id='signal_after'>
+                    <img src='./images/signal/signal_after.gif' width="160" height="160" id="signal_gif">
+                  </div>
+
+                  <img src='./images/signal/signal_before.jpg' width="160" height="160" id="signal_image">
+                </div>
+                <script type="text/javascript">
+                  function signal_start() {
+                    // when mouse is over the image, make the gif visible and the image invisible
+                    document.getElementById('signal_after').style.opacity = "1";
+                  }
+
+                  function signal_stop() {
+                    document.getElementById('signal_after').style.opacity = "0";
+                  }
+                  signal_stop()
+                </script>
+              </td>
+              <td style="padding:20px;width:75%;vertical-align:middle">
+                <a href="https://ai4ce.github.io/signal_mpc/">
+                  <papertitle>Signal-MPC: Entropy-Constrained Sampling MPC via Natural Gradients</papertitle>
+                </a>
+                <br>
+                <a href="https://jianghanzhang.github.io/">Jianghan Zhang*</a>,
+                <strong> Irving Fang*</strong>,
+                <a href="https://ameyj17.github.io/">Amey Joshi*</a>,
+                <a href="https://ajordana.github.io/">Armand Jordana</a>,
+                <a href="https://brianplancher.com/">Brian Plancher</a>,
+                <a href="https://righetti.github.io/">Ludovic Righetti</a>,
+                <a href="https://scholar.google.com/citations?user=YeG8ZM0AAAAJ">Chen Feng</a>
+                (* for equal contribution)
+                <br>
+                <em>RA-L (Under Review)</em>
+                <br>
+                <a href="https://ai4ce.github.io/signal_mpc/">project page</a>
+                /
+                <a href="">arXiv</a>
+                /
+                <a href="">code</a>
+
+
+                <p>Sampling MPC as natural gradient descent: adapt the sampling distribution online, and keep exploration alive with an entropy floor.</p>
+              </td>
+            </tr>
+
+            <tr onmouseout="intact_stop()" onmouseover="intact_start()">
               <td style="padding:20px;width:25%;vertical-align:middle">
                 <div class="one">
                   <div class="two" id='intact_after'>
@@ -165,7 +214,7 @@
                 <strong> Irving Fang*</strong>, 
                 <a href="https://juexzz.github.io/">Juexiao Zhang*</a>,
                 <a href="https://tsb0601.github.io/">Shengbang Tong</a>,
-                <a href="https://scholar.google.com/citations?user=YeG8ZM0AAAAJ">Chen Feng</a>,
+                <a href="https://scholar.google.com/citations?user=YeG8ZM0AAAAJ">Chen Feng</a>
                 (* for equal contribution)
                 <br>
                 <em>Arxiv (Under Review)</em>
