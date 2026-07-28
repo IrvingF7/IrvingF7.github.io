@@ -1,667 +1,554 @@
-<!DOCTYPE HTML>
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!DOCTYPE html>
+<html lang="en">
 
-  <title>Irving Fang's Homepage</title>
-  
-  <meta name="author" content="Irving Fang">
+<head>
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <link rel="stylesheet" type="text/css" href="stylesheet.css">
-  <link rel="icon" type="image/png" href="./images/icon.webp">
+
+  <title>Irving Fang</title>
+  <meta name="author" content="Irving Fang">
+  <meta name="description"
+    content="Irving Fang is a Computer Science PhD candidate at New York University working on robotics, computer vision, and machine learning, with a focus on contact-rich manipulation.">
+
+  <link rel="icon" type="image/webp" href="./images/icon.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+  <link rel="stylesheet" href="stylesheet.css">
 </head>
 
 <body>
-  <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-    <tr style="padding:0px">
-      <td style="padding:0px">
-        
-        <!-- Self-Introduction -->
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-          <tbody>
-            <tr style="padding:0px">
-              <td style="padding:0;width:63%;vertical-align:middle">
-                <p style="text-align:center">
-                  <name>Irving Fang</name>
-                </p>
-                <p>I am a Computer Science PhD candidate at <a href="https://cims.nyu.edu/">New York University</a>, advised by <a href="https://engineering.nyu.edu/faculty/chen-feng"> Prof. Chen Feng</a>. I also collaborate closely with <a href="https://yunzhuli.github.io/">Prof. Yunzhu Li</a> at Columbia University.
-                </p>
-                <p>
-                  I obtained my bachelor's degree from <a href="https://cdss.berkeley.edu/">UC Berkeley</a>, double majoring in <b>Data Science</b> (Robotics Emphasis) and <b>Mathematics</b>, with minors in <b>Japanese Literature</b> and <b>EECS</b>.
-                  <br>At UC Berkeley I was fortunate enough to work with <a href="https://me.berkeley.edu/people/alice-m-agogino/"> Prof. Alice Agogino</a> at her <a href="https://best.berkeley.edu/">BEST Lab</a> and <a href="https://squishy-robotics.com/">Squishy Robotics</a>.
-                </p>
-                <p>
-                  In the past, I have interned at <a href="https://www.analog.com/en/index.html"> Analog Devices </a> and <a href="https://www.merl.com/"> Mitsubishi Electric Research Laboratories</a>, mostly working on some combination of tactile sensing, reinforcement learning, imitation learning and so on in the context of <b>robotics</b>.
-                </p>
-                <p>
-                  In my free time, I am a hardware hobbyist who enjoys playing with MCUs, FPGAs and 3D printing. I am also a fan of industrial/clothing/jewelry design.
-                </p>
-                <p>
-                </p>
-                <p style="text-align:center">
-                  <a href="mailto:irvingf7@berkeley.edu">Email</a> &nbsp/&nbsp
-                  <a href="data/Irving-Resume.pdf">CV</a> &nbsp/&nbsp
-                  <a href="https://scholar.google.com/citations?user=0jVr_XwAAAAJ&hl=en">Google Scholar</a> &nbsp/&nbsp
-                  <a href="https://github.com/IrvingF7">Github</a>
-                </p>
-              </td>
-              <td style="padding:2.5%;width:40%;max-width:40%">
-                <a href="images/Irving Fang.jpg"><img style="width:100%;max-width:100%" alt="profile photo" src="images/Irving Fang.jpg" class="hoverZoomLink"></a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+  <main class="page">
 
-        <!-- Research -->
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-          <tbody>
-            <tr>
-              <td style="padding:20px 0px 0px 0px ;width:100%;vertical-align:middle">
-                <heading>Research</heading>
-                <p>
-                  At the broadest level, my research lies at the intersection of <b>robotics</b>, <b>computer vision</b>, and <b>machine learning</b>. 
-                  <br>
-                  <br>
-                  I am particularly interested in <b>contact-rich manipulation</b>: can we make robots as dexterous, adaptive, and efficient as humans when interacting with objects, the environment, or even other people through <b>contact</b>?
-                  <br>
-                  <br>
-                  I would like to approach this problem with a diverse toolbox, including <b>deep learning</b>, <b>tactile sensing</b>, <b>model predictive control</b>, <b>vision-language models</b>, <b>hardware design</b>, <b>simulation</b>, and even emerging approaches like <b>neuromorphic computing</b>.
-                  <br>
-                  <br>
-                  In my free time, I also contribute my computational skills to scientific research in other fields such as <b>anthropology</b>.
-                  <br>
-                  <br>
-                  <a id="expandLink" onclick="expandText()">For collaboration, click here</a>.
-                </p>
+    <!-- ── Masthead ───────────────────────────────────────────── -->
+    <header class="masthead">
+      <!-- Floated, so the intro wraps beside the photo and then reclaims the
+           full column width beneath it. Must precede the text it wraps. -->
+      <figure class="portrait">
+        <a href="images/Irving Fang.jpg">
+          <img src="images/Irving Fang.jpg" alt="Irving Fang" width="1108" height="1477">
+        </a>
+      </figure>
 
-                <div id="collaborationText" style="display: none;">
-                  <p>
-                    Thank you for your interest in collaborating! Please don't hesitate to shoot me an email.<br><br>
+      <h1>Irving Fang</h1>
 
-                    <b>For Undergrad/MS students</b>, please additionally send me a link to a <b>Github repo that you feel proudest of</b>. I am especially impressed by students with the habit of writing clean, well-documented code. You can also consider filling out our lab's <a href="https://forms.gle/m4riWUGf6Rd9bTWp8">recruiting form</a> so more PhD students can get to know you.
-                  </p>
-                </div>
+      <p class="standfirst">
+        I am a Computer Science PhD candidate at <a href="https://cims.nyu.edu/">New York University</a>, advised by
+        <a href="https://engineering.nyu.edu/faculty/chen-feng">Prof. Chen Feng</a>. I also collaborate closely with
+        <a href="https://yunzhuli.github.io/">Prof. Yunzhu Li</a> at Columbia University.
+      </p>
 
-                <script>
-                  // Function to toggle the display of the hidden text
-                  function expandText() {
-                    var textSection = document.getElementById("collaborationText");
-                    if (textSection.style.display === "none") {
-                      textSection.style.display = "block"; // Show the text
-                    } else {
-                      textSection.style.display = "none"; // Hide the text
-                    }
-                  }
-                </script>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        
-        <!-- Publications -->
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-          <!-- Here, the argument of the switchSlider function should be the name of the slider block, just without the "_block" part. -->
-          <center>
-          <button class="btn active" id="robotics_button" onclick="switchResearch('robotics')">Robotics</button>
-          <button class="btn" id="ai4science_button" onclick="switchResearch('ai4science')">AI4Science</button>
-          </center>
-          <!-- <td style="padding:20px;width:100%;vertical-align:middle">
-            <heading>Research</heading>
-          </td> -->
-          <script>
-            function switchResearch(research_id) {
-              // Remove 'active' class from all buttons to reset color
-              document.getElementById('robotics_button').classList.remove('active');
-              document.getElementById('ai4science_button').classList.remove('active');
+      <p>
+        I obtained my bachelor's degree from <a href="https://cdss.berkeley.edu/">UC Berkeley</a>, double majoring in
+        <b>Data Science</b> (Robotics Emphasis) and <b>Mathematics</b>, with minors in <b>Japanese Literature</b> and
+        <b>EECS</b>. At UC Berkeley I was fortunate enough to work with
+        <a href="https://me.berkeley.edu/people/alice-m-agogino/">Prof. Alice Agogino</a> at her
+        <a href="https://best.berkeley.edu/">BEST Lab</a> and
+        <a href="https://squishy-robotics.com/">Squishy Robotics</a>.
+      </p>
 
-              // Add 'active' class to the clicked button so that it will have a different color when its content is present
-              document.getElementById(research_id+'_button').classList.add('active');
+      <p>
+        I am currently at Amazon Frontier AI & Robotics as a Member of Technical Staff Intern. In the past, I have interned at <a href="https://www.analog.com/en/index.html">Analog Devices</a> and
+        <a href="https://www.merl.com/">Mitsubishi Electric Research Laboratories</a>, mostly working on some
+        combination of tactile sensing, reinforcement learning, imitation learning and so on in the context of
+        <b>robotics</b>.
+      </p>
 
-              // Select all content divs and hide them
-              robotics_research = document.getElementById('robotics_research');
-              ai4science_research = document.getElementById('ai4science_research');
-              robotics_research.style.display = 'none';
-              ai4science_research.style.display = 'none';
+      <p>
+        In my free time, I am a hardware hobbyist who enjoys playing with MCUs, FPGAs and 3D printing. I am also a fan
+        of industrial/clothing/jewelry design.
+      </p>
 
-              // Show the selected div with a fade effect
-              document.getElementById(research_id+'_research').style.display = 'block';
-            }
-          </script>
+      <nav class="contact" aria-label="Contact and profiles">
+        <a href="mailto:irvingf7@berkeley.edu">Email</a>
+        <a href="data/Irving-Resume.pdf">CV</a>
+        <a href="https://scholar.google.com/citations?user=0jVr_XwAAAAJ&amp;hl=en">Google Scholar</a>
+        <a href="https://github.com/IrvingF7">GitHub</a>
+      </nav>
+    </header>
 
+    <!-- ── Research ───────────────────────────────────────────── -->
+    <section class="section" aria-labelledby="research-heading">
+      <h2 id="research-heading">Research</h2>
 
-          <tbody id="robotics_research" style="display: block;">
-            <!-- Signal-MPC -->
-            <tr onmouseout="signal_stop()" onmouseover="signal_start()" style="background-color: #0025764a;">
-              <td style="padding:20px;width:25%;vertical-align:middle">
-                <div class="one">
-                  <div class="two" id='signal_after'>
-                    <img src='./images/signal/signal_after.gif' width="160" height="160" id="signal_gif">
-                  </div>
+      <p>
+        At the broadest level, my research lies at the intersection of <b>robotics</b>, <b>computer vision</b>, and
+        <b>machine learning</b>.
+      </p>
 
-                  <img src='./images/signal/signal_before.jpg' width="160" height="160" id="signal_image">
-                </div>
-                <script type="text/javascript">
-                  function signal_start() {
-                    // when mouse is over the image, make the gif visible and the image invisible
-                    document.getElementById('signal_after').style.opacity = "1";
-                  }
+      <p>
+        I am particularly interested in <b>contact-rich manipulation</b>: can we make robots as dexterous, adaptive, and
+        efficient as humans when interacting with objects, the environment, or even other people through <b>contact</b>?
+      </p>
 
-                  function signal_stop() {
-                    document.getElementById('signal_after').style.opacity = "0";
-                  }
-                  signal_stop()
-                </script>
-              </td>
-              <td style="padding:20px;width:75%;vertical-align:middle">
-                <a href="https://ai4ce.github.io/signal_mpc/">
-                  <papertitle>Signal-MPC: Entropy-Constrained Sampling MPC via Natural Gradients</papertitle>
-                </a>
-                <br>
-                <a href="https://jianghanzhang.github.io/">Jianghan Zhang*</a>,
-                <strong> Irving Fang*</strong>,
-                <a href="https://ameyj17.github.io/">Amey Joshi*</a>,
-                <a href="https://ajordana.github.io/">Armand Jordana</a>,
-                <a href="https://brianplancher.com/">Brian Plancher</a>,
-                <a href="https://righetti.github.io/">Ludovic Righetti</a>,
-                <a href="https://scholar.google.com/citations?user=YeG8ZM0AAAAJ">Chen Feng</a>
-                (* for equal contribution)
-                <br>
-                <em>RA-L (Under Review)</em>
-                <br>
-                <a href="https://ai4ce.github.io/signal_mpc/">project page</a>
-                /
-                <a href="">arXiv</a>
-                /
-                <a href="">code</a>
+      <p>
+        I would like to approach this problem with a diverse toolbox, including <b>deep learning</b>,
+        <b>tactile sensing</b>, <b>model predictive control</b>, <b>vision-language models</b>, <b>hardware design</b>,
+        <b>simulation</b>, and even emerging approaches like <b>neuromorphic computing</b>.
+      </p>
 
+      <p>
+        In my free time, I also contribute my computational skills to scientific research in other fields such as
+        <b>anthropology</b>.
+      </p>
 
-                <p>Sampling MPC as natural gradient descent: adapt the sampling distribution online, and keep exploration alive with an entropy floor.</p>
-              </td>
-            </tr>
+      <details class="collab">
+        <summary>For collaboration, click here</summary>
+        <p>
+          Thank you for your interest in collaborating! Please don't hesitate to shoot me an email.
+        </p>
+        <p>
+          <b>For Undergrad/MS students</b>, please additionally send me a link to a
+          <b>Github repo that you feel proudest of</b>. I am especially impressed by students with the habit of writing
+          clean, well-documented code. You can also consider filling out our lab's
+          <a href="https://forms.gle/m4riWUGf6Rd9bTWp8">recruiting form</a> so more PhD students can get to know you.
+        </p>
+      </details>
+    </section>
 
-            <tr onmouseout="intact_stop()" onmouseover="intact_start()">
-              <td style="padding:20px;width:25%;vertical-align:middle">
-                <div class="one">
-                  <div class="two" id='intact_after'>
-                    <video width=100% height=100% id="intact_video" muted autoplay loop>
-                      <source src="./images/intact/intact_after.mp4" type="video/mp4">
-                      Your browser does not support the video tag.
-                    </video>
-                  </div>
+    <!-- ── Publications ───────────────────────────────────────── -->
+    <section class="section" aria-labelledby="pubs-heading">
+      <h2 id="pubs-heading">Publications</h2>
 
-                  <img src='./images/intact/intact_before.jpg' width="160" height="160" id="intact_image">
-                </div>
-                <script type="text/javascript">
-                  
-                  function intact_start() {
-                    // when mouse is over the image, make the video visible and the image invisible
-                    document.getElementById('intact_after').style.opacity = "1";
-                    document.getElementById('intact_video').play(); // somehow this can prevent jittering
-                  }
+      <div class="tabs" role="tablist" aria-label="Research areas">
+        <button type="button" role="tab" id="tab-robotics" aria-controls="panel-robotics" aria-selected="true">
+          Robotics
+        </button>
+        <button type="button" role="tab" id="tab-ai4science" aria-controls="panel-ai4science" aria-selected="false">
+          AI4Science
+        </button>
+      </div>
 
-                  function intact_stop() {
-                    document.getElementById('intact_after').style.opacity = "0";
-                    document.getElementById('intact_video').pause(); // somehow this can prevent jittering
-                    document.getElementById('intact_video').currentTime = 0;
-                  }
-                  intact_stop()
-                </script>
-              </td>
-              <td style="padding:20px;width:75%;vertical-align:middle">
-                <a href="https://ai4ce.github.io/INT-ACT/">
-                  <papertitle>From Intention to Execution: Probing the Generalization Boundaries of Vision-Language-Action Models</papertitle>
-                </a>
-                <br>
-                <strong> Irving Fang*</strong>, 
-                <a href="https://juexzz.github.io/">Juexiao Zhang*</a>,
-                <a href="https://tsb0601.github.io/">Shengbang Tong</a>,
-                <a href="https://scholar.google.com/citations?user=YeG8ZM0AAAAJ">Chen Feng</a>
-                (* for equal contribution)
-                <br>
-                <em>Arxiv (Under Review)</em>
-                <br>
-                <a href="https://ai4ce.github.io/INT-ACT/">project page</a>
-                /
-                <a href="https://arxiv.org/abs/2506.09930">arXiv</a>
-                /
-                <a href="https://github.com/ai4ce/INT-ACT">code</a>
-                
-                
-                <p>Can your VLA generalize like a VLM? INT-ACT may give you some clue.</p>
-              </td>
-            </tr>
+      <!-- Robotics -->
+      <ul class="pubs" role="tabpanel" id="panel-robotics" aria-labelledby="tab-robotics" data-label="Robotics">
 
-            <tr onmouseout="fusionsense_stop()" onmouseover="fusionsense_start()" style="background-color: #0025764a;">
-              <td style="padding:20px;width:25%;vertical-align:middle">
-                <div class="one">
-                  <div class="two" id='fusionsense_after'>
-                    <video width=100% height=100% id="fusionsense_video" muted autoplay loop>
-                      <source src="./images/fusionsense/fusionsense_after.mp4" type="video/mp4">
-                      Your browser does not support the video tag.
-                    </video>
-                  </div>
-
-                  <img src='./images/fusionsense/fusionsense_before.jpg' width="160" height="160" id="fusionsense_image">
-                </div>
-                <script type="text/javascript">
-                  
-                  function fusionsense_start() {
-                    // when mouse is over the image, make the video visible and the image invisible
-                    document.getElementById('fusionsense_after').style.opacity = "1";
-                    document.getElementById('fusionsense_video').play(); // somehow this can prevent jittering
-                  }
-
-                  function fusionsense_stop() {
-                    document.getElementById('fusionsense_after').style.opacity = "0";
-                    document.getElementById('fusionsense_video').pause(); // somehow this can prevent jittering
-                    document.getElementById('fusionsense_video').currentTime = 0;
-                  }
-                  fusionsense_stop()
-                </script>
-              </td>
-              <td style="padding:20px;width:75%;vertical-align:middle">
-                <a href="https://ai4ce.github.io/FusionSense/">
-                  <papertitle>FusionSense: Bridging Common Sense, Vision, and Touch for Robust Sparse-View Reconstruction</papertitle>
-                </a>
-                <br>
-                <strong> Irving Fang*</strong>, 
-                <a href="https://kairui-shi.github.io/">Kairui Shi*</a>,
-                <a href="https://www.linkedin.com/in/kim-he-064a36258/">Xujin He*</a>,
-                <a href="https:">Siqi Tan</a>,
-                <a href="https:">Yifan Wang</a>,
-                <a href="https://www.linkedin.com/in/hanwen-zhao-2523a4104/">Hanwen Zhao</a>,
-                <a href="https://joehjhuang.github.io">Hung-Jui Huang</a>,
-                <a href="https://scholar.google.com/citations?user=SNqm6doAAAAJ&hl=en">Wenzhen Yuan</a>,
-                <a href="https://scholar.google.com/citations?user=YeG8ZM0AAAAJ">Chen Feng</a>,
-                <a href="https://jingz6676.github.io">Jing Zhang</a>
-                (* for equal contribution)
-                <br>
-                <em>ICRA 2025</em>
-                <br>
-                <a href="https://ai4ce.github.io/FusionSense/">project page</a>
-                /
-                <a href="https://arxiv.org/abs/2410.08282">arXiv</a>
-                /
-                <a href="https://github.com/ai4ce/FusionSense">code</a>
-                
-                
-                <p>Robot reconstructing visually and geometrically accurate surroundings with sparse visual and tactile data</p>
-              </td>
-            </tr>
-
-            <tr onmouseout="seedo_stop()" onmouseover="seedo_start()" style="background-color: #0025764a;">
-              <td style="padding:20px;width:25%;vertical-align:middle">
-                <div class="one">
-                  <div class="two" id='seedo_after'>
-                    <video width=100% height=100% id="seedo_video" muted autoplay loop>
-                      <source src="./images/seedo/seedo_after.mp4" type="video/mp4">
-                      Your browser does not support the video tag.
-                    </video>
-                  </div>
-
-                  <img src='./images/seedo/seedo_before.png' width="160" height="160" id="seedo_image">
-                </div>
-                <script type="text/javascript">
-                  
-                  function seedo_start() {
-                    // when mouse is over the image, make the video visible and the image invisible
-                    document.getElementById('seedo_after').style.opacity = "1";
-                    document.getElementById('seedo_video').play(); // somehow this can prevent jittering
-                  }
-
-                  function seedo_stop() {
-                    document.getElementById('seedo_after').style.opacity = "0";
-                    document.getElementById('seedo_video').pause(); // somehow this can prevent jittering
-                    document.getElementById('seedo_video').currentTime = 0;
-                  }
-                  seedo_stop()
-                </script>
-              </td>
-              <td style="padding:20px;width:75%;vertical-align:middle">
-                <a href="https://openreview.net/forum?id=40NyBeZQ0G&noteId=WurF6gCiKJ">
-                  <papertitle>VLM See, Robot Do: Human Demo Video to Robot Action Plan via Vision Language Model</papertitle>
-                </a>
-                <br>
-                <a href="https://juexzz.github.io/"> Juexiao Zhang*</a>,
-                <a href="https://scholar.google.com/citations?user=ACFrFnYAAAAJ&hl=en"> Beicheng Wang*</a>,
-                <a href="https://www.linkedin.com/in/shuwen-dong-1342832b1/?locale=en_US"> Shuwen Dong&dagger;</a>,
-                <strong> Irving Fang&dagger;</strong>, 
-                <a href="https://scholar.google.com/citations?user=YeG8ZM0AAAAJ">Chen Feng</a>
-                (*, &dagger;for equal contribution)
-                <br>
-                <em>IROS 2025</em>
-                <br>
-                <a href="https://ai4ce.github.io/SeeDo/">project page</a>
-                /
-                <a href="https://arxiv.org/abs/2410.08792">arXiv</a>
-                /
-                <a href="https://github.com/ai4ce/SeeDo">code</a>
-                <p>Let the robot follow a human's actions by just watching one video.</p>
-              </td>
-            </tr>
-
-
-            
-            <!-- EgoPAT3Dv2 -->
-            <tr onmouseout="egopat3d_v2_stop()" onmouseover="egopat3d_v2_start()" >
-              <td style="padding:20px;width:25%;vertical-align:middle">
-                <div class="one">
-                  <div class="two" id='egopat3d_v2_after'>
-                    <video style="width: 160px; height: 160px; object-fit: fill;" id="egopat3d_v2_video" muted autoplay loop>
-                      <source src="images/egopat3d_v2/egopat3d_v2_after.mp4" type="video/mp4">
-                      Your browser does not support the video tag.
-                    </video>
-                  </div>
-
-                  <img src='images/egopat3d_v2/egopat3d_v2_before.jpg' width="160" height="160" id="egopat3d_v2_img">
-                </div>
-                <script type="text/javascript">
-                  function egopat3d_v2_start() {
-                    // when mouse is over the image, make the video visible and the image invisible
-                    // document.getElementById('egopat3d_v2_img').style.opacity = "0";
-                    document.getElementById('egopat3d_v2_after').style.opacity = "1";
-                  }
-
-                  function egopat3d_v2_stop() {
-                    document.getElementById('egopat3d_v2_after').style.opacity = "0";
-                    document.getElementById('egopat3d_v2_video').currentTime = 0;
-                  }
-                  egopat3d_v2_stop()
-                </script>
-              </td>
-              <td style="padding:20px;width:75%;vertical-align:middle">
-                <a href="https://ai4ce.github.io/EgoPAT3Dv2/">
-                  <papertitle>EgoPAT3Dv2: Predicting 3D Action Target from 2D Egocentric Vision for Human-Robot Interaction</papertitle>
-                </a>
-                <br>
-                <strong> Irving Fang*</strong>,
-                <a href="https://github.com/yuzhongchen/">Yuzhong Chen*</a>
-                <a href="https:">Yifan Wang*</a>
-                <a href="https:">Jianghan Zhang&dagger;</a>,
-                <a href="https:">Qiushi Zhang&dagger;</a>,
-                <a href="https:">Jiali Xu&dagger;</a>,
-                <a href="https:">Xibo He</a>,
-                <a href="https:">Weibo Gao</a>,
-                <a href="https:">Hao Su</a>,
-                <a href="https://yimingli-page.github.io/">Yiming Li</a>,
-                <a href="https://scholar.google.com/citations?user=YeG8ZM0AAAAJ">Chen Feng</a>
-                (*, &dagger;for equal contribution)
-                <br>
-                <em>ICRA 2024</em>
-                <br>
-                <a href="https://ai4ce.github.io/EgoPAT3Dv2/">project page</a>
-                /
-                <a href="https://arxiv.org/abs/2403.05046">arXiv</a>
-                /
-                <a href="https://github.com/ai4ce/EgoPAT3Dv2">code</a>
-                
-                <p></p>
-                <p>Human-robot interaction for a potentially AR world?</p>
-              </td>
-            </tr> 
-            
-            <!-- Deep Explorer -->
-            <tr onmouseout="deepexplorer_stop()" onmouseover="deepexplorer_start()" style="background-color: #0025764a;">
-              <td style="padding:20px;width:25%;vertical-align:middle">
-                <div class="one">
-                  <div class="two" id='deepexplorer_after'>
-                    <video width=100% height=100% id="deepexplorer_video" muted autoplay loop>
-                      <source src="images/atm/atm_after.mp4" type="video/mp4">
-                      Your browser does not support the video tag.
-                    </video>
-                  </div>
-                  
-                  <img src='images/atm/atm_before.png' width="160">
-                  </div>
-                <script type="text/javascript">
-                  function deepexplorer_start() {
-                    document.getElementById('deepexplorer_after').style.opacity = "1";
-                  }
-
-                  function deepexplorer_stop() {
-                    document.getElementById('deepexplorer_after').style.opacity = "0";
-                    document.getElementById('deepexplorer_video').currentTime = 0;
-                  }
-                  deepexplorer_stop()
-                </script>
-              </td>
-              <td style="padding:20px;width:75%;vertical-align:middle">
-                <a href="https://ai4ce.github.io/DeepExplorer/">
-                  <papertitle>DeepExplorer: Metric-Free Exploration for Topological Mapping by Task and Motion Imitation in Feature Space</papertitle>
-                </a>
-                <br>
-                <a href="https://yuhanghe01.github.io/"> Yuhang He*</a>,
-                <strong> Irving Fang*</strong>,
-                <a href="https://yimingli-page.github.io/">Yiming Li</a>,
-                <a href="https://www.linkedin.com/in/rushishah2210/">Rushi Bhavesh Shah</a>,
-                <a href="https://engineering.nyu.edu/faculty/chen-feng">Chen Feng</a>
-
-                (* for equal contribution)
-                <br>
-                <em>RSS 2023</em>
-                <br>
-                <a href="https://ai4ce.github.io/DeepExplorer/">project page</a>
-                /
-                <a href="https://arxiv.org/abs/2303.09192">arXiv</a>
-                /
-                <a href="https://github.com/ai4ce/DeepExplorer">code</a>
-                
-                <p></p>
-                <p>A simple and effective framework for efficient and lightweight active visual exploration with only RGB images as input</p>
-              </td>
-            </tr> 
-
-            <!-- Squishy Robotics -->
-            <tr onmouseout="squishy_stop()" onmouseover="squishy_start()" >
-              <td style="padding:20px;width:25%;vertical-align:middle">
-                <div class="one">
-                  <div class="two" id='mira_image'>
-                    <img src='images/squishy/squishy_after.png' width="160" height="160"></div>
-                  <img src='images/squishy/squishy_before.jpg' width="160">
-                </div>
-                <script type="text/javascript">
-                  function squishy_start() {
-                    document.getElementById('mira_image').style.opacity = "1";
-                  }
-
-                  function squishy_stop() {
-                    document.getElementById('mira_image').style.opacity = "0";
-                  }
-                  squishy_stop()
-                </script>
-              </td>
-              <td style="padding:20px;width:75%;vertical-align:middle">
-                <a href="https://asmedigitalcollection.asme.org/IMECE/proceedings-abstract/IMECE2021/85697/V013T14A027/1133300">
-                  <papertitle>Dynamic Placement of Rapidly Deployable Mobile Sensor Robots Using Machine Learning and Expected Value of Information</papertitle>
-                </a>
-                <br>
-                <a href="https://me.berkeley.edu/people/alice-m-agogino/"> Alice Agogino</a>,
-                <a href="https://www.linkedin.com/in/hae-young-jang-7073071b5/">Hae Young Jang</a>,
-                <a href="https://haas.berkeley.edu/faculty/vivek-rao/">Vivek Rao</a>, 
-                <a href="https://www.linkedin.com/in/ritikbatra/">Ritik Batra</a>, 
-                <a href="https://www.linkedin.com/in/felicityliao/">Felicity Liao</a>, 
-                <a href= "https://www.linkedin.com/in/rohansood10/">Rohan Sood</a>, 
-                <strong> Irving Fang</strong>, 
-                <a href="http://rlily.hu/">R Lily Hu</a>, 
-                <a href="https://www.linkedin.com/in/emerson-shoichet-bartus/">Emerson Shoichet-Bartus</a>, 
-                <a href="https://www.linkedin.com/in/johnmatranga/">John Matranga</a>
-                (Authors ordered by department affiliation, not contribution)
-                <br>
-                <em>ASME IMECE</em>, 2021
-                <br>
-                <a href="https://arxiv.org/abs/2111.07552">arXiv</a>
-                /
-                <a href="https://github.com/BerkeleyExpertSystemTechnologiesLab/EVSIvsLSTM">code</a>
-                
-                <p></p>
-                <p>A framework for optimizing the deployment of emergency sensors using Long Short-Term Memory (LSTM) Neural Network and Expected Value of Information (EVI)</p>
-              </td>
-            </tr> 
-          </tbody>
-
-          <tbody id="ai4science_research" style="display: none;">
-            <tr onmouseout="garf_stop()" onmouseover="garf_start()" >
-                <td style="padding:20px;width:25%;vertical-align:middle">
-                  <div class="one">
-                    <div class="two" id='garf_image'>
-                      <img src='images/garf/garf.jpg' width="160"></div>
-                    <img src="images/garf/garf.jpg" width="160">
-                  </div>
-                  <script type="text/javascript">
-                    function garf_start() {
-                      document.getElementById('garf_image').style.opacity = "1";
-                    }
-                  
-                    function garf_stop() {
-                      document.getElementById('garf_image').style.opacity = "0";
-                    }
-                    garf_stop()
-                  </script>
-                </td>
-                <td style="padding:20px;width:75%;vertical-align:middle">
-                  <a href="https://ai4ce.github.io/GARF/">
-                <span class="papertitle">GARF: Learning Generalizable 3D Reassembly for Real-World Fractures</span>
-                  </a>
-                  <br>
-                  <a href="https://louis-leee.github.io/">Sihang Li</a>*,
-                  <a href="https://github.com/JDScript">Zeyu Jinag</a>*, 
-                  <a href="https://www.linkedin.com/in/grace-chen-37a974293/">Grace Chen</a>,
-                  <a href="https://www.linkedin.com/in/chenyang-xu-755125181/?originalSubdomain=uk">Chenyang Xu</a>,
-                  <a href="https://kevintsq.github.io/">Siqi Tan</a>, 
-                  <a href="https://as.nyu.edu/departments/anthropology/people/graduate-students/doctoral-students/xue-wang.html">Xue Wang</a>, 
-                  <strong> Irving Fang</strong>, 
-                  <a href="https://scholar.google.com/citations?user=aEmILscAAAAJ&amp;hl=en">Kristof Zyskowski</a>, 
-                  <a href="https://scholar.google.com/citations?user=lo1VSPUAAAAJ&amp;hl=en">Shannon P. McPherron</a>, 
-                  <a href="https://scholar.google.com/citations?user=JqLHsvYAAAAJ&amp;hl=en">Radu Iovita</a>, 
-                  <a href="https://scholar.google.com/citations?user=YeG8ZM0AAAAJ">Chen Feng</a><sup>†</sup>, 
-                  <a href="https://jingz6676.github.io/"> Jing Zhang</a><sup>†</sup>
-                  
-                  <br>
-                  <em>ICCV</em>, 2025
-                  <br>
-                  <a href="https://ai4ce.github.io/GARF/">project page</a>
-                  /
-                  <a href="https://arxiv.org/abs/2504.05400">arXiv</a>
-                  /
-                  <a href="https://github.com/ai4ce/GARF">code</a>
-                  <p></p>
-                  <p>
-                  Sheding light on training on synthetic data to advance real-world 3D fracture assembly.
-                  </p>
-                  </td>
-            </tr>
-            <tr onmouseout="luwa_stop()" onmouseover="luwa_start()" >
-              <td style="padding:20px;width:25%;vertical-align:middle">
-                <div class="one">
-                  <div class="two" id='luwa_image'>
-                    <img src='images/luwa/luwa2.jpg' width="160"></div>
-                  <img src='images/luwa/luwa1.jpg' width="160">
-                </div>
-                <script type="text/javascript">
-                  function luwa_start() {
-                    document.getElementById('luwa_image').style.opacity = "1";
-                  }
-
-                  function luwa_stop() {
-                    document.getElementById('luwa_image').style.opacity = "0";
-                  }
-                  luwa_stop()
-                </script>
-              </td>
-              <td style="padding:20px;width:75%;vertical-align:middle">
-                <a href="https://ai4ce.github.io/LUWA/">
-                  <papertitle>LUWA Dataset: Learning Lithic Use-Wear Analysis on Microscopic Images</papertitle>
-                </a>
-                <br>
-                <a href="https://jingz6676.github.io/"> Jing Zhang*</a>,
-                <strong> Irving Fang*</strong>, 
-                <a href="">Hao Wu</a>, 
-                <a href="https://www.linkedin.com/in/akshat-kaushik/">Akshat Kaushik</a>, 
-                <a href="https://as.nyu.edu/departments/anthropology/people/graduate-students/doctoral-students/alice-rodriguez.html">Alice Rodriguez</a>, 
-                <a href="https://www.linkedin.com/in/hanwen-zhao-2523a4104/">Hanwen Zhao</a>, 
-                <a href="https://juexzz.github.io/">Juexiao Zhang</a>, 
-                <a href="">Zhuo Zheng</a>, 
-                <a href="https://wp.nyu.edu/faculty-iovita/">Radu Iovita</a>,
-                <a href="https://scholar.google.com/citations?user=YeG8ZM0AAAAJ">Chen Feng</a>
-                (* for equal contribution)
-                <br>
-                <em>CVPR</em>, 2024. <strong> Highlight (11.9% of 2719 accepted papers)</strong>
-                <br>
-                <a href="https://ai4ce.github.io/LUWA/">project page</a>
-                /
-                <a href="https://arxiv.org/abs/2403.13171">arXiv</a>
-                /
-                <a href="https://github.com/ai4ce/LUWA">code</a>
-                
-                <p></p>
-                <p>Paleoanthropology meets cutting-edge computer vision! <br> We create the first Lithic Use-Wear Analysis (LUWA) dataset and challenge Large Vision Model and Large Language and Vision Model with it.</p>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr>
-            <td style="padding:20px;width:100%;vertical-align:middle">
-              <heading>Personal Projects</heading>
-              <p>
-                Please visit <a href="https://github.com/IrvingF7/my_project_list">this repo</a>. It contains pointers to some personal projects ranging from robotics to a RISC-V CPU implemented on a Xilinx FPGA board.
-              </p>
-            </td>
-          </tr>
-        </tbody></table>
-
-
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-          <tr>
-          <td style="padding:20px;width:100%;vertical-align:middle">
-            <heading>Teaching</heading>
-            <p>
-              Teaching Aide, ROB-UY 3203 Robot Vision, Spring 2022, 2023, 2025 <br>
-              Teaching Aide, ROB-GY 6203 Robot Perception, Fall 2022, 2023, 2025
+        <li class="pub is-featured">
+          <div class="media" data-preview>
+            <img class="still" src="./images/signal/signal_before.jpg" alt="" width="960" height="960" loading="lazy">
+            <img class="motion" data-src="./images/signal/signal_after.gif" alt="" loading="lazy">
+          </div>
+          <div class="pub-body">
+            <h3><a href="https://ai4ce.github.io/signal_mpc/">Signal-MPC: Entropy-Constrained Sampling MPC via Natural
+                Gradients</a></h3>
+            <p class="authors">
+              <a href="https://jianghanzhang.github.io/">Jianghan Zhang</a>*,
+              <b>Irving Fang</b>*,
+              <a href="https://ameyj17.github.io/">Amey Joshi</a>*,
+              <a href="https://ajordana.github.io/">Armand Jordana</a>,
+              <a href="https://brianplancher.com/">Brian Plancher</a>,
+              <a href="https://righetti.github.io/">Ludovic Righetti</a>,
+              <a href="https://scholar.google.com/citations?user=YeG8ZM0AAAAJ">Chen Feng</a>
+              <span class="note">(* for equal contribution)</span>
             </p>
-          </td>
-        </tr>
-        </tbody></table>
-
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-          <tr>
-          <td style="padding:20px;width:100%;vertical-align:middle">
-            <heading>Service</heading>
-            <p>
-              Reviewer, NeurIPS 2025 <br>
-              Reviewer, RA-L 2025 <br>
-              Reviewer, ICRA2024, ICRA2025 <br>
-              Reviewer, IROS2025 <br>
-              Reviewer, DARS2024
+            <p class="venue">RA-L (under review)</p>
+            <p class="links">
+              <a href="https://ai4ce.github.io/signal_mpc/">project page</a>
+              <span class="pending">arXiv</span>
+              <span class="pending">code</span>
             </p>
-          </td>
-        </tr>
-        </tbody></table>
-
-        <!-- <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-          <tr>
-          <td style="padding:20px;width:100%;vertical-align:middle">
-            <heading>Personal</heading>
-            <p>
-              My wife is a NYU Philosophy PhD-turned-cloud-computing-engineer. In Japanese, there's a phrase—"雲の上人" (kumo no uebito)—which literally means “a person living above the clouds.” It's used to describe someone extraordinarily talented and a bit otherworldly, almost like a dream. To me, she embodies that phrase more than anyone.
+            <p class="blurb">
+              Sampling MPC as natural gradient descent: adapt the sampling distribution online, and keep exploration
+              alive with an entropy floor.
             </p>
-          </td>
-        </tr>
-        </tbody></table> -->
+          </div>
+        </li>
 
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-          <tr>
-            <td style="padding:0px">
-              <br>
-              <p style="text-align:right;">
-                The website is based on Dr. Jon Barron's <a href="https://github.com/jonbarron/jonbarron_website">source code</a>
-              </p>
-            </td>
-          </tr>
-        </tbody></table>
-      </td>
-    </tr>
-  </table>
+        <li class="pub">
+          <div class="media" data-preview>
+            <img class="still" src="./images/intact/intact_before.jpg" alt="" width="960" height="960" loading="lazy">
+            <video class="motion" muted loop playsinline preload="none"
+              data-src="./images/intact/intact_after.mp4"></video>
+          </div>
+          <div class="pub-body">
+            <h3><a href="https://ai4ce.github.io/INT-ACT/">From Intention to Execution: Probing the Generalization
+                Boundaries of Vision-Language-Action Models</a></h3>
+            <p class="authors">
+              <b>Irving Fang</b>*,
+              <a href="https://juexzz.github.io/">Juexiao Zhang</a>*,
+              <a href="https://tsb0601.github.io/">Shengbang Tong</a>,
+              <a href="https://scholar.google.com/citations?user=YeG8ZM0AAAAJ">Chen Feng</a>
+              <span class="note">(* for equal contribution)</span>
+            </p>
+            <p class="venue">arXiv (under review)</p>
+            <p class="links">
+              <a href="https://ai4ce.github.io/INT-ACT/">project page</a>
+              <a href="https://arxiv.org/abs/2506.09930">arXiv</a>
+              <a href="https://github.com/ai4ce/INT-ACT">code</a>
+            </p>
+            <p class="blurb">Can your VLA generalize like a VLM? INT-ACT may give you some clue.</p>
+          </div>
+        </li>
+
+        <li class="pub is-featured">
+          <div class="media" data-preview>
+            <img class="still" src="./images/fusionsense/fusionsense_before.jpg" alt="" width="1080" height="1080"
+              loading="lazy">
+            <video class="motion" muted loop playsinline preload="none"
+              data-src="./images/fusionsense/fusionsense_after.mp4"></video>
+          </div>
+          <div class="pub-body">
+            <h3><a href="https://ai4ce.github.io/FusionSense/">FusionSense: Bridging Common Sense, Vision, and Touch for
+                Robust Sparse-View Reconstruction</a></h3>
+            <p class="authors">
+              <b>Irving Fang</b>*,
+              <a href="https://kairui-shi.github.io/">Kairui Shi</a>*,
+              <a href="https://www.linkedin.com/in/kim-he-064a36258/">Xujin He</a>*,
+              Siqi Tan,
+              Yifan Wang,
+              <a href="https://www.linkedin.com/in/hanwen-zhao-2523a4104/">Hanwen Zhao</a>,
+              <a href="https://joehjhuang.github.io">Hung-Jui Huang</a>,
+              <a href="https://scholar.google.com/citations?user=SNqm6doAAAAJ&amp;hl=en">Wenzhen Yuan</a>,
+              <a href="https://scholar.google.com/citations?user=YeG8ZM0AAAAJ">Chen Feng</a>,
+              <a href="https://jingz6676.github.io">Jing Zhang</a>
+              <span class="note">(* for equal contribution)</span>
+            </p>
+            <p class="venue">ICRA 2025</p>
+            <p class="links">
+              <a href="https://ai4ce.github.io/FusionSense/">project page</a>
+              <a href="https://arxiv.org/abs/2410.08282">arXiv</a>
+              <a href="https://github.com/ai4ce/FusionSense">code</a>
+            </p>
+            <p class="blurb">
+              Robot reconstructing visually and geometrically accurate surroundings with sparse visual and tactile data.
+            </p>
+          </div>
+        </li>
+
+        <li class="pub is-featured">
+          <div class="media" data-preview>
+            <img class="still" src="./images/seedo/seedo_before.png" alt="" width="720" height="720" loading="lazy">
+            <video class="motion" muted loop playsinline preload="none" data-src="./images/seedo/seedo_after.mp4">
+            </video>
+          </div>
+          <div class="pub-body">
+            <h3><a href="https://openreview.net/forum?id=40NyBeZQ0G&amp;noteId=WurF6gCiKJ">VLM See, Robot Do: Human Demo
+                Video to Robot Action Plan via Vision Language Model</a></h3>
+            <p class="authors">
+              <a href="https://juexzz.github.io/">Juexiao Zhang</a>*,
+              <a href="https://scholar.google.com/citations?user=ACFrFnYAAAAJ&amp;hl=en">Beicheng Wang</a>*,
+              <a href="https://www.linkedin.com/in/shuwen-dong-1342832b1/?locale=en_US">Shuwen Dong</a>&dagger;,
+              <b>Irving Fang</b>&dagger;,
+              <a href="https://scholar.google.com/citations?user=YeG8ZM0AAAAJ">Chen Feng</a>
+              <span class="note">(*, &dagger; for equal contribution)</span>
+            </p>
+            <p class="venue">IROS 2025</p>
+            <p class="links">
+              <a href="https://ai4ce.github.io/SeeDo/">project page</a>
+              <a href="https://arxiv.org/abs/2410.08792">arXiv</a>
+              <a href="https://github.com/ai4ce/SeeDo">code</a>
+            </p>
+            <p class="blurb">Let the robot follow a human's actions by just watching one video.</p>
+          </div>
+        </li>
+
+        <li class="pub">
+          <div class="media" data-preview>
+            <img class="still" src="images/egopat3d_v2/egopat3d_v2_before.jpg" alt="" width="2160" height="2160"
+              loading="lazy">
+            <video class="motion" muted loop playsinline preload="none"
+              data-src="images/egopat3d_v2/egopat3d_v2_after.mp4"></video>
+          </div>
+          <div class="pub-body">
+            <h3><a href="https://ai4ce.github.io/EgoPAT3Dv2/">EgoPAT3Dv2: Predicting 3D Action Target from 2D Egocentric
+                Vision for Human-Robot Interaction</a></h3>
+            <p class="authors">
+              <b>Irving Fang</b>*,
+              <a href="https://github.com/yuzhongchen/">Yuzhong Chen</a>*,
+              Yifan Wang*,
+              Jianghan Zhang&dagger;,
+              Qiushi Zhang&dagger;,
+              Jiali Xu&dagger;,
+              Xibo He,
+              Weibo Gao,
+              Hao Su,
+              <a href="https://yimingli-page.github.io/">Yiming Li</a>,
+              <a href="https://scholar.google.com/citations?user=YeG8ZM0AAAAJ">Chen Feng</a>
+              <span class="note">(*, &dagger; for equal contribution)</span>
+            </p>
+            <p class="venue">ICRA 2024</p>
+            <p class="links">
+              <a href="https://ai4ce.github.io/EgoPAT3Dv2/">project page</a>
+              <a href="https://arxiv.org/abs/2403.05046">arXiv</a>
+              <a href="https://github.com/ai4ce/EgoPAT3Dv2">code</a>
+            </p>
+            <p class="blurb">Human-robot interaction for a potentially AR world?</p>
+          </div>
+        </li>
+
+        <li class="pub">
+          <div class="media" data-preview>
+            <img class="still" src="images/atm/atm_before.png" alt="" width="1056" height="1056" loading="lazy">
+            <video class="motion" muted loop playsinline preload="none" data-src="images/atm/atm_after.mp4"></video>
+          </div>
+          <div class="pub-body">
+            <h3><a href="https://ai4ce.github.io/DeepExplorer/">DeepExplorer: Metric-Free Exploration for Topological
+                Mapping by Task and Motion Imitation in Feature Space</a></h3>
+            <p class="authors">
+              <a href="https://yuhanghe01.github.io/">Yuhang He</a>*,
+              <b>Irving Fang</b>*,
+              <a href="https://yimingli-page.github.io/">Yiming Li</a>,
+              <a href="https://www.linkedin.com/in/rushishah2210/">Rushi Bhavesh Shah</a>,
+              <a href="https://engineering.nyu.edu/faculty/chen-feng">Chen Feng</a>
+              <span class="note">(* for equal contribution)</span>
+            </p>
+            <p class="venue">RSS 2023</p>
+            <p class="links">
+              <a href="https://ai4ce.github.io/DeepExplorer/">project page</a>
+              <a href="https://arxiv.org/abs/2303.09192">arXiv</a>
+              <a href="https://github.com/ai4ce/DeepExplorer">code</a>
+            </p>
+            <p class="blurb">
+              A simple and effective framework for efficient and lightweight active visual exploration with only RGB
+              images as input.
+            </p>
+          </div>
+        </li>
+
+        <li class="pub">
+          <div class="media" data-preview>
+            <img class="still" src="images/squishy/squishy_before.jpg" alt="" width="160" height="160" loading="lazy">
+            <img class="motion" data-src="images/squishy/squishy_after.png" alt="" loading="lazy">
+          </div>
+          <div class="pub-body">
+            <h3><a
+                href="https://asmedigitalcollection.asme.org/IMECE/proceedings-abstract/IMECE2021/85697/V013T14A027/1133300">Dynamic
+                Placement of Rapidly Deployable Mobile Sensor Robots Using Machine Learning and Expected Value of
+                Information</a></h3>
+            <p class="authors">
+              <a href="https://me.berkeley.edu/people/alice-m-agogino/">Alice Agogino</a>,
+              <a href="https://www.linkedin.com/in/hae-young-jang-7073071b5/">Hae Young Jang</a>,
+              <a href="https://haas.berkeley.edu/faculty/vivek-rao/">Vivek Rao</a>,
+              <a href="https://www.linkedin.com/in/ritikbatra/">Ritik Batra</a>,
+              <a href="https://www.linkedin.com/in/felicityliao/">Felicity Liao</a>,
+              <a href="https://www.linkedin.com/in/rohansood10/">Rohan Sood</a>,
+              <b>Irving Fang</b>,
+              <a href="http://rlily.hu/">R Lily Hu</a>,
+              <a href="https://www.linkedin.com/in/emerson-shoichet-bartus/">Emerson Shoichet-Bartus</a>,
+              <a href="https://www.linkedin.com/in/johnmatranga/">John Matranga</a>
+              <span class="note">(Authors ordered by department affiliation, not contribution)</span>
+            </p>
+            <p class="venue">ASME IMECE 2021</p>
+            <p class="links">
+              <a href="https://arxiv.org/abs/2111.07552">arXiv</a>
+              <a href="https://github.com/BerkeleyExpertSystemTechnologiesLab/EVSIvsLSTM">code</a>
+            </p>
+            <p class="blurb">
+              A framework for optimizing the deployment of emergency sensors using Long Short-Term Memory (LSTM) Neural
+              Network and Expected Value of Information (EVI).
+            </p>
+          </div>
+        </li>
+      </ul>
+
+      <!-- AI4Science -->
+      <ul class="pubs" role="tabpanel" id="panel-ai4science" aria-labelledby="tab-ai4science" data-label="AI4Science"
+        hidden>
+
+        <li class="pub">
+          <div class="media">
+            <img class="still" src="images/garf/garf.jpg" alt="" width="284" height="284" loading="lazy">
+          </div>
+          <div class="pub-body">
+            <h3><a href="https://ai4ce.github.io/GARF/">GARF: Learning Generalizable 3D Reassembly for Real-World
+                Fractures</a></h3>
+            <p class="authors">
+              <a href="https://louis-leee.github.io/">Sihang Li</a>*,
+              <a href="https://github.com/JDScript">Zeyu Jiang</a>*,
+              <a href="https://www.linkedin.com/in/grace-chen-37a974293/">Grace Chen</a>,
+              <a href="https://www.linkedin.com/in/chenyang-xu-755125181/?originalSubdomain=uk">Chenyang Xu</a>,
+              <a href="https://kevintsq.github.io/">Siqi Tan</a>,
+              <a
+                href="https://as.nyu.edu/departments/anthropology/people/graduate-students/doctoral-students/xue-wang.html">Xue
+                Wang</a>,
+              <b>Irving Fang</b>,
+              <a href="https://scholar.google.com/citations?user=aEmILscAAAAJ&amp;hl=en">Kristof Zyskowski</a>,
+              <a href="https://scholar.google.com/citations?user=lo1VSPUAAAAJ&amp;hl=en">Shannon P. McPherron</a>,
+              <a href="https://scholar.google.com/citations?user=JqLHsvYAAAAJ&amp;hl=en">Radu Iovita</a>,
+              <a href="https://scholar.google.com/citations?user=YeG8ZM0AAAAJ">Chen Feng</a>&dagger;,
+              <a href="https://jingz6676.github.io/">Jing Zhang</a>&dagger;
+            </p>
+            <p class="venue">ICCV 2025</p>
+            <p class="links">
+              <a href="https://ai4ce.github.io/GARF/">project page</a>
+              <a href="https://arxiv.org/abs/2504.05400">arXiv</a>
+              <a href="https://github.com/ai4ce/GARF">code</a>
+            </p>
+            <p class="blurb">
+              Shedding light on training on synthetic data to advance real-world 3D fracture assembly.
+            </p>
+          </div>
+        </li>
+
+        <li class="pub is-featured">
+          <div class="media" data-preview>
+            <img class="still" src="images/luwa/luwa1.jpg" alt="" width="768" height="768" loading="lazy">
+            <img class="motion" data-src="images/luwa/luwa2.jpg" alt="" loading="lazy">
+          </div>
+          <div class="pub-body">
+            <h3><a href="https://ai4ce.github.io/LUWA/">LUWA Dataset: Learning Lithic Use-Wear Analysis on Microscopic
+                Images</a></h3>
+            <p class="authors">
+              <a href="https://jingz6676.github.io/">Jing Zhang</a>*,
+              <b>Irving Fang</b>*,
+              Hao Wu,
+              <a href="https://www.linkedin.com/in/akshat-kaushik/">Akshat Kaushik</a>,
+              <a
+                href="https://as.nyu.edu/departments/anthropology/people/graduate-students/doctoral-students/alice-rodriguez.html">Alice
+                Rodriguez</a>,
+              <a href="https://www.linkedin.com/in/hanwen-zhao-2523a4104/">Hanwen Zhao</a>,
+              <a href="https://juexzz.github.io/">Juexiao Zhang</a>,
+              Zhuo Zheng,
+              <a href="https://wp.nyu.edu/faculty-iovita/">Radu Iovita</a>,
+              <a href="https://scholar.google.com/citations?user=YeG8ZM0AAAAJ">Chen Feng</a>
+              <span class="note">(* for equal contribution)</span>
+            </p>
+            <p class="venue">CVPR 2024 &middot; <b>Highlight (11.9% of 2719 accepted papers)</b></p>
+            <p class="links">
+              <a href="https://ai4ce.github.io/LUWA/">project page</a>
+              <a href="https://arxiv.org/abs/2403.13171">arXiv</a>
+              <a href="https://github.com/ai4ce/LUWA">code</a>
+            </p>
+            <p class="blurb">
+              Paleoanthropology meets cutting-edge computer vision. We create the first Lithic Use-Wear Analysis (LUWA)
+              dataset and challenge Large Vision Model and Large Language and Vision Model with it.
+            </p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ── Personal Projects ──────────────────────────────────── -->
+    <section class="section" aria-labelledby="projects-heading">
+      <h2 id="projects-heading">Personal Projects</h2>
+      <p>
+        Please visit <a href="https://github.com/IrvingF7/my_project_list">this repo</a>. It contains pointers to some
+        personal projects ranging from robotics to a RISC-V CPU implemented on a Xilinx FPGA board.
+      </p>
+    </section>
+
+    <!-- ── Teaching ───────────────────────────────────────────── -->
+    <section class="section" aria-labelledby="teaching-heading">
+      <h2 id="teaching-heading">Teaching</h2>
+      <ul class="plain">
+        <li>Teaching Aide, ROB-UY 3203 Robot Vision <span class="note">Spring 2022, 2023, 2025</span></li>
+        <li>Teaching Aide, ROB-GY 6203 Robot Perception <span class="note">Fall 2022, 2023, 2025</span></li>
+      </ul>
+    </section>
+
+    <!-- ── Service ────────────────────────────────────────────── -->
+    <section class="section" aria-labelledby="service-heading">
+      <h2 id="service-heading">Service</h2>
+      <ul class="plain">
+        <li>Reviewer, NeurIPS 2025</li>
+        <li>Reviewer, RA-L 2025</li>
+        <li>Reviewer, ICRA 2024, ICRA 2025</li>
+        <li>Reviewer, IROS 2025</li>
+        <li>Reviewer, DARS 2024</li>
+      </ul>
+    </section>
+
+    <footer class="footer">
+      <p>
+        The website is based on Dr. Jon Barron's
+        <a href="https://github.com/jonbarron/jonbarron_website">source code</a>.
+      </p>
+    </footer>
+  </main>
+
+  <script>
+    // ── Publication tabs ──────────────────────────────────────
+    (function () {
+      var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+
+      function select(tab) {
+        tabs.forEach(function (t) {
+          var panel = document.getElementById(t.getAttribute('aria-controls'));
+          var on = t === tab;
+          t.setAttribute('aria-selected', on ? 'true' : 'false');
+          panel.hidden = !on;
+        });
+      }
+
+      tabs.forEach(function (tab, i) {
+        tab.addEventListener('click', function () { select(tab); });
+        // Left/right arrows move between tabs, per the ARIA tabs pattern.
+        tab.addEventListener('keydown', function (e) {
+          if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+          e.preventDefault();
+          var next = tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length];
+          next.focus();
+          select(next);
+        });
+      });
+    })();
+
+    // ── Thumbnail previews ────────────────────────────────────
+    // The motion layer (video or animated gif) is only fetched the first time
+    // it is actually needed, so the page does not download ~40 MB up front.
+    (function () {
+      var canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+      var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+      document.querySelectorAll('.media[data-preview]').forEach(function (media) {
+        var motion = media.querySelector('.motion');
+        if (!motion) return;
+
+        function ready() { motion.classList.add('is-ready'); }
+        motion.addEventListener(motion.tagName === 'VIDEO' ? 'loadeddata' : 'load', ready);
+
+        function load() {
+          if (!motion.dataset.src) return;
+          // A <video preload="none"> has no frame to show until asked, so under
+          // reduced motion request just enough to paint the first one.
+          if (motion.tagName === 'VIDEO' && reduceMotion.matches) {
+            motion.preload = 'metadata';
+          }
+          motion.src = motion.dataset.src;
+          delete motion.dataset.src;
+        }
+
+        function start() {
+          load();
+          media.classList.add('is-playing');
+          // Show the frame, but do not animate it for visitors who asked for
+          // reduced motion — otherwise the fade is suppressed while the video
+          // still downloads and loops behind it.
+          if (motion.play && !reduceMotion.matches) {
+            var p = motion.play();
+            if (p && p.catch) p.catch(function () { });
+          }
+        }
+
+        function stop() {
+          media.classList.remove('is-playing');
+          if (motion.pause) { motion.pause(); motion.currentTime = 0; }
+        }
+
+        if (canHover) {
+          media.addEventListener('mouseenter', start);
+          media.addEventListener('mouseleave', stop);
+        } else {
+          // No hover available: make the thumbnail a tap-to-play toggle.
+          // Name it after its paper so nine controls are not all "Play preview".
+          var title = media.closest('.pub').querySelector('h3');
+          media.setAttribute('role', 'button');
+          media.setAttribute('tabindex', '0');
+          media.setAttribute('aria-label',
+            'Play preview' + (title ? ': ' + title.textContent.trim() : ''));
+          media.classList.add('is-tappable');
+          media.addEventListener('click', function () {
+            media.classList.contains('is-playing') ? stop() : start();
+          });
+          media.addEventListener('keydown', function (e) {
+            if (e.key !== 'Enter' && e.key !== ' ') return;
+            e.preventDefault();
+            media.classList.contains('is-playing') ? stop() : start();
+          });
+        }
+      });
+    })();
+  </script>
 </body>
 
 </html>

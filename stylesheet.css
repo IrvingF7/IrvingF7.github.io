@@ -1,154 +1,637 @@
-/* latin-ext */
-@font-face {
-  font-family: 'Lato';
-  font-style: italic;
-  font-weight: 400;
-  src: local('Lato Italic'), local('Lato-Italic'), url(https://fonts.gstatic.com/s/lato/v15/S6u8w4BMUTPHjxsAUi-qNiXg7eU0.woff2) format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+/* ==========================================================================
+   Irving Fang — personal site
+   Type: Source Serif 4 (loaded in index.html) with a system-serif fallback.
+   Colour: warm paper, near-black ink, one muted ink-blue accent.
+
+   To highlight a selected paper, add is-featured to its list item:
+       <li class="pub is-featured">
+   Any number of entries can carry it, in either tab. See "Selected work".
+   ========================================================================== */
+
+:root {
+  /* Grounds */
+  --paper:       #fbf9f5;
+  --sunk:        #f4f0e8;   /* publication hover wash */
+  --figure:      #efeae0;   /* letterbox behind thumbnails */
+  --rule:        #e5e0d4;   /* hairlines inside lists */
+  --rule-strong: #d7d0c0;   /* section boundaries */
+
+  /* Selected-work wash. 1.21:1 against paper — clearly a marked row, while
+     every text token stays AA on it (ink 12.5:1, authors 6.2:1, venue 4.6:1,
+     links 7.2:1). Add class="pub is-featured" to an entry to use it. */
+  --wash:        #dde5f1;
+  --wash-hover:  #d5dfee;   /* deepens on hover instead of going warm */
+  --wash-edge:   #93a8c4;   /* thumbnail hairline on the wash */
+  --wash-ul:     #6f7f96;   /* link underline: 3.2:1 on wash, 3.9:1 on paper */
+
+  /* Ink — contrast ratios against --paper */
+  --ink:    #24221e;        /* 15.0:1  headings, paper titles, own name */
+  --ink-2:  #3c3934;        /* 10.9:1  body copy */
+  --ink-3:  #56514a;        /*  7.5:1  author lists */
+  --ink-4:  #6b6559;        /*  5.5:1  venue, blurb, small print */
+
+  /* Accent */
+  --accent:      #2b4a6f;   /*  8.6:1  links */
+  --accent-deep: #1d3450;   /* 12.0:1  link hover */
+  /* Resting link underline. 3.25:1 on paper and 3.00:1 on the hover wash,
+     so it stays a perceivable affordance (WCAG 1.4.11) in both states. */
+  --underline:   #7d8ca3;
+
+  --serif: "Source Serif 4", "Source Serif Pro", "Iowan Old Style", Charter,
+           Palatino, "Palatino Linotype", Georgia, "Noto Serif", serif;
+  --sans:  ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+           Helvetica, Arial, sans-serif;
+
+  /* Prose measure. 42rem is the full width of the content column, so section
+     prose aligns flush with the section rules and the publication entries
+     instead of stopping short of them. */
+  --measure: 42rem;
+  --section-gap: 3rem;
 }
-/* latin */
-@font-face {
-  font-family: 'Lato';
-  font-style: italic;
-  font-weight: 400;
-  src: local('Lato Italic'), local('Lato-Italic'), url(https://fonts.gstatic.com/s/lato/v15/S6u8w4BMUTPHjxsAXC-qNiXg7Q.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+
+/* --------------------------------------------------------------- base ---- */
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
 }
-/* latin-ext */
-@font-face {
-  font-family: 'Lato';
-  font-style: italic;
-  font-weight: 700;
-  src: local('Lato Bold Italic'), local('Lato-BoldItalic'), url(https://fonts.gstatic.com/s/lato/v15/S6u_w4BMUTPHjxsI5wq_FQftx9897sxZ.woff2) format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink-2);
+  font-family: var(--serif);
+  font-size: 1.0625rem;               /* 17px */
+  line-height: 1.62;
+  /* Old-style figures sit on the baseline with ascenders and descenders, so
+     years inside prose read as words rather than as data. Tabular lining
+     figures are re-enabled on metadata (.venue, .links) where they align. */
+  font-variant-numeric: oldstyle-num;
+  /* Let the variable font's optical-size axis track the type size, which is
+     what keeps 44px display type from looking coarse next to 17px text. */
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
-/* latin */
-@font-face {
-  font-family: 'Lato';
-  font-style: italic;
-  font-weight: 700;
-  src: local('Lato Bold Italic'), local('Lato-BoldItalic'), url(https://fonts.gstatic.com/s/lato/v15/S6u_w4BMUTPHjxsI5wq_Gwftx9897g.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+
+.page {
+  max-width: 46rem;
+  margin-inline: auto;
+  padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1.25rem, 4vw, 2rem) 4rem;
 }
-/* latin-ext */
-@font-face {
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Lato Regular'), local('Lato-Regular'), url(https://fonts.gstatic.com/s/lato/v15/S6uyw4BMUTPHjxAwXiWtFCfQ7A.woff2) format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Lato Regular'), local('Lato-Regular'), url(https://fonts.gstatic.com/s/lato/v15/S6uyw4BMUTPHjx4wXiWtFCc.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-/* latin-ext */
-@font-face {
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 700;
-  src: local('Lato Bold'), local('Lato-Bold'), url(https://fonts.gstatic.com/s/lato/v15/S6u9w4BMUTPHh6UVSwaPGQ3q5d0N7w.woff2) format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 700;
-  src: local('Lato Bold'), local('Lato-Bold'), url(https://fonts.gstatic.com/s/lato/v15/S6u9w4BMUTPHh6UVSwiPGQ3q5d0.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
+
+p { margin: 0 0 1.1rem; max-width: var(--measure); }
+p:last-child { margin-bottom: 0; }
+
+b, strong { font-weight: 600; color: var(--ink); }
+
+img, video { display: block; max-width: 100%; }
+
+/* --------------------------------------------------------------- links --- */
 
 a {
-  color: #1772d0;
+  color: var(--accent);
   text-decoration: none;
+  border-bottom: 1px solid var(--underline);
+  transition: color 140ms ease-out, border-color 140ms ease-out;
 }
 
-a:focus,
-a:hover {
-  color: #f09228;
+a:hover,
+a:focus-visible {
+  color: var(--accent-deep);
+  border-bottom-color: currentColor;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ----------------------------------------------------------- headings --- */
+
+h1 {
+  /* Pulled left by its own side bearing so the stem of the "I" aligns with
+     the prose below it rather than sitting visibly inset. */
+  margin: 0 0 1.25rem -0.055em;
+  color: var(--ink);
+  font-size: clamp(2.125rem, 1.6rem + 2.2vw, 2.75rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.017em;
+}
+
+/* Set in the serif rather than as a small sans label: at 12px uppercase these
+   read as the same typographic object as the venue lines, which are also
+   uppercase sans 600. Headings are serif, metadata and controls are sans. */
+h2 {
+  margin: 0 0 1.3rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--rule-strong);
+  color: var(--ink);
+  font-size: clamp(1.375rem, 1.15rem + 1vw, 1.625rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.012em;
+}
+
+h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.1875rem;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.008em;
+}
+
+h3 a {
+  color: var(--ink);
+  border-bottom-color: transparent;
+}
+
+h3 a:hover,
+h3 a:focus-visible {
+  color: var(--accent-deep);
+  border-bottom-color: currentColor;
+}
+
+.section { margin-top: var(--section-gap); }
+
+/* --------------------------------------------------------------- intro --- */
+
+/* The portrait floats so the intro wraps beside it and then reclaims the full
+   column width underneath — a grid column would leave a dead zone below the
+   photo and hold every line to a measure 20+ characters shorter than the
+   Research prose below it. */
+.masthead::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.standfirst {
+  color: var(--ink);
+  font-size: 1.1875rem;
+  line-height: 1.52;
+}
+
+.portrait {
+  float: right;
+  width: 11rem;
+  margin: 0 0 1.25rem 2rem;
+  /* Optical alignment: sit the plate with the cap-height of the name. */
+  padding-top: 0.5rem;
+}
+
+.portrait img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 2px;
+  background: var(--figure);
+  box-shadow: 0 0 0 1px var(--rule-strong);
+}
+
+.portrait a {
+  display: block;
+  border-bottom: 0;
+}
+
+.contact {
+  margin-top: 1.4rem;
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+}
+
+.contact a + a { margin-left: 0.35rem; }
+
+.contact a + a::before {
+  content: "/";
+  margin-right: 0.55rem;
+  color: var(--rule-strong);
+  /* The separator lives inside the anchor, so it must be an atomic inline box
+     or the link's underline runs straight through it. */
+  display: inline-block;
   text-decoration: none;
+  border-bottom: 0;
 }
 
-body,
-td,
-th,
-tr,
-p,
-a {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 14px
+/* Keep the slash out of the underline of the following link. */
+.contact a {
+  border-bottom: 0;
+  text-decoration: underline;
+  text-decoration-color: var(--underline);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color 140ms ease-out, text-decoration-color 140ms ease-out;
 }
 
-strong {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 14px;
+.contact a:hover,
+.contact a:focus-visible { text-decoration-color: currentColor; }
+
+/* ---------------------------------------------------------- collab note -- */
+
+.collab {
+  margin-top: 1.4rem;
+  max-width: var(--measure);
 }
 
-heading {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 22px;
+.collab summary {
+  color: var(--accent);
+  cursor: pointer;
+  font-size: 1rem;
+  width: fit-content;
+  text-decoration: underline;
+  text-decoration-color: var(--underline);
+  text-underline-offset: 3px;
+  transition: color 140ms ease-out, text-decoration-color 140ms ease-out;
 }
 
-papertitle {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 14px;
-  font-weight: 700
+.collab summary:hover {
+  color: var(--accent-deep);
+  text-decoration-color: currentColor;
 }
 
-name {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 32px;
+.collab summary::marker { color: var(--ink-4); }
+
+.collab[open] summary { margin-bottom: 0.9rem; }
+
+.collab p {
+  font-size: 1rem;
+  color: var(--ink-3);
 }
 
-.one {
-  width: 160px;
-  height: 160px;
+/* ---------------------------------------------------------------- tabs --- */
+
+.tabs {
+  display: flex;
+  gap: 1.75rem;
+  margin: 0 0 1.75rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.tabs button {
+  appearance: none;
+  margin: 0 0 -1px;
+  padding: 0.3rem 0 0.5rem;
+  background: none;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  color: var(--ink-4);
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 140ms ease-out, border-color 140ms ease-out;
+}
+
+.tabs button:hover { color: var(--ink); }
+
+.tabs button[aria-selected="true"] {
+  color: var(--ink);
+  border-bottom-color: var(--accent);
+}
+
+/* ------------------------------------------------------- publications --- */
+
+.pubs {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pub {
+  display: grid;
+  grid-template-columns: 9.5rem minmax(0, 1fr);
+  gap: 1.6rem;
+  padding: 1.6rem 1rem;
+  margin-inline: -1rem;
+  border-radius: 3px;
+  transition: background-color 140ms ease-out;
+}
+
+.pub:hover { background-color: var(--sunk); }
+
+.pub + .pub { box-shadow: 0 -1px 0 var(--rule); }
+
+/* ---- Selected work -------------------------------------------------------
+   Mark an entry by adding is-featured:  <li class="pub is-featured">
+   The wash plus a 2px accent rail on the leading edge, which is what carries
+   the distinction when the page is printed or viewed without colour. --------- */
+
+.pub.is-featured {
   position: relative;
+  background-color: var(--wash);
 }
 
-.two {
-  width: 160px;
-  height: 160px;
+.pub.is-featured::before {
+  content: "";
   position: absolute;
-  transition: opacity .2s ease-in-out;
-  -moz-transition: opacity .2s ease-in-out;
-  -webkit-transition: opacity .2s ease-in-out;
+  inset: 0 auto 0 0;
+  width: 2px;
+  border-radius: 3px 0 0 3px;
+  background: var(--accent);
 }
 
-.fade {
-  transition: opacity .2s ease-in-out;
-  -moz-transition: opacity .2s ease-in-out;
-  -webkit-transition: opacity .2s ease-in-out;
+/* Hover deepens the wash slightly rather than replacing it with the warm one. */
+.pub.is-featured:hover { background-color: var(--wash-hover); }
+
+/* The small print is the one token that would fall under 4.5:1 on the wash,
+   so nudge it darker inside a marked entry (4.99:1 on wash, 4.71:1 hovered). */
+.pub.is-featured .venue,
+.pub.is-featured .blurb,
+.pub.is-featured .note,
+.pub.is-featured .pending { color: #655f54; }
+
+/* The hairline between entries would cut across the wash. */
+.pub.is-featured,
+.pub.is-featured + .pub { box-shadow: none; }
+
+/* Two marked entries in a row would fuse into one block, so keep a hairline
+   between them — in the wash's own hue, not the warm one. */
+.pub.is-featured + .pub.is-featured { box-shadow: 0 -1px 0 #c5d2e6; }
+
+/* Links need a darker underline to stay perceivable on the wash. Only the
+   links row is underlined at rest here, so scope it to that — a blanket
+   `a` rule would defeat the transparent borders on titles and author names. */
+.pub.is-featured .links a { text-decoration-color: var(--wash-ul); }
+
+.pub.is-featured .media { box-shadow: inset 0 0 0 1px var(--wash-edge); }
+
+.media {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 2px;
+  background: var(--figure);
+  box-shadow: inset 0 0 0 1px var(--rule-strong);
 }
 
-span.highlight {
-  background-color: #ffffd0;
+.media > * {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-/* buttons */
-.btn {
-  background-color: #002576a9 !important; /* Green background */
-  color: white; /* White text */
-  padding: 10px 20px; /* Padding around the button */
-  border: none; /* Remove border */
-  border-radius: 5px; /* Rounded corners */
-  cursor: pointer; /* Pointer cursor on hover */
-  font-size: 16px; /* Font size */
-  margin: 10px; /* Space between buttons */
-  transition: background-color 0.3s ease; /* Smooth background color transition */
-}
-.btn:hover {
-  background-color: #0025764a !important; /* Darker green on hover */
+.media .motion {
+  opacity: 0;
+  transition: opacity 200ms ease-in-out;
 }
 
-.btn.active {
-  background-color: #0025764a !important;
+/* Only reveal the motion layer once it actually has a frame, so a cold fetch
+   on a slow connection shows the still rather than an empty box. */
+.media.is-playing .motion.is-ready { opacity: 1; }
+
+.media.is-tappable { cursor: pointer; }
+
+.pub-body > *:last-child { margin-bottom: 0; }
+
+.authors {
+  margin-bottom: 0.25rem;
+  max-width: none;
+  color: var(--ink-3);
+  font-size: 0.9375rem;
+  line-height: 1.5;
 }
-.btn.inactive {
-  background-color: #0025764a !important;
+
+.authors a {
+  color: var(--ink-3);
+  border-bottom-color: transparent;
+}
+
+.authors a:hover,
+.authors a:focus-visible {
+  color: var(--accent-deep);
+  border-bottom-color: currentColor;
+}
+
+.authors b { color: var(--ink); }
+
+/* Venue is what a committee triages on, so it outranks the links row:
+   full-strength ink and a small caps-height sans label, not a grey aside. */
+.venue {
+  margin-bottom: 0.5rem;
+  max-width: none;
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-variant-numeric: lining-num;
+}
+
+/* "Highlight (11.9% of 2719 accepted papers)" and similar distinctions.
+   Marked with the accent rather than a highlighter fill: at a tint pale
+   enough to stay restrained a fill is invisible anyway. */
+.venue b {
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.note {
+  color: var(--ink-4);
+  font-size: 0.8125rem;
+  font-style: italic;
+}
+
+.links {
+  margin-bottom: 0.7rem;
+  max-width: none;
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+  letter-spacing: 0.03em;
+  font-variant-numeric: lining-num;
+}
+
+.links > * + *::before {
+  content: "·";
+  margin: 0 0.5rem;
+  color: var(--rule-strong);
+  /* As above: keep the middot out of the link's underline. */
+  display: inline-block;
+  text-decoration: none;
+}
+
+.links a {
+  border-bottom: 0;
+  text-decoration: underline;
+  text-decoration-color: var(--underline);
+  text-underline-offset: 3px;
+  transition: color 140ms ease-out, text-decoration-color 140ms ease-out;
+}
+
+.links a:hover,
+.links a:focus-visible { text-decoration-color: currentColor; }
+
+/* Links that do not exist yet (e.g. an arXiv id not yet assigned). */
+.pending { color: var(--ink-4); }
+
+.blurb {
+  max-width: 30rem;
+  color: var(--ink-4);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+/* ------------------------------------------------------- simple lists --- */
+
+.plain {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  max-width: var(--measure);
+}
+
+.plain li + li { margin-top: 0.35rem; }
+
+/* -------------------------------------------------------------- footer --- */
+
+.footer {
+  margin-top: var(--section-gap);
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule-strong);
+  color: var(--ink-4);
+  font-size: 0.8125rem;
+}
+
+.footer p { max-width: none; }
+
+/* ------------------------------------------------------------ responsive - */
+
+@media (max-width: 40rem) {
+  :root { --section-gap: 2.25rem; }
+
+  /* Lead with the face: stop floating it and put it above the name. */
+  .masthead { display: flex; flex-direction: column; }
+
+  .portrait {
+    order: -1;
+    float: none;
+    width: 9.5rem;
+    margin: 0 0 1.25rem;
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 34rem) {
+  .pub {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1.4rem 0;
+    margin-inline: 0;
+  }
+
+  .pub:hover { background-color: transparent; }
+
+  /* Keep the wash on a marked entry (hover does not apply here), and give it
+     back the horizontal padding the stacked layout drops. */
+  .pub.is-featured,
+  .pub.is-featured:hover {
+    padding: 1.4rem 0.9rem;
+    margin-inline: -0.9rem;
+    background-color: var(--wash);
+  }
+
+  .media { width: min(13.75rem, 60vw); }
+
+  .tabs { gap: 1.25rem; }
+}
+
+/* ---------------------------------------------------------------- a11y --- */
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
+  /* The preview still appears — it just cuts in instead of fading, and the
+     video is left paused on its first frame (see the script in index.html). */
+  .media.is-playing .motion { opacity: 1; }
+}
+
+/* --------------------------------------------------------------- print --- */
+
+@media print {
+  :root {
+    --paper: #fff;
+    --sunk: #fff;
+    --ink: #000;
+    --ink-2: #1a1a1a;
+    --ink-3: #333;
+    --ink-4: #444;
+    --accent: #000;
+    --accent-deep: #000;
+  }
+
+  body { font-size: 10.5pt; line-height: 1.45; }
+
+  .page { max-width: none; padding: 0; }
+
+  .media .motion,
+  .collab,
+  .tabs { display: none; }
+
+  /* Both research areas belong on paper. With the interactive tab strip gone,
+     each list prints its own heading so the grouping survives. */
+  .pubs[hidden] { display: block !important; }
+
+  .pubs::before {
+    content: attr(data-label);
+    display: block;
+    margin-bottom: 0.4rem;
+    font-family: var(--sans);
+    font-size: 8.5pt;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    break-after: avoid;
+  }
+
+  /* Keep a group heading with its first entry rather than orphaning it. */
+  .pubs > .pub:first-child { break-before: avoid; }
+
+  .pubs + .pubs::before { margin-top: 1.2rem; }
+
+  .pub {
+    break-inside: avoid;
+    padding: 0.6rem 0;
+    margin-inline: 0;
+  }
+
+  /* Box shadows print unevenly across engines; rely on rules instead. */
+  .pub,
+  .media,
+  .portrait img { box-shadow: none; }
+
+  .pub + .pub { border-top: 1px solid #ccc; }
+
+  .media { border: 1px solid #ccc; }
+
+  /* Don't flood the page with a background most printers drop anyway — the
+     accent rail already carries the distinction, so keep just that. */
+  .pub.is-featured {
+    background: none;
+    padding-left: 0.6rem;
+  }
+
+  .pub.is-featured::before { background: #000; }
+
+  a { color: #000; border-bottom: 0; text-decoration: underline; }
 }
