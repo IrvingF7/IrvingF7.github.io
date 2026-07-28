@@ -42,10 +42,11 @@
   --sans:  ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
            Helvetica, Arial, sans-serif;
 
-  /* Prose measure. 42rem is the full width of the content column, so section
-     prose aligns flush with the section rules and the publication entries
-     instead of stopping short of them. */
-  --measure: 42rem;
+  /* Prose measure — ~70 characters. Deliberately narrower than the page now
+     that the canvas is 58rem: the section rules and the publication index run
+     the full width while prose keeps a readable line, which is what gives the
+     page its asymmetry instead of stretching everything to the edges. */
+  --measure: 40rem;
   --section-gap: 3rem;
 }
 
@@ -78,8 +79,11 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+/* Wider canvas than the 46rem the prose alone would want, because the
+   publication index needs room for a venue rail plus a real thumbnail. Prose
+   is held to --measure independently, so lines never run too long. */
 .page {
-  max-width: 46rem;
+  max-width: 58rem;
   margin-inline: auto;
   padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1.25rem, 4vw, 2rem) 4rem;
 }
@@ -127,15 +131,20 @@ h1 {
 
 /* Set in the serif rather than as a small sans label: at 12px uppercase these
    read as the same typographic object as the venue lines, which are also
-   uppercase sans 600. Headings are serif, metadata and controls are sans. */
+   uppercase sans 600. Headings are serif, metadata and controls are sans.
+
+   The rule sits *under the label only* rather than spanning the column — a
+   short heavy underline reads as a considered mark; a full-width hairline reads
+   as a divider, and the page already has enough of those. */
 h2 {
-  margin: 0 0 1.3rem;
-  padding-top: 1.1rem;
-  border-top: 1px solid var(--rule-strong);
+  display: inline-block;
+  margin: 0 0 1.5rem;
+  padding: 0 0 0.4rem;
+  border-bottom: 2px solid var(--ink);
   color: var(--ink);
   font-size: clamp(1.375rem, 1.15rem + 1vw, 1.625rem);
   font-weight: 400;
-  line-height: 1.15;
+  line-height: 1.2;
   letter-spacing: -0.012em;
 }
 
@@ -158,7 +167,12 @@ h3 a:focus-visible {
   border-bottom-color: currentColor;
 }
 
-.section { margin-top: var(--section-gap); }
+/* The boundary now lives on the section, since h2 carries its own underline. */
+.section {
+  margin-top: var(--section-gap);
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--rule-strong);
+}
 
 /* --------------------------------------------------------------- intro --- */
 
@@ -172,6 +186,10 @@ h3 a:focus-visible {
   clear: both;
 }
 
+/* Held to the prose measure plus the photo, so the portrait sits beside the
+   intro rather than drifting out to the edge of the wider canvas. */
+.masthead { max-width: calc(var(--measure) + 13.5rem); }
+
 .standfirst {
   color: var(--ink);
   font-size: 1.1875rem;
@@ -181,7 +199,7 @@ h3 a:focus-visible {
 .portrait {
   float: right;
   width: 11rem;
-  margin: 0 0 1.25rem 2rem;
+  margin: 0 0 1.25rem 2.5rem;
   /* Optical alignment: sit the plate with the cap-height of the name. */
   padding-top: 0.5rem;
 }
@@ -307,15 +325,35 @@ h3 a:focus-visible {
   list-style: none;
 }
 
+/* Entries are set as an index rather than a stack of cards: the venue hangs in
+   a left rail so all nine align in a vertical stack the eye can run down in one
+   pass, and the thumbnail anchors the right edge. Reading order becomes
+   venue -> title -> authors, which is the order the list is skimmed in. */
 .pub {
   display: grid;
-  grid-template-columns: 9.5rem minmax(0, 1fr);
-  gap: 1.6rem;
-  padding: 1.6rem 1rem;
+  grid-template-columns: 6.75rem minmax(0, 1fr) 13rem;
+  gap: 0 1.75rem;
+  padding: 1.75rem 1rem;
   margin-inline: -1rem;
   border-radius: 3px;
+  align-items: start;
   transition: background-color 140ms ease-out;
 }
+
+.pub > .media { grid-column: 3; grid-row: 1; }
+
+.pub > .venue {
+  grid-column: 1;
+  grid-row: 1;
+  margin: 0;
+  /* Optically align the label with the cap-height of the title beside it. */
+  padding-top: 0.34em;
+  text-align: right;
+  line-height: 1.35;
+  color: var(--ink);
+}
+
+.pub > .pub-body { grid-column: 2; grid-row: 1; }
 
 .pub:hover { background-color: var(--sunk); }
 
@@ -509,6 +547,27 @@ h3 a:focus-visible {
 
 /* ------------------------------------------------------------ responsive - */
 
+/* Below the point where a venue rail plus a 13rem thumbnail still fits, the
+   index folds to two columns: text left, thumbnail right, venue above the
+   title where it still leads the entry. */
+@media (max-width: 52rem) {
+  .pub {
+    grid-template-columns: minmax(0, 1fr) 9.5rem;
+    gap: 0.45rem 1.5rem;
+  }
+
+  .pub > .media { grid-column: 2; grid-row: 1 / span 2; }
+
+  .pub > .venue {
+    grid-column: 1;
+    grid-row: 1;
+    padding-top: 0;
+    text-align: left;
+  }
+
+  .pub > .pub-body { grid-column: 1; grid-row: 2; }
+}
+
 @media (max-width: 40rem) {
   :root { --section-gap: 2.25rem; }
 
@@ -527,9 +586,20 @@ h3 a:focus-visible {
 @media (max-width: 34rem) {
   .pub {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 0.45rem 0;
     padding: 1.4rem 0;
     margin-inline: 0;
+  }
+
+  .pub > .venue { grid-column: 1; grid-row: 1; }
+  .pub > .pub-body { grid-column: 1; grid-row: 2; }
+
+  /* Thumbnail drops below the text on the narrowest screens. */
+  .pub > .media {
+    grid-column: 1;
+    grid-row: 3;
+    width: min(13.75rem, 60vw);
+    margin-top: 1rem;
   }
 
   .pub:hover { background-color: transparent; }
@@ -542,8 +612,6 @@ h3 a:focus-visible {
     margin-inline: -0.9rem;
     background-color: var(--wash);
   }
-
-  .media { width: min(13.75rem, 60vw); }
 
   .tabs { gap: 1.25rem; }
 }
