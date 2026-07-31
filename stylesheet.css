@@ -42,11 +42,11 @@
   --sans:  ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
            Helvetica, Arial, sans-serif;
 
-  /* Prose measure — ~70 characters. Deliberately narrower than the page now
-     that the canvas is 58rem: the section rules and the publication index run
-     the full width while prose keeps a readable line, which is what gives the
-     page its asymmetry instead of stretching everything to the edges. */
-  --measure: 40rem;
+  /* Prose measure. Unset, so body copy runs the full width of the canvas and
+     shares its left and right edge with the section rules, the contact row and
+     the publication index — no short column with dead space beside it. Give
+     this a length (e.g. 40rem) to hold prose to a narrower measure again. */
+  --measure: none;
   --section-gap: 3rem;
 }
 
@@ -80,8 +80,8 @@ body {
 }
 
 /* Wider canvas than the 46rem the prose alone would want, because the
-   publication index needs room for a venue rail plus a real thumbnail. Prose
-   is held to --measure independently, so lines never run too long. */
+   publication index needs room for a venue rail plus a real thumbnail. Every
+   block now runs this width, so the page has one left and one right edge. */
 .page {
   max-width: 58rem;
   margin-inline: auto;
@@ -186,9 +186,9 @@ h3 a:focus-visible {
   clear: both;
 }
 
-/* Held to the prose measure plus the photo, so the portrait sits beside the
-   intro rather than drifting out to the edge of the wider canvas. */
-.masthead { max-width: calc(var(--measure) + 13.5rem); }
+/* Full canvas width, so the portrait's right edge lines up with the section
+   rules and the publication thumbnails below it. */
+.masthead { max-width: none; }
 
 .standfirst {
   color: var(--ink);
