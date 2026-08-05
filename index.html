@@ -14,58 +14,98 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+    href="https://fonts.googleapis.com/css2?family=Doto:wght@500;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
   <link rel="stylesheet" href="stylesheet.css">
 </head>
 
 <body>
-  <main class="page">
+  <a class="skip-link" href="#content-start">Skip to content</a>
+
+  <main class="page" id="main-content">
+    <nav class="control-bar" aria-label="Primary navigation">
+      <a class="brand" href="#main-content" aria-label="Irving Fang, home">
+        <span class="brand-mark" aria-hidden="true">IF</span>
+        <span class="brand-copy">Irving Fang <small>research archive</small></span>
+      </a>
+
+      <div class="page-links">
+        <a href="#research-heading"><span>01</span> Research</a>
+        <a href="#pubs-heading"><span>02</span> Publications</a>
+        <a href="#projects-heading"><span>03</span> Projects</a>
+        <a href="data/Irving-Resume.pdf"><span>PDF</span> CV</a>
+      </div>
+
+      <span class="system-status"><i aria-hidden="true"></i> Contact channel open</span>
+    </nav>
 
     <!-- ── Masthead ───────────────────────────────────────────── -->
-    <header class="masthead">
-      <!-- Floated, so the intro wraps beside the photo and then reclaims the
-           full column width beneath it. Must precede the text it wraps. -->
+    <header class="masthead" id="content-start" tabindex="-1">
       <figure class="portrait">
         <a href="images/Irving Fang.jpg">
           <img src="images/Irving Fang.jpg" alt="Irving Fang" width="1108" height="1477">
         </a>
+        <figcaption>
+          <span>IF–07 / profile</span>
+          <span>researcher + engineer</span>
+        </figcaption>
       </figure>
 
-      <h1>Irving Fang</h1>
+      <div class="intro-panel">
+        <p class="hero-meta"><span>Robotics / embodied AI</span><span>Research profile / 2026</span></p>
+        <div class="nameplate">
+          <h1><span>Irving</span> <span>Fang</span></h1>
+          <svg class="robot-glyph" viewBox="0 0 120 96" aria-hidden="true" focusable="false"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path class="robot-glyph__trajectory" d="M19 34C43 8 88 7 108 34" />
+            <path class="robot-glyph__base" d="M10 83h38M16 76h26M22 69h14" />
+            <path class="robot-glyph__arm" d="M29 69 45 47 69 57 88 31" />
+            <circle class="robot-glyph__joint" cx="29" cy="69" r="5.5" />
+            <circle class="robot-glyph__joint" cx="45" cy="47" r="5.5" />
+            <circle class="robot-glyph__joint robot-glyph__joint--active" cx="69" cy="57" r="5.5" />
+            <circle class="robot-glyph__joint" cx="88" cy="31" r="4.5" />
+            <path class="robot-glyph__tool" d="m88 31 12-6m0 0 9-6m-9 6 7 9" />
+            <path class="robot-glyph__signal" d="M91 49h17" />
+            <rect class="robot-glyph__sensor" x="108" y="45" width="5" height="8" rx="1" />
+          </svg>
+        </div>
+        <p class="hero-fields">contact-rich manipulation · perception · hardware</p>
 
-      <p class="standfirst">
-        I am a Computer Science PhD candidate at <a href="https://cims.nyu.edu/">New York University</a>, advised by
-        <a href="https://engineering.nyu.edu/faculty/chen-feng">Prof. Chen Feng</a>. I also collaborate closely with
-        <a href="https://yunzhuli.github.io/">Prof. Yunzhu Li</a> at Columbia University.
-      </p>
+        <div class="bio-copy">
+          <p class="standfirst">
+            I am a Computer Science PhD candidate at <a href="https://cims.nyu.edu/">New York University</a>, advised by
+            <a href="https://engineering.nyu.edu/faculty/chen-feng">Prof. Chen Feng</a>. I also collaborate closely with
+            <a href="https://yunzhuli.github.io/">Prof. Yunzhu Li</a> at Columbia University.
+          </p>
 
-      <p>
-        I obtained my bachelor's degree from <a href="https://cdss.berkeley.edu/">UC Berkeley</a>, double majoring in
-        <b>Data Science</b> (Robotics Emphasis) and <b>Mathematics</b>, with minors in <b>Japanese Literature</b> and
-        <b>EECS</b>. At UC Berkeley I was fortunate enough to work with
-        <a href="https://me.berkeley.edu/people/alice-m-agogino/">Prof. Alice Agogino</a> at her
-        <a href="https://best.berkeley.edu/">BEST Lab</a> and
-        <a href="https://squishy-robotics.com/">Squishy Robotics</a>.
-      </p>
+          <p>
+            I obtained my bachelor's degree from <a href="https://cdss.berkeley.edu/">UC Berkeley</a>, double majoring in
+            <b>Data Science</b> (Robotics Emphasis) and <b>Mathematics</b>, with minors in <b>Japanese Literature</b> and
+            <b>EECS</b>. At UC Berkeley I was fortunate enough to work with
+            <a href="https://me.berkeley.edu/people/alice-m-agogino/">Prof. Alice Agogino</a> at her
+            <a href="https://best.berkeley.edu/">BEST Lab</a> and
+            <a href="https://squishy-robotics.com/">Squishy Robotics</a>.
+          </p>
 
-      <p>
-        I am currently at Amazon Frontier AI & Robotics as a Member of Technical Staff Intern. In the past, I have interned at <a href="https://www.analog.com/en/index.html">Analog Devices</a> and
-        <a href="https://www.merl.com/">Mitsubishi Electric Research Laboratories</a>, mostly working on some
-        combination of tactile sensing, reinforcement learning, imitation learning and so on in the context of
-        <b>robotics</b>.
-      </p>
+          <p>
+            I am currently at Amazon Frontier AI & Robotics as a Member of Technical Staff Intern. In the past, I have interned at <a href="https://www.analog.com/en/index.html">Analog Devices</a> and
+            <a href="https://www.merl.com/">Mitsubishi Electric Research Laboratories</a>, mostly working on some
+            combination of tactile sensing, reinforcement learning, imitation learning and so on in the context of
+            <b>robotics</b>.
+          </p>
 
-      <p>
-        In my free time, I am a hardware hobbyist who enjoys playing with MCUs, FPGAs and 3D printing. I am also a fan
-        of industrial/clothing/jewelry design.
-      </p>
+          <p>
+            In my free time, I am a hardware hobbyist who enjoys playing with MCUs, FPGAs and 3D printing. I am also a fan
+            of industrial/clothing/jewelry design.
+          </p>
+        </div>
 
-      <nav class="contact" aria-label="Contact and profiles">
-        <a href="mailto:irvingf7@berkeley.edu">Email</a>
-        <a href="data/Irving-Resume.pdf">CV</a>
-        <a href="https://scholar.google.com/citations?user=0jVr_XwAAAAJ&amp;hl=en">Google Scholar</a>
-        <a href="https://github.com/IrvingF7">GitHub</a>
-      </nav>
+        <nav class="contact" aria-label="Contact and profiles">
+          <a href="mailto:irvingf7@berkeley.edu">Email</a>
+          <a href="data/Irving-Resume.pdf">CV</a>
+          <a href="https://scholar.google.com/citations?user=0jVr_XwAAAAJ&amp;hl=en">Google Scholar</a>
+          <a href="https://github.com/IrvingF7">GitHub</a>
+        </nav>
+      </div>
     </header>
 
     <!-- ── Research ───────────────────────────────────────────── -->
@@ -112,16 +152,19 @@
       <h2 id="pubs-heading">Publications</h2>
 
       <div class="tabs" role="tablist" aria-label="Research areas">
-        <button type="button" role="tab" id="tab-robotics" aria-controls="panel-robotics" aria-selected="true">
+        <button type="button" role="tab" id="tab-robotics" aria-controls="panel-robotics" aria-selected="true"
+          tabindex="0">
           Robotics
         </button>
-        <button type="button" role="tab" id="tab-ai4science" aria-controls="panel-ai4science" aria-selected="false">
+        <button type="button" role="tab" id="tab-ai4science" aria-controls="panel-ai4science" aria-selected="false"
+          tabindex="-1">
           AI4Science
         </button>
       </div>
 
       <!-- Robotics -->
-      <ul class="pubs" role="tabpanel" id="panel-robotics" aria-labelledby="tab-robotics" data-label="Robotics">
+      <div class="tab-panel" role="tabpanel" id="panel-robotics" aria-labelledby="tab-robotics">
+        <ul class="pubs" data-label="Robotics">
 
         <li class="pub is-featured">
           <div class="media" data-preview>
@@ -339,11 +382,12 @@
             </p>
           </div>
         </li>
-      </ul>
+        </ul>
+      </div>
 
       <!-- AI4Science -->
-      <ul class="pubs" role="tabpanel" id="panel-ai4science" aria-labelledby="tab-ai4science" data-label="AI4Science"
-        hidden>
+      <div class="tab-panel" role="tabpanel" id="panel-ai4science" aria-labelledby="tab-ai4science" hidden>
+        <ul class="pubs" data-label="AI4Science">
 
         <li class="pub">
           <div class="media">
@@ -415,7 +459,8 @@
             </p>
           </div>
         </li>
-      </ul>
+        </ul>
+      </div>
     </section>
 
     <!-- ── Personal Projects ──────────────────────────────────── -->
@@ -449,10 +494,12 @@
     </section>
 
     <footer class="footer">
-      <p>
-        The website is based on Dr. Jon Barron's
+      <p class="footer-status"><i aria-hidden="true"></i> End of transmission / 2026</p>
+      <p class="footer-credit">
+        Site foundation based on Dr. Jon Barron's
         <a href="https://github.com/jonbarron/jonbarron_website">source code</a>.
       </p>
+      <a class="top-link" href="#main-content">Return to top <span aria-hidden="true">↑</span></a>
     </footer>
   </main>
 
@@ -466,6 +513,7 @@
           var panel = document.getElementById(t.getAttribute('aria-controls'));
           var on = t === tab;
           t.setAttribute('aria-selected', on ? 'true' : 'false');
+          t.setAttribute('tabindex', on ? '0' : '-1');
           panel.hidden = !on;
         });
       }
@@ -493,6 +541,23 @@
       document.querySelectorAll('.media[data-preview]').forEach(function (media) {
         var motion = media.querySelector('.motion');
         if (!motion) return;
+        var title = media.closest('.pub').querySelector('h3');
+        var previewName = title ? ': ' + title.textContent.trim() : '';
+        var isAnimatedImage = motion.tagName === 'IMG' && /\.gif(?:$|[?#])/i.test(motion.dataset.src || '');
+
+        // Animated images cannot be paused reliably. Keep the authored still
+        // and do not expose a non-functional preview control when reduced
+        // motion is requested; videos can still reveal one paused frame.
+        if (reduceMotion.matches && isAnimatedImage) {
+          media.classList.add('is-motion-suppressed');
+          return;
+        }
+
+        function updateToggle(playing) {
+          if (media.getAttribute('role') !== 'button') return;
+          media.setAttribute('aria-pressed', playing ? 'true' : 'false');
+          media.setAttribute('aria-label', (playing ? 'Pause preview' : 'Play preview') + previewName);
+        }
 
         function ready() { motion.classList.add('is-ready'); }
         motion.addEventListener(motion.tagName === 'VIDEO' ? 'loadeddata' : 'load', ready);
@@ -511,6 +576,7 @@
         function start() {
           load();
           media.classList.add('is-playing');
+          updateToggle(true);
           // Show the frame, but do not animate it for visitors who asked for
           // reduced motion — otherwise the fade is suppressed while the video
           // still downloads and loops behind it.
@@ -522,6 +588,7 @@
 
         function stop() {
           media.classList.remove('is-playing');
+          updateToggle(false);
           if (motion.pause) { motion.pause(); motion.currentTime = 0; }
         }
 
@@ -531,11 +598,9 @@
         } else {
           // No hover available: make the thumbnail a tap-to-play toggle.
           // Name it after its paper so nine controls are not all "Play preview".
-          var title = media.closest('.pub').querySelector('h3');
           media.setAttribute('role', 'button');
           media.setAttribute('tabindex', '0');
-          media.setAttribute('aria-label',
-            'Play preview' + (title ? ': ' + title.textContent.trim() : ''));
+          updateToggle(false);
           media.classList.add('is-tappable');
           media.addEventListener('click', function () {
             media.classList.contains('is-playing') ? stop() : start();
