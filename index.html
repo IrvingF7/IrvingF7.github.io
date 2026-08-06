@@ -4,11 +4,33 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" id="theme-color-meta" content="#ffffff">
 
   <title>Irving Fang</title>
   <meta name="author" content="Irving Fang">
   <meta name="description"
     content="Irving Fang is a Computer Science PhD candidate at New York University working on robotics, computer vision, and machine learning, with a focus on contact-rich manipulation.">
+
+  <script>
+    // Resolve the theme before styles load so saved and system preferences do
+    // not flash through the light palette first.
+    (function () {
+      var choice = 'auto';
+      try {
+        var saved = localStorage.getItem('irving-color-theme');
+        if (saved === 'light' || saved === 'dark' || saved === 'auto') choice = saved;
+      } catch (error) { }
+
+      var systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var resolved = choice === 'auto' ? (systemDark ? 'dark' : 'light') : choice;
+      var root = document.documentElement;
+      root.dataset.theme = resolved;
+      root.dataset.themeChoice = choice;
+      root.style.colorScheme = resolved;
+      document.getElementById('theme-color-meta').setAttribute('content', resolved === 'dark' ? '#0e1013' : '#ffffff');
+    })();
+  </script>
 
   <link rel="icon" type="image/webp" href="./images/icon.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,8 +57,73 @@
         <a href="data/Irving-Resume.pdf"><span>PDF</span> CV</a>
       </div>
 
-      <span class="system-status"><i aria-hidden="true"></i> Contact channel open</span>
+      <div class="header-tools">
+        <span class="system-status"><i aria-hidden="true"></i> Contact channel open</span>
+
+        <fieldset class="theme-switcher">
+          <legend class="visually-hidden">Color theme</legend>
+          <label>
+            <input type="radio" name="color-theme" value="auto" autocomplete="off" checked>
+            <span>Auto</span>
+          </label>
+          <label>
+            <input type="radio" name="color-theme" value="light" autocomplete="off">
+            <span>Light</span>
+          </label>
+          <label>
+            <input type="radio" name="color-theme" value="dark" autocomplete="off">
+            <span>Dark</span>
+          </label>
+        </fieldset>
+      </div>
     </nav>
+
+    <script>
+      // The palette is resolved in <head>; initialize its controls as soon as
+      // their markup exists so a saved choice never appears as Auto first.
+      (function () {
+        var key = 'irving-color-theme';
+        var root = document.documentElement;
+        var controls = Array.prototype.slice.call(document.querySelectorAll('input[name="color-theme"]'));
+        var systemTheme = window.matchMedia('(prefers-color-scheme: dark)');
+        var themeColor = document.getElementById('theme-color-meta');
+
+        function apply(choice, persist) {
+          var resolved = choice === 'auto' ? (systemTheme.matches ? 'dark' : 'light') : choice;
+          root.dataset.theme = resolved;
+          root.dataset.themeChoice = choice;
+          root.style.colorScheme = resolved;
+          themeColor.setAttribute('content', resolved === 'dark' ? '#0e1013' : '#ffffff');
+          controls.forEach(function (control) { control.checked = control.value === choice; });
+
+          if (persist) {
+            try { localStorage.setItem(key, choice); } catch (error) { }
+          }
+        }
+
+        controls.forEach(function (control) {
+          control.addEventListener('change', function () {
+            if (control.checked) apply(control.value, true);
+          });
+        });
+
+        function followSystemTheme() {
+          if (root.dataset.themeChoice === 'auto') apply('auto', false);
+        }
+
+        if (systemTheme.addEventListener) systemTheme.addEventListener('change', followSystemTheme);
+        else if (systemTheme.addListener) systemTheme.addListener(followSystemTheme);
+
+        window.addEventListener('storage', function (event) {
+          if (event.key !== key) return;
+          var choice = event.newValue;
+          if (choice !== 'light' && choice !== 'dark' && choice !== 'auto') choice = 'auto';
+          apply(choice, false);
+        });
+
+        apply(root.dataset.themeChoice || 'auto', false);
+      })();
+    </script>
 
     <!-- ── Masthead ───────────────────────────────────────────── -->
     <header class="masthead" id="content-start" tabindex="-1">
