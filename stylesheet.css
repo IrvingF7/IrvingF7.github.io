@@ -128,12 +128,12 @@
   --media-label-border: rgba(255, 255, 255, 0.58);
   --media-label-bg: rgba(5, 6, 8, 0.9);
   --media-label-text: #fff;
-  --footer-bg: #eceeef;
-  --footer-text: #161819;
-  --footer-muted: #50555a;
-  --footer-link: #0c0d0e;
-  --footer-underline: #7c8288;
-  --footer-indicator-border: rgba(12, 13, 14, 0.55);
+  --footer-bg: #08090a;
+  --footer-text: #d6d8da;
+  --footer-muted: #a7abb0;
+  --footer-link: #f4f5f5;
+  --footer-underline: #757b84;
+  --footer-indicator-border: rgba(244, 245, 245, 0.55);
 }
 
 /* --------------------------------------------------------------- base ---- */
