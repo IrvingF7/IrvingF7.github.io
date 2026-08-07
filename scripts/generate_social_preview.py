@@ -1,0 +1,347 @@
+#!/usr/bin/env python3
+"""Regenerate the site's editable SVG and 1200x630 social-preview PNG."""
+
+from __future__ import annotations
+
+import argparse
+import binascii
+import html
+import json
+import os
+from pathlib import Path
+import re
+import shutil
+import struct
+import subprocess
+import sys
+import tempfile
+from urllib.parse import quote
+import zlib
+
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+DEFAULT_CONFIG = PROJECT_ROOT / "social-preview.config.json"
+DEFAULT_TEMPLATE = PROJECT_ROOT / "scripts" / "social-preview.template.svg"
+DEFAULT_STYLESHEET = PROJECT_ROOT / "stylesheet.css"
+DEFAULT_SVG = PROJECT_ROOT / "images" / "social-preview.svg"
+DEFAULT_PNG = PROJECT_ROOT / "images" / "social-preview.png"
+PLACEHOLDER = re.compile(r"\{\{([A-Z0-9_]+)\}\}")
+
+
+def project_path(value: str | Path) -> Path:
+    path = Path(value).expanduser()
+    return path.resolve() if path.is_absolute() else (PROJECT_ROOT / path).resolve()
+
+
+def display_path(path: Path) -> str:
+    try:
+        return str(path.relative_to(PROJECT_ROOT))
+    except ValueError:
+        return str(path)
+
+
+def load_config(path: Path) -> dict[str, object]:
+    with path.open(encoding="utf-8") as stream:
+        config = json.load(stream)
+
+    required = {
+        "palette",
+        "photo",
+        "brand_name",
+        "role",
+        "field",
+        "name_lines",
+        "tagline",
+        "url",
+        "footer_label",
+    }
+    missing = sorted(required - config.keys())
+    if missing:
+        raise ValueError(f"Missing config fields: {', '.join(missing)}")
+
+    name_lines = config["name_lines"]
+    if not isinstance(name_lines, list) or len(name_lines) != 2:
+        raise ValueError("name_lines must contain exactly two strings")
+    return config
+
+
+def css_palette(stylesheet: Path, palette_name: str) -> dict[str, str]:
+    css = stylesheet.read_text(encoding="utf-8")
+    if palette_name == "light":
+        selector = r":root\s*"
+    elif palette_name == "dark":
+        selector = r':root\[data-theme=["\']dark["\']\]\s*'
+    else:
+        raise ValueError("palette must be either 'light' or 'dark'")
+
+    block = re.search(selector + r"\{(?P<body>.*?)\}", css, flags=re.DOTALL)
+    if not block:
+        raise ValueError(f"Could not find the {palette_name} palette in {stylesheet}")
+
+    variables = dict(
+        re.findall(r"--([a-z0-9-]+)\s*:\s*([^;]+);", block.group("body"), flags=re.IGNORECASE)
+    )
+    required = {
+        "shell",
+        "paper",
+        "ink",
+        "ink-2",
+        "muted",
+        "matrix-dot",
+        "signal-orange",
+        "signal-blue",
+        "media-surface",
+    }
+    missing = sorted(required - variables.keys())
+    if missing:
+        raise ValueError(f"Missing CSS color tokens: {', '.join('--' + item for item in missing)}")
+    return {key: value.strip() for key, value in variables.items()}
+
+
+def photo_href(photo: Path, svg_output: Path) -> str:
+    relative = os.path.relpath(photo, start=svg_output.parent).replace(os.sep, "/")
+    # Keep spaces literal for older SVG renderers such as librsvg/ImageMagick;
+    # XML attributes can contain them and browsers resolve them correctly.
+    return quote(relative, safe="/._- ")
+
+
+def xml_text(value: object, *, upper: bool = False) -> str:
+    text = str(value).upper() if upper else str(value)
+    return html.escape(text, quote=True)
+
+
+def render_svg(
+    template_path: Path,
+    output_path: Path,
+    config: dict[str, object],
+    palette: dict[str, str],
+    photo: Path,
+) -> None:
+    values = {
+        "SHELL": palette["shell"],
+        "PAPER": palette["paper"],
+        "INK": palette["ink"],
+        "INK_2": palette["ink-2"],
+        "MUTED": palette["muted"],
+        "MATRIX_DOT": palette["matrix-dot"],
+        "ORANGE": palette["signal-orange"],
+        "BLUE": palette["signal-blue"],
+        "MEDIA_SURFACE": palette["media-surface"],
+        "PHOTO_HREF": photo_href(photo, output_path),
+        "BRAND_NAME": xml_text(config["brand_name"], upper=True),
+        "ROLE": xml_text(config["role"], upper=True),
+        "FIELD": xml_text(config["field"], upper=True),
+        "NAME_LINE_1": xml_text(config["name_lines"][0]),
+        "NAME_LINE_2": xml_text(config["name_lines"][1]),
+        "TAGLINE": xml_text(config["tagline"], upper=True),
+        "URL": xml_text(config["url"], upper=True),
+        "FOOTER_LABEL": xml_text(config["footer_label"], upper=True),
+    }
+
+    template = template_path.read_text(encoding="utf-8")
+    referenced = set(PLACEHOLDER.findall(template))
+    missing = sorted(referenced - values.keys())
+    if missing:
+        raise ValueError(f"Unknown template placeholders: {', '.join(missing)}")
+
+    rendered = PLACEHOLDER.sub(lambda match: values[match.group(1)], template)
+    if PLACEHOLDER.search(rendered):
+        raise ValueError("The rendered SVG still contains placeholders")
+
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    generated_note = (
+        "<!-- Generated by scripts/generate_social_preview.py. "
+        "Edit social-preview.config.json, stylesheet.css, or the template. -->\n"
+    )
+    temporary = output_path.with_suffix(output_path.suffix + ".tmp")
+    temporary.write_text(generated_note + rendered, encoding="utf-8")
+    os.replace(temporary, output_path)
+
+
+def find_browser(explicit: str | None) -> str:
+    def executable(candidate: str) -> str:
+        path = Path(candidate).resolve()
+        # Google Chrome's PATH entry is commonly a shell wrapper. Calling the
+        # sibling binary avoids site-specific launcher hooks and is more stable
+        # for unattended rendering.
+        direct_binary = path.with_name("chrome")
+        if path.name in {"google-chrome", "google-chrome-stable"} and direct_binary.is_file():
+            return str(direct_binary)
+        return str(path)
+
+    if explicit:
+        candidate = shutil.which(explicit) or explicit
+        if Path(candidate).is_file():
+            return executable(candidate)
+        raise FileNotFoundError(f"Browser executable not found: {explicit}")
+
+    for name in ("google-chrome-stable", "google-chrome", "chromium", "chromium-browser"):
+        candidate = shutil.which(name)
+        if candidate:
+            return executable(candidate)
+    raise FileNotFoundError(
+        "No Chromium-based browser found. Install Chrome/Chromium or pass --browser PATH."
+    )
+
+
+def png_dimensions(path: Path) -> tuple[int, int]:
+    with path.open("rb") as stream:
+        header = stream.read(24)
+    if len(header) != 24 or header[:8] != b"\x89PNG\r\n\x1a\n":
+        raise ValueError(f"Browser did not produce a valid PNG: {path}")
+    return struct.unpack(">II", header[16:24])
+
+
+def png_chunk(kind: bytes, payload: bytes) -> bytes:
+    checksum = binascii.crc32(kind + payload) & 0xFFFFFFFF
+    return struct.pack(">I", len(payload)) + kind + payload + struct.pack(">I", checksum)
+
+
+def crop_png_top(source: Path, destination: Path, width: int, height: int) -> None:
+    """Crop a non-interlaced 8-bit PNG without an image-library dependency."""
+    data = source.read_bytes()
+    if data[:8] != b"\x89PNG\r\n\x1a\n":
+        raise ValueError(f"Browser did not produce a valid PNG: {source}")
+
+    chunks: list[tuple[bytes, bytes]] = []
+    position = 8
+    while position < len(data):
+        length = struct.unpack(">I", data[position : position + 4])[0]
+        kind = data[position + 4 : position + 8]
+        payload = data[position + 8 : position + 8 + length]
+        chunks.append((kind, payload))
+        position += length + 12
+        if kind == b"IEND":
+            break
+
+    ihdr = next((payload for kind, payload in chunks if kind == b"IHDR"), None)
+    if ihdr is None:
+        raise ValueError(f"PNG has no IHDR chunk: {source}")
+    source_width, source_height, bit_depth, color_type, compression, filtering, interlace = (
+        struct.unpack(">IIBBBBB", ihdr)
+    )
+    if source_width != width or source_height < height:
+        raise ValueError(
+            f"Expected a {width}px-wide PNG at least {height}px tall, "
+            f"got {source_width}x{source_height}"
+        )
+    channels = {0: 1, 2: 3, 3: 1, 4: 2, 6: 4}.get(color_type)
+    if bit_depth != 8 or channels is None or interlace != 0:
+        raise ValueError("Browser PNG must be non-interlaced, 8-bit grayscale/RGB/RGBA")
+
+    compressed = b"".join(payload for kind, payload in chunks if kind == b"IDAT")
+    scanlines = zlib.decompress(compressed)
+    row_size = 1 + width * channels
+    expected = row_size * source_height
+    if len(scanlines) != expected:
+        raise ValueError(f"Unexpected PNG scanline size: expected {expected}, got {len(scanlines)}")
+    cropped_idat = zlib.compress(scanlines[: row_size * height], level=9)
+    cropped_ihdr = struct.pack(
+        ">IIBBBBB", width, height, bit_depth, color_type, compression, filtering, interlace
+    )
+
+    output = bytearray(data[:8])
+    wrote_idat = False
+    for kind, payload in chunks:
+        if kind == b"IHDR":
+            output.extend(png_chunk(kind, cropped_ihdr))
+        elif kind == b"IDAT":
+            if not wrote_idat:
+                output.extend(png_chunk(kind, cropped_idat))
+                wrote_idat = True
+        else:
+            output.extend(png_chunk(kind, payload))
+    destination.write_bytes(output)
+
+
+def render_png(browser: str, svg_path: Path, output_path: Path) -> None:
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    temporary = output_path.with_suffix(output_path.suffix + ".tmp.png")
+    browser_capture = output_path.with_suffix(output_path.suffix + ".chrome.png")
+    for path in (temporary, browser_capture):
+        path.unlink(missing_ok=True)
+
+    with tempfile.TemporaryDirectory(prefix="social-preview-chrome-") as profile:
+        command = [
+            browser,
+            "--headless=new",
+            "--disable-gpu",
+            "--disable-dev-shm-usage",
+            "--disable-extensions",
+            "--disable-background-networking",
+            "--disable-component-update",
+            "--disable-default-apps",
+            "--disable-sync",
+            "--metrics-recording-only",
+            "--mute-audio",
+            "--hide-scrollbars",
+            "--no-first-run",
+            "--no-sandbox",
+            "--allow-file-access-from-files",
+            "--force-device-scale-factor=1",
+            "--run-all-compositor-stages-before-draw",
+            "--virtual-time-budget=1500",
+            # Headless Chrome reserves a small top-chrome allowance on some
+            # platforms. Render taller, then losslessly crop the first 630px.
+            "--window-size=1200,730",
+            f"--user-data-dir={profile}",
+            f"--screenshot={browser_capture}",
+            svg_path.as_uri(),
+        ]
+        result = subprocess.run(command, capture_output=True, text=True, timeout=30)
+
+    if result.returncode != 0 or not browser_capture.exists():
+        details = (result.stderr or result.stdout).strip()
+        raise RuntimeError(f"Browser rendering failed ({result.returncode}): {details}")
+
+    crop_png_top(browser_capture, temporary, 1200, 630)
+    browser_capture.unlink(missing_ok=True)
+    dimensions = png_dimensions(temporary)
+    if dimensions != (1200, 630):
+        temporary.unlink(missing_ok=True)
+        raise ValueError(f"Expected a 1200x630 PNG, got {dimensions[0]}x{dimensions[1]}")
+    os.replace(temporary, output_path)
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="Generate images/social-preview.svg and .png from site tokens and config."
+    )
+    parser.add_argument("--config", default=DEFAULT_CONFIG, type=project_path)
+    parser.add_argument("--template", default=DEFAULT_TEMPLATE, type=project_path)
+    parser.add_argument("--stylesheet", default=DEFAULT_STYLESHEET, type=project_path)
+    parser.add_argument("--svg-output", default=DEFAULT_SVG, type=project_path)
+    parser.add_argument("--png-output", default=DEFAULT_PNG, type=project_path)
+    parser.add_argument("--photo", type=project_path, help="Override the photo from the config file")
+    parser.add_argument("--palette", choices=("light", "dark"), help="Override the configured palette")
+    parser.add_argument("--browser", help="Chrome/Chromium executable name or path")
+    parser.add_argument("--svg-only", action="store_true", help="Generate SVG without rendering PNG")
+    return parser.parse_args()
+
+
+def main() -> int:
+    args = parse_args()
+    try:
+        config = load_config(args.config)
+        palette_name = args.palette or str(config["palette"])
+        photo = args.photo or project_path(str(config["photo"]))
+        if not photo.is_file():
+            raise FileNotFoundError(f"Photo not found: {photo}")
+
+        palette = css_palette(args.stylesheet, palette_name)
+        render_svg(args.template, args.svg_output, config, palette, photo)
+        print(f"Wrote {display_path(args.svg_output)} ({palette_name} palette, {display_path(photo)})")
+
+        if not args.svg_only:
+            browser = find_browser(args.browser)
+            render_png(browser, args.svg_output, args.png_output)
+            size_kib = args.png_output.stat().st_size / 1024
+            print(f"Wrote {display_path(args.png_output)} (1200x630, {size_kib:.1f} KiB)")
+    except (FileNotFoundError, ValueError, RuntimeError, subprocess.TimeoutExpired) as error:
+        print(f"error: {error}", file=sys.stderr)
+        return 1
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

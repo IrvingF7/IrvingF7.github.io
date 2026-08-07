@@ -1054,6 +1054,7 @@ h3 a:focus-visible {
   background: var(--panel);
   box-shadow: inset 0 1px 0 var(--light-catch);
   backdrop-filter: blur(16px) saturate(1.08);
+  scroll-margin-top: 5.5rem;
   transition:
     background-color 160ms ease-out,
     box-shadow 160ms ease-out,
@@ -1123,6 +1124,15 @@ h3 a:focus-visible {
   font-size: 0.64rem;
   font-weight: 700;
   letter-spacing: 0.055em;
+}
+
+.pub:target {
+  z-index: 1;
+  border-color: var(--signal-blue);
+  box-shadow:
+    inset 0 1px 0 var(--light-catch-strong),
+    0 0 0 3px var(--signal-blue-soft),
+    0 14px 34px var(--shadow-card);
 }
 
 .media {
@@ -1288,6 +1298,12 @@ h3 a:focus-visible {
 .links .pending {
   border-style: dashed;
   color: var(--muted-2);
+}
+
+.links .permalink::before {
+  content: "#";
+  margin-right: 0.25rem;
+  opacity: 0.65;
 }
 
 .blurb {
@@ -1586,6 +1602,7 @@ h3 a:focus-visible {
   .pub {
     grid-template-columns: minmax(0, 1fr) 9.5rem;
     gap: 0.65rem 1rem;
+    scroll-margin-top: 7rem;
   }
 
   .pub > .venue {
@@ -1798,6 +1815,7 @@ h3 a:focus-visible {
   .skip-link,
   .collab,
   .tabs,
+  .permalink,
   .top-link,
   .robot-glyph,
   .media .motion,

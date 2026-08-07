@@ -1,0 +1,14 @@
+{
+  "palette": "dark",
+  "photo": "images/Irving Fang.jpg",
+  "brand_name": "Irving Fang",
+  "role": "Researcher + Engineer",
+  "field": "Robotics / Embodied AI",
+  "name_lines": [
+    "Irving",
+    "Fang"
+  ],
+  "tagline": "Contact-rich manipulation · Perception · Hardware",
+  "url": "irvingf7.github.io",
+  "footer_label": "Research profile"
+}

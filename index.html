@@ -7,10 +7,30 @@
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" id="theme-color-meta" content="#ffffff">
 
-  <title>Irving Fang</title>
+  <title>Irving Fang — Robotics &amp; Embodied AI</title>
   <meta name="author" content="Irving Fang">
   <meta name="description"
     content="Irving Fang is a Computer Science PhD candidate at New York University working on robotics, computer vision, and machine learning, with a focus on contact-rich manipulation.">
+  <link rel="canonical" href="https://irvingf7.github.io/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Irving Fang">
+  <meta property="og:title" content="Irving Fang — Robotics &amp; Embodied AI">
+  <meta property="og:description"
+    content="Robotics researcher working on contact-rich manipulation, perception, and embodied AI.">
+  <meta property="og:url" content="https://irvingf7.github.io/">
+  <meta property="og:image" content="https://irvingf7.github.io/images/social-preview.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Irving Fang, robotics and embodied AI researcher">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Irving Fang — Robotics &amp; Embodied AI">
+  <meta name="twitter:description"
+    content="Robotics researcher working on contact-rich manipulation, perception, and embodied AI.">
+  <meta name="twitter:image" content="https://irvingf7.github.io/images/social-preview.png">
+  <meta name="twitter:image:alt" content="Irving Fang, robotics and embodied AI researcher">
 
   <script>
     // Resolve the theme before styles load so saved and system preferences do
@@ -129,7 +149,7 @@
     <header class="masthead" id="content-start" tabindex="-1">
       <figure class="portrait">
         <a href="images/Irving Fang.jpg">
-          <img src="images/Irving Fang.jpg" alt="Irving Fang" width="1108" height="1477">
+          <img src="images/Irving-Fang-profile.webp" alt="Irving Fang" width="800" height="1066">
         </a>
         <figcaption>
           <span>IF–07 / profile</span>
@@ -253,10 +273,12 @@
       <div class="tab-panel" role="tabpanel" id="panel-robotics" aria-labelledby="tab-robotics">
         <ul class="pubs" data-label="Robotics">
 
-        <li class="pub is-featured">
+        <li class="pub is-featured" id="signal-mpc">
           <div class="media" data-preview>
-            <img class="still" src="./images/signal/signal_before.jpg" alt="" width="960" height="960" loading="lazy">
-            <img class="motion" data-src="./images/signal/signal_after.gif" alt="" loading="lazy">
+            <img class="still" src="./images/signal/signal_before_preview.webp" alt="" width="640" height="640"
+              loading="lazy">
+            <video class="motion" muted loop playsinline preload="none"
+              data-src="./images/signal/signal_after_preview.mp4"></video>
           </div>
           <p class="venue">RA-L 2026 (under review)</p>
           <div class="pub-body">
@@ -276,6 +298,7 @@
               <a href="https://ai4ce.github.io/signal_mpc/">project page</a>
               <span class="pending">arXiv</span>
               <span class="pending">code</span>
+              <a class="permalink" href="#signal-mpc" aria-label="Permalink to Signal-MPC">permalink</a>
             </p>
             <p class="blurb">
               Sampling MPC as natural gradient descent: adapt the sampling distribution online, and keep exploration
@@ -284,11 +307,12 @@
           </div>
         </li>
 
-        <li class="pub">
+        <li class="pub" id="int-act">
           <div class="media" data-preview>
-            <img class="still" src="./images/intact/intact_before.jpg" alt="" width="960" height="960" loading="lazy">
+            <img class="still" src="./images/intact/intact_before_preview.webp" alt="" width="640" height="640"
+              loading="lazy">
             <video class="motion" muted loop playsinline preload="none"
-              data-src="./images/intact/intact_after.mp4"></video>
+              data-src="./images/intact/intact_after_preview.mp4"></video>
           </div>
           <p class="venue">arXiv 2025</p>
           <div class="pub-body">
@@ -305,17 +329,18 @@
               <a href="https://ai4ce.github.io/INT-ACT/">project page</a>
               <a href="https://arxiv.org/abs/2506.09930">arXiv</a>
               <a href="https://github.com/ai4ce/INT-ACT">code</a>
+              <a class="permalink" href="#int-act" aria-label="Permalink to INT-ACT">permalink</a>
             </p>
             <p class="blurb">Can your VLA generalize like a VLM? INT-ACT may give you some clue.</p>
           </div>
         </li>
 
-        <li class="pub is-featured">
+        <li class="pub is-featured" id="fusionsense">
           <div class="media" data-preview>
-            <img class="still" src="./images/fusionsense/fusionsense_before.jpg" alt="" width="1080" height="1080"
+            <img class="still" src="./images/fusionsense/fusionsense_before_preview.webp" alt="" width="640" height="640"
               loading="lazy">
             <video class="motion" muted loop playsinline preload="none"
-              data-src="./images/fusionsense/fusionsense_after.mp4"></video>
+              data-src="./images/fusionsense/fusionsense_after_preview.mp4"></video>
           </div>
           <p class="venue">ICRA 2025</p>
           <div class="pub-body">
@@ -338,6 +363,7 @@
               <a href="https://ai4ce.github.io/FusionSense/">project page</a>
               <a href="https://arxiv.org/abs/2410.08282">arXiv</a>
               <a href="https://github.com/ai4ce/FusionSense">code</a>
+              <a class="permalink" href="#fusionsense" aria-label="Permalink to FusionSense">permalink</a>
             </p>
             <p class="blurb">
               Robot reconstructing visually and geometrically accurate surroundings with sparse visual and tactile data.
@@ -345,11 +371,12 @@
           </div>
         </li>
 
-        <li class="pub is-featured">
+        <li class="pub is-featured" id="vlm-see-robot-do">
           <div class="media" data-preview>
-            <img class="still" src="./images/seedo/seedo_before.png" alt="" width="720" height="720" loading="lazy">
-            <video class="motion" muted loop playsinline preload="none" data-src="./images/seedo/seedo_after.mp4">
-            </video>
+            <img class="still" src="./images/seedo/seedo_before_preview.webp" alt="" width="640" height="640"
+              loading="lazy">
+            <video class="motion" muted loop playsinline preload="none"
+              data-src="./images/seedo/seedo_after_preview.mp4"></video>
           </div>
           <p class="venue">IROS 2025</p>
           <div class="pub-body">
@@ -367,17 +394,18 @@
               <a href="https://ai4ce.github.io/SeeDo/">project page</a>
               <a href="https://arxiv.org/abs/2410.08792">arXiv</a>
               <a href="https://github.com/ai4ce/SeeDo">code</a>
+              <a class="permalink" href="#vlm-see-robot-do" aria-label="Permalink to VLM See, Robot Do">permalink</a>
             </p>
             <p class="blurb">Let the robot follow a human's actions by just watching one video.</p>
           </div>
         </li>
 
-        <li class="pub">
+        <li class="pub" id="egopat3dv2">
           <div class="media" data-preview>
-            <img class="still" src="images/egopat3d_v2/egopat3d_v2_before.jpg" alt="" width="2160" height="2160"
+            <img class="still" src="images/egopat3d_v2/egopat3d_v2_before_preview.webp" alt="" width="640" height="640"
               loading="lazy">
             <video class="motion" muted loop playsinline preload="none"
-              data-src="images/egopat3d_v2/egopat3d_v2_after.mp4"></video>
+              data-src="images/egopat3d_v2/egopat3d_v2_after_preview.mp4"></video>
           </div>
           <p class="venue">ICRA 2024</p>
           <div class="pub-body">
@@ -401,15 +429,17 @@
               <a href="https://ai4ce.github.io/EgoPAT3Dv2/">project page</a>
               <a href="https://arxiv.org/abs/2403.05046">arXiv</a>
               <a href="https://github.com/ai4ce/EgoPAT3Dv2">code</a>
+              <a class="permalink" href="#egopat3dv2" aria-label="Permalink to EgoPAT3Dv2">permalink</a>
             </p>
             <p class="blurb">Human-robot interaction for a potentially AR world?</p>
           </div>
         </li>
 
-        <li class="pub">
+        <li class="pub" id="deep-explorer">
           <div class="media" data-preview>
-            <img class="still" src="images/atm/atm_before.png" alt="" width="1056" height="1056" loading="lazy">
-            <video class="motion" muted loop playsinline preload="none" data-src="images/atm/atm_after.mp4"></video>
+            <img class="still" src="images/atm/atm_before_preview.webp" alt="" width="640" height="640" loading="lazy">
+            <video class="motion" muted loop playsinline preload="none"
+              data-src="images/atm/atm_after_preview.mp4"></video>
           </div>
           <p class="venue">RSS 2023</p>
           <div class="pub-body">
@@ -427,6 +457,7 @@
               <a href="https://ai4ce.github.io/DeepExplorer/">project page</a>
               <a href="https://arxiv.org/abs/2303.09192">arXiv</a>
               <a href="https://github.com/ai4ce/DeepExplorer">code</a>
+              <a class="permalink" href="#deep-explorer" aria-label="Permalink to DeepExplorer">permalink</a>
             </p>
             <p class="blurb">
               A simple and effective framework for efficient and lightweight active visual exploration with only RGB
@@ -435,7 +466,7 @@
           </div>
         </li>
 
-        <li class="pub">
+        <li class="pub" id="mobile-sensor-placement">
           <div class="media" data-preview>
             <img class="still" src="images/squishy/squishy_before.jpg" alt="" width="160" height="160" loading="lazy">
             <img class="motion" data-src="images/squishy/squishy_after.png" alt="" loading="lazy">
@@ -462,6 +493,8 @@
             <p class="links">
               <a href="https://arxiv.org/abs/2111.07552">arXiv</a>
               <a href="https://github.com/BerkeleyExpertSystemTechnologiesLab/EVSIvsLSTM">code</a>
+              <a class="permalink" href="#mobile-sensor-placement"
+                aria-label="Permalink to Dynamic Placement of Mobile Sensor Robots">permalink</a>
             </p>
             <p class="blurb">
               A framework for optimizing the deployment of emergency sensors using Long Short-Term Memory (LSTM) Neural
@@ -476,7 +509,7 @@
       <div class="tab-panel" role="tabpanel" id="panel-ai4science" aria-labelledby="tab-ai4science" hidden>
         <ul class="pubs" data-label="AI4Science">
 
-        <li class="pub">
+        <li class="pub" id="garf">
           <div class="media">
             <img class="still" src="images/garf/garf.jpg" alt="" width="284" height="284" loading="lazy">
           </div>
@@ -504,6 +537,7 @@
               <a href="https://ai4ce.github.io/GARF/">project page</a>
               <a href="https://arxiv.org/abs/2504.05400">arXiv</a>
               <a href="https://github.com/ai4ce/GARF">code</a>
+              <a class="permalink" href="#garf" aria-label="Permalink to GARF">permalink</a>
             </p>
             <p class="blurb">
               Shedding light on training on synthetic data to advance real-world 3D fracture assembly.
@@ -511,10 +545,10 @@
           </div>
         </li>
 
-        <li class="pub is-featured">
+        <li class="pub is-featured" id="luwa">
           <div class="media" data-preview>
-            <img class="still" src="images/luwa/luwa1.jpg" alt="" width="768" height="768" loading="lazy">
-            <img class="motion" data-src="images/luwa/luwa2.jpg" alt="" loading="lazy">
+            <img class="still" src="images/luwa/luwa1_preview.webp" alt="" width="640" height="640" loading="lazy">
+            <img class="motion" data-src="images/luwa/luwa2_preview.webp" alt="" loading="lazy">
           </div>
           <p class="venue">CVPR 2024 &middot; <b>Highlight (11.9% of 2719 accepted papers)</b></p>
           <div class="pub-body">
@@ -539,6 +573,7 @@
               <a href="https://ai4ce.github.io/LUWA/">project page</a>
               <a href="https://arxiv.org/abs/2403.13171">arXiv</a>
               <a href="https://github.com/ai4ce/LUWA">code</a>
+              <a class="permalink" href="#luwa" aria-label="Permalink to LUWA">permalink</a>
             </p>
             <p class="blurb">
               Paleoanthropology meets cutting-edge computer vision. We create the first Lithic Use-Wear Analysis (LUWA)
@@ -616,14 +651,44 @@
           select(next);
         });
       });
+
+      function revealHashTarget() {
+        if (!window.location.hash) return;
+
+        var target;
+        try {
+          target = document.getElementById(decodeURIComponent(window.location.hash.slice(1)));
+        } catch (error) {
+          return;
+        }
+        if (!target || !target.classList.contains('pub')) return;
+
+        var panel = target.closest('[role="tabpanel"]');
+        if (!panel) return;
+
+        tabs.forEach(function (tab) {
+          if (tab.getAttribute('aria-controls') === panel.id) select(tab);
+        });
+
+        // Browsers cannot position a fragment inside a hidden tab panel. Once
+        // its panel is visible, align the card below the sticky controls.
+        window.requestAnimationFrame(function () {
+          target.scrollIntoView({ block: 'start' });
+        });
+      }
+
+      window.addEventListener('hashchange', revealHashTarget);
+      revealHashTarget();
     })();
 
     // ── Thumbnail previews ────────────────────────────────────
-    // The motion layer (video or animated gif) is only fetched the first time
-    // it is actually needed, so the page does not download ~40 MB up front.
+    // Motion is fetched only after deliberate hover or tap, keeping the
+    // initial page light and respecting explicit data-saver preferences.
     (function () {
       var canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
       var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      var connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+      var saveData = Boolean(connection && connection.saveData);
 
       document.querySelectorAll('.media[data-preview]').forEach(function (media) {
         var motion = media.querySelector('.motion');
@@ -691,15 +756,23 @@
           }
         }
 
-        if (canHover) {
+        if (canHover && !saveData) {
           // Treat the whole publication card as the preview's hover surface;
-          // moving between its text, links, and figure keeps motion playing.
+          // a short intent delay avoids loading motion while merely passing by.
           var hoverTarget = paper || media;
-          hoverTarget.addEventListener('mouseenter', start);
-          hoverTarget.addEventListener('mouseleave', stop);
+          var hoverTimer;
+          hoverTarget.addEventListener('mouseenter', function () {
+            window.clearTimeout(hoverTimer);
+            hoverTimer = window.setTimeout(start, 180);
+          });
+          hoverTarget.addEventListener('mouseleave', function () {
+            window.clearTimeout(hoverTimer);
+            hoverTimer = null;
+            if (media.classList.contains('is-playing')) stop();
+          });
         } else {
-          // No hover available: make the thumbnail a tap-to-play toggle.
-          // Name it after its paper so nine controls are not all "Play preview".
+          // No hover (or Save-Data is active): make loading an explicit choice.
+          // Name each control after its paper rather than repeating a generic label.
           media.setAttribute('role', 'button');
           media.setAttribute('tabindex', '0');
           updateToggle(false);
