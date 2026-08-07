@@ -628,9 +628,11 @@
       document.querySelectorAll('.media[data-preview]').forEach(function (media) {
         var motion = media.querySelector('.motion');
         if (!motion) return;
-        var title = media.closest('.pub').querySelector('h3');
+        var paper = media.closest('.pub');
+        var title = paper && paper.querySelector('h3');
         var previewName = title ? ': ' + title.textContent.trim() : '';
-        var isAnimatedImage = motion.tagName === 'IMG' && /\.gif(?:$|[?#])/i.test(motion.dataset.src || '');
+        var deferredSource = motion.dataset.src || '';
+        var isAnimatedImage = motion.tagName === 'IMG' && /\.gif(?:$|[?#])/i.test(deferredSource);
 
         // Animated images cannot be paused reliably. Keep the authored still
         // and do not expose a non-functional preview control when reduced
@@ -676,12 +678,25 @@
         function stop() {
           media.classList.remove('is-playing');
           updateToggle(false);
-          if (motion.pause) { motion.pause(); motion.currentTime = 0; }
+          if (motion.pause) {
+            motion.pause();
+            motion.currentTime = 0;
+          } else if (isAnimatedImage) {
+            // GIFs have no pause or seek API. Detach the source so it cannot
+            // keep advancing behind the still, then restore its deferred URL;
+            // the browser cache makes the next frame-one start inexpensive.
+            motion.classList.remove('is-ready');
+            motion.removeAttribute('src');
+            motion.dataset.src = deferredSource;
+          }
         }
 
         if (canHover) {
-          media.addEventListener('mouseenter', start);
-          media.addEventListener('mouseleave', stop);
+          // Treat the whole publication card as the preview's hover surface;
+          // moving between its text, links, and figure keeps motion playing.
+          var hoverTarget = paper || media;
+          hoverTarget.addEventListener('mouseenter', start);
+          hoverTarget.addEventListener('mouseleave', stop);
         } else {
           // No hover available: make the thumbnail a tap-to-play toggle.
           // Name it after its paper so nine controls are not all "Play preview".
